@@ -6,23 +6,31 @@ import { calculateBusinessDate } from '../ui/dateCalculation.js';
 import { populateBusinessDays } from '../ui/ui.js';
 
 export function setupEventListeners() {
-    document.getElementById('serviceType').addEventListener('change', () => {
-        populateCountries();
-        populateBusinessDays();
+    const serviceTypeElement = document.getElementById('serviceType');
+    const countrySelectElement = document.getElementById('countrySelect');
+    const calculateButtonElement = document.getElementById('calculateButton');
+    const resultFieldElement = document.getElementById('result');
+    const copyMessageCalculatorElement = document.getElementById('copyMessageCalculator');
+
+    // Event listener for serviceType change
+    serviceTypeElement.addEventListener('change', async () => {
+        const serviceType = serviceTypeElement.value;
+        await populateCountries(serviceType); // Fetch and cache holidays based on selected serviceType
+        populateBusinessDays(); // Update business days after fetching holidays
     });
-    document
-        .getElementById('countrySelect')
-        .addEventListener('change', populateBusinessDays);
-    document
-        .getElementById('calculateButton')
-        .addEventListener('click', calculateBusinessDate);
-    document.getElementById('result').addEventListener('click', () => {
-        const resultField = document.getElementById('result');
-        navigator.clipboard.writeText(resultField.value).then(() => {
-            const copyMessageCalculator = document.getElementById('copyMessageCalculator');
-            copyMessageCalculator.style.display = 'block';
+
+    // Event listener for countrySelect change
+    countrySelectElement.addEventListener('change', populateBusinessDays);
+
+    // Event listener for calculateButton click
+    calculateButtonElement.addEventListener('click', calculateBusinessDate);
+
+    // Event listener for result field click
+    resultFieldElement.addEventListener('click', () => {
+        navigator.clipboard.writeText(resultFieldElement.value).then(() => {
+            copyMessageCalculatorElement.style.display = 'block';
             setTimeout(() => {
-                copyMessageCalculator.style.display = 'none';
+                copyMessageCalculatorElement.style.display = 'none';
             }, 2000);
         });
     });
