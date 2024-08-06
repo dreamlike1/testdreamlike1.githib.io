@@ -1,7 +1,7 @@
 // dateCalculation.js
 import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
-import { getHolidays } from './countryUtils.js';
+import { getHolidaysForCountry } from './countryUtils.js';
 
 export async function calculateBusinessDate() {
     let startDate = new Date(document.getElementById('startDate').value);
