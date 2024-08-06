@@ -3,33 +3,47 @@
 import { countryOptions } from '../api/countryData.js';
 import { fetchHolidays } from '../api/holidays.js';
 
-let holidaysCache = {};  // Stores holidays data for all countries
+let holidaysCache = {};  // Cache to store holidays data for all countries
 
+/**
+ * Fetch and cache holidays for countries based on the selected service type,
+ * and populate the country dropdown.
+ */
 export async function populateCountries(serviceType = 'default') {
+    const countrySelect = document.getElementById('countrySelect');
+    const countries = countryOptions[serviceType] || [];
+
+    // Clear the current options in the dropdown
+    countrySelect.innerHTML = '<option value="">Select a country</option>'; // Add default option
+
     // Clear previous holidays data
     holidaysCache = {};
 
-    // Get countries based on selected service type
-    const countries = countryOptions[serviceType] || [];
-    
+    // Fetch holidays for each country and update cache
     for (const country of countries) {
         try {
-            // Fetch holidays for the current country and year
             const currentYear = new Date().getFullYear();
             const holidays = await fetchHolidays(country, currentYear);
-            
-            // Store holidays in the cache
-            holidaysCache[country] = holidays;
+            holidaysCache[country] = holidays; // Store holidays in cache
         } catch (error) {
             console.error(`Error fetching holidays for ${country}:`, error);
         }
     }
-    
-    // Optionally, you can do something with the holidays data here,
-    // like updating the UI to reflect that all data is loaded.
+
+    // Populate the country dropdown
+    countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        countrySelect.appendChild(option);
+    });
 }
 
-// Function to retrieve holidays for a specific country
+/**
+ * Retrieve holidays for a specific country from the cache.
+ * @param {string} country - The country for which to retrieve holidays.
+ * @returns {Array} - An array of holiday objects for the specified country.
+ */
 export function getHolidaysForCountry(country) {
     return holidaysCache[country] || [];
 }
