@@ -266,6 +266,32 @@ select {
     margin-bottom: 10px; /* Space between select and timezone text */
 }
 
-.lbl {
-    font-size: 1em; /* Change this value to adjust the font size */
+/* Override default Select2 styles to match your design */
+.select2-container--default .select2-selection--single {
+    background-color: #2A2E34; /* Match your input background */
+    border: 1px solid #76ABAE; /* Match your border color */
+    color: #EEEEEE; /* Match your text color */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #EEEEEE; /* Match your text color */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    background: #2A2E34; /* Match your input background */
+}
+
+.select2-container--default .select2-results__option {
+    background: #2A2E34; /* Match your dropdown background */
+    color: #EEEEEE; /* Match your text color */
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background: #76ABAE; /* Highlighted item background */
+    color: #FFFFFF; /* Highlighted item text color */
+}
+
+/* Adjust the width of the dropdown if needed */
+.select2-container--default .select2-selection--single {
+    width: 100%;
 }
