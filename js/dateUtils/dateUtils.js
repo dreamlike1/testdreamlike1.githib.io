@@ -1,5 +1,5 @@
 // Import only the necessary functions from 'holidays.js'
-import { isHoliday } from './api/holidays.js';
+import { isHoliday } from '../api/holidays.js';
 
 // Function to format a date as a readable string
 export function formatDate(date) {
