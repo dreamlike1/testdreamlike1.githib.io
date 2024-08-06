@@ -1,6 +1,6 @@
 // dateCalculation.js
-import { formatDate } from './dateUtils/dateUtils.js';
-import { calculateBusinessDays } from './businessDayUtils.js';
+import { formatDate } from '../dateUtils/dateUtils.js';
+import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
 import { getHolidays } from './countryUtils.js';
 
 export async function calculateBusinessDate() {
