@@ -1,6 +1,6 @@
 // eventHandlers/eventHandlers.js
 import { populateCountries } from '../ui/countryUtils.js'; // Adjusted path
-import { setupBusinessDays } from '../ui/businessDaysUtils.js'; // Adjusted path
+import { getBusinessDays } from '../ui/businessDaysUtils.js'; // Adjusted path
 import { formatDate } from '../dateUtils/dateUtils.js'; // Correct path to dateUtils.js
 import { calculateBusinessDate } from '../ui/dateCalculation.js';
 
