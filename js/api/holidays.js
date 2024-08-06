@@ -26,7 +26,9 @@ async function fetchHolidaysFromNager(countryCode, year) {
     }
 
     try {
-      return JSON.parse(text);
+      const holidays = JSON.parse(text);
+      // Filter only national public holidays (Nager.Date API typically provides these)
+      return holidays.filter(holiday => holiday.type === 'Public');
     } catch (error) {
       console.error(`Error parsing JSON from Nager.Date API response for ${countryCode}:`, error);
       return [];
@@ -59,11 +61,14 @@ async function fetchHolidaysFromCalenderific(countryCode, year) {
 
     try {
       const data = JSON.parse(text);
-      return data.response.holidays.map(holiday => ({
-        date: holiday.date.iso,
-        localName: holiday.name,
-        countryCode: countryCode
-      }));
+      // Filter only national public holidays
+      return data.response.holidays
+        .filter(holiday => holiday.type === 'Public') // Adjust if needed based on Calenderific's types
+        .map(holiday => ({
+          date: holiday.date.iso,
+          localName: holiday.name,
+          countryCode: countryCode
+        }));
     } catch (error) {
       console.error(`Error parsing JSON from Calenderific API response for ${countryCode}:`, error);
       return null;
