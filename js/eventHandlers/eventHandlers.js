@@ -3,6 +3,7 @@ import { populateCountries } from '../ui/countryUtils.js'; // Adjusted path
 import { getBusinessDays } from '../ui/businessDaysUtils.js'; // Adjusted path
 import { formatDate } from '../dateUtils/dateUtils.js'; // Correct path to dateUtils.js
 import { calculateBusinessDate } from '../ui/dateCalculation.js';
+import { populateBusinessDays } from '../ui/ui.js';
 
 export function setupEventListeners() {
     document.getElementById('serviceType').addEventListener('change', () => {
