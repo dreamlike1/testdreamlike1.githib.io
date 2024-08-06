@@ -25,11 +25,10 @@ export const countryOptions = {
         "Saint Lucia", "Saint Vincent and the Grenadines", "Singapore", "Slovakia",
         "Slovenia", "South Korea", "Spain", "Sweden", "Switzerland",
         "Trinidad and Tobago", "Turks and Caicos Islands", "United Kingdom",
-        "United States", "U.S. Virgin Islands", "Venezuela", "Vietnam"
+        "United States", "U.S. Virgin Islands", "Venezuela", "Vietnam", "India" // Added India
     ],
     collection: ["Canada", "United States"],
 };
-
 
 export const countryCodeMapping = {
     "Australia": "AU",
@@ -71,6 +70,7 @@ export const countryCodeMapping = {
     "United States": "US",
     "Vietnam": "VN",
     "South Korea": "KR",
+    "India": "IN", // Added India
     "Anguilla": "AI",
     "Antigua and Barbuda": "AG",
     "Aruba": "AW",
