@@ -1,5 +1,5 @@
 // eventHandlers.js
-import { populateCountries, populateBusinessDays, calculateBusinessDate } from './ui.js';
+import { populateCountries, populateBusinessDays, calculateBusinessDate } from './ui/ui.js';
 
 export function setupEventListeners() {
     document.getElementById('serviceType').addEventListener('change', () => {
