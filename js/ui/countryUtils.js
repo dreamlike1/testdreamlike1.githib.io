@@ -1,6 +1,6 @@
 // countryUtils.js
-import { countryOptions } from './api/countryData.js';
-import { fetchHolidays } from './api/holidays.js';
+import { countryOptions } from '../api/countryData.js';
+import { fetchHolidays } from '../api/holidays.js';
 
 let holidays = [];
 
