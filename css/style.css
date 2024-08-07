@@ -131,11 +131,11 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 .ui.search.country-dropdown .dropdown.icon, .ui.country-dropdown .dropdown.icon {
-    color: #FFFFFF !important; /* Ensure the arrow color is white */
-    right: 10px; /* Adjust the position of the dropdown icon */
+    color: #76ABAE !important; /* Match color to serviceTypeDropdown arrow color */
+    right: 10px; /* Positioning from the right */
     position: absolute; /* Ensure proper positioning */
-    top: 50%;
-    transform: translateY(-50%); /* Center the icon vertically */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust vertical alignment */
     font-size: 1em; /* Match font size with other dropdowns */
 }
 
@@ -147,11 +147,11 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 .ui.dropdown#serviceTypeDropdown .dropdown.icon, .ui.search.dropdown#serviceTypeDropdown .dropdown.icon {
-    color: #76ABAE !important; /* Ensure the arrow color matches the desired color */
-    right: 10px; /* Adjust the position of the dropdown icon */
+    color: #76ABAE !important; /* Arrow color */
+    right: 10px; /* Positioning from the right */
     position: absolute; /* Ensure proper positioning */
-    top: 50%;
-    transform: translateY(-50%); /* Center the icon vertically */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust vertical alignment */
     font-size: 1em; /* Match font size with other dropdowns */
 }
 
@@ -280,6 +280,6 @@ button:hover {
 @-moz-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
-    50% { transform: scale(0.75, 1.25); }
+     50% { transform: scale(0.75, 1.25); }
     100% { transform: scale(1, 1); }
 }
