@@ -15,9 +15,9 @@
             <h1>Business Date Calculator</h1>
             <div class="ui form">
                 <div class="field">
-                    <!-- Semantic UI styled select for service type -->
+                    <label for="serviceType">Service Type</label>
                     <select id="serviceType" class="ui dropdown" name="serviceType">
-                        <option value="" disabled>Select Service Type</option>
+                        <option value="" disabled selected>Select Service Type</option>
                         <option value="expressPaid">Express (Paid)</option>
                         <option value="expressFree">Express (Free)</option>
                         <option value="standard">Standard</option>
@@ -26,14 +26,14 @@
                     </select>
                 </div>
                 <div class="field">
-                    <!-- Semantic UI styled select for country selection -->
+                    <label for="countrySelect">Country</label>
                     <select id="countrySelect" class="ui search dropdown" name="country">
-                        <option value="" disabled>Select Country</option>
-                        <!-- Options will be populated dynamically -->
+                        <option value="" disabled selected>Select Country</option>
                     </select>
-                    <p id="timezoneText" class="timezone-text"></p> <!-- Timezone text here -->
+                    <p id="timezoneText" class="timezone-text"></p>
                 </div>
                 <div class="field">
+                    <label for="startDate">Start Date</label>
                     <input type="date" id="startDate" required>
                 </div>
                 <div class="field">
@@ -44,11 +44,12 @@
                     </div>
                 </div>
                 <div class="field">
+                    <label for="businessDays">Business Days</label>
                     <input type="text" id="businessDays" placeholder="Business Days (ex. 1-2 or 1,2)" required>
                 </div>
                 <button id="calculateButton" class="ui button">Calculate</button>
                 <input type="text" id="result" class="result-field" readonly>
-                <div id="copyMessageCalculator" class="copy-message">Copied!</div> <!-- Unique ID for calculatorBox -->
+                <div id="copyMessageCalculator" class="copy-message">Copied!</div>
             </div>
         </div>
         <button id="switchButton" class="switch-button ui button">Switch to Coupon Expiry</button>
@@ -56,6 +57,7 @@
             <h1 id="couponTitle">Coupon Expiry</h1>
             <div class="ui form">
                 <div class="field">
+                    <label for="couponDate">Coupon Date</label>
                     <input type="date" id="couponDate" required>
                 </div>
                 <div class="field">
@@ -71,7 +73,7 @@
                 </div>
                 <button id="couponCalculateButton" class="ui button">Calculate</button>
                 <input type="text" id="couponResult" class="result-field" readonly>
-                <div id="copyMessageCoupon" class="copy-message">Copied!</div> <!-- Unique ID for couponBox -->
+                <div id="copyMessageCoupon" class="copy-message">Copied!</div>
             </div>
         </div>
     </div>
@@ -83,7 +85,9 @@
     <script type="module" src="js/main.js"></script>
     <script>
         // Initialize Semantic UI dropdowns
-        $('.ui.dropdown').dropdown();
+        $(document).ready(function() {
+            $('.ui.dropdown').dropdown();
+        });
     </script>
 </body>
 </html>
