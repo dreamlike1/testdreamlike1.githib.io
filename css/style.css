@@ -86,7 +86,7 @@ h1, #couponTitle {
 
 #businessDays {
     font-size: 1em; /* Match font size to input fields */
-    color: #B0B0B0; /* Gray color for the "Business Days" text */
+    color: #B0B0B0; /* Default gray color */
 }
 
 /* =========================
@@ -116,7 +116,11 @@ input, select {
 }
 
 input::placeholder, select::placeholder {
-    color: #FFFFFF; /* Ensure placeholder text color is white */
+    color: #B0B0B0; /* Gray color for placeholder text */
+}
+
+input:not(:placeholder-shown), select:not(:placeholder-shown) {
+    color: #FFFFFF; /* White color when input has a value */
 }
 
 /* =========================
@@ -146,7 +150,7 @@ input::placeholder, select::placeholder {
 }
 
 .ui.dropdown .default.text {
-    color: #FFFFFF !important; /* Ensure placeholder text color is white */
+    color: #B0B0B0 !important; /* Gray color for placeholder text */
 }
 
 .ui.dropdown .menu {
