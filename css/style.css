@@ -113,8 +113,8 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
    ========================= */
 .ui.dropdown .dropdown.icon,
 .ui.search.dropdown .dropdown.icon {
-    right: 10px; /* Adjust this value as needed for proper alignment */
-    left: auto;  /* Ensure it doesn't interfere with left alignment */
+    right: 10px; /* Align dropdown icon to the right */
+    left: auto;  /* Prevent left alignment */
 }
 
 /* =========================
