@@ -124,7 +124,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 button {
     width: 100%;
     padding: 12px;
-    margin: 5px 0;
+    margin: 5px 0 15px; /* Add bottom margin here */
     background-color: #76ABAE;
     color: #ffffff;
     border: none;
