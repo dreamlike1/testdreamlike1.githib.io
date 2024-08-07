@@ -81,11 +81,16 @@ h1, #couponTitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 1.15em; /* Keep title size slightly larger */
+    font-size: 1.5em; /* Larger font size for titles */
 }
 
-#businessDateCalculator {
-    font-size: 1.5em; /* Larger font size for the title */
+#businessDays {
+    font-size: 1.2em; /* Larger font size for business days input */
+}
+
+.timezone-text {
+    font-size: 0.7em; /* Smaller font size for timezone text */
+    color: #FFFFFF; /* Ensure text color is white */
 }
 
 /* =========================
@@ -126,11 +131,10 @@ input, select {
     border-radius: 4px;
     position: relative;
     width: 100%; /* Match the width to the input/select fields */
+    text-align: left; /* Align text to the left */
 }
 
 .ui.dropdown .dropdown.icon {
-    right: 12px; /* Move the arrow to the right side */
-    left: auto; /* Remove any default left positioning */
     color: #FFFFFF; /* Ensure the arrow color is white */
 }
 
@@ -291,14 +295,67 @@ button:hover {
 }
 
 /* =========================
-   Responsive Styling
+   Input Group for Timezone and Select
    ========================= */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.timezone-text {
+    font-size: 0.7em; /* Smaller font size for timezone text */
+    color: #FFFFFF; /* Ensure text color is white */
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+/* =========================
+   Forced Colors Mode
+   ========================= */
+@media (forced-colors: active) {
+    html, body {
+        background-image: none;
+        color: CanvasText;
+        background-color: Canvas;
     }
 
-    .switch-button {
-        font-size: 0.8em;
+    .box {
+        background: Canvas;
+        color: CanvasText;
+    }
+
+    .switch-button, button {
+        background-color: Highlight;
+        color: HighlightText;
+    }
+
+    .result-field, .copy-message {
+        background: Canvas;
+        color: CanvasText;
+    }
+
+    .checkbox-wrapper-42 .cbx {
+        border: 1px solid Highlight;
+    }
+
+    .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
+        background: Highlight;
+        border-color: Highlight;
+    }
+
+    .ui.dropdown {
+        border: 1px solid Highlight;
+        background: Canvas;
+        color: CanvasText;
+    }
+
+    .ui.dropdown .item {
+        color: CanvasText;
+    }
+
+    .timezone-text {
+        color: CanvasText;
     }
 }
