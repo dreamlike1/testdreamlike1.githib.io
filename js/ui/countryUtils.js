@@ -33,10 +33,6 @@ export async function populateCountries(serviceType = 'expressPaid') {
     // Set the first country as selected if options are available
     if (options.length > 0) {
         countrySelectDropdown.dropdown('set selected', options[0].value);
-        // Manually close the dropdown after selection
-        setTimeout(() => {
-            countrySelectDropdown.dropdown('hide');
-        }, 100); // Short delay to ensure selection is processed
     }
 
     // Clear previous holidays data
