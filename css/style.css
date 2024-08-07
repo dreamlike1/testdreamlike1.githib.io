@@ -133,7 +133,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 .ui.search.dropdown#countrySelectDropdown .dropdown.icon, 
 .ui.dropdown#countrySelectDropdown .dropdown.icon {
     color: #76ABAE !important; /* Arrow color */
-    right: 11px; /* Move arrow 1px to the right */
+    right: 12px; /* Move arrow 1px to the right */
     position: absolute; /* Ensure proper positioning */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust vertical alignment */
@@ -143,6 +143,33 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 .ui.search.dropdown#countrySelectDropdown .text, 
 .ui.dropdown#countrySelectDropdown .text {
     color: #FFFFFF !important; /* Ensure text color in dropdown is white */
+}
+
+/* =========================
+   Country Dropdown Menu Styling
+   ========================= */
+.ui.search.dropdown#countrySelectDropdown .menu, 
+.ui.dropdown#countrySelectDropdown .menu {
+    background: #2A2E34; /* Background close to the dropdown itself */
+    border: none; /* Remove border for cleaner look */
+    width: 100%; /* Match the width of the dropdown to the input */
+}
+
+.ui.search.dropdown#countrySelectDropdown .menu .item, 
+.ui.dropdown#countrySelectDropdown .menu .item {
+    color: #FFFFFF !important; /* Ensure item text color is white */
+}
+
+.ui.search.dropdown#countrySelectDropdown .menu .item:focus, 
+.ui.dropdown#countrySelectDropdown .menu .item:focus,
+.ui.search.dropdown#countrySelectDropdown .menu .item:hover, 
+.ui.dropdown#countrySelectDropdown .menu .item:hover {
+    background: #1E2428 !important; /* Darker than the background color for hover effect */
+}
+
+.ui.search.dropdown#countrySelectDropdown .menu .item.active, 
+.ui.dropdown#countrySelectDropdown .menu .item.active {
+    background: #1E2428 !important; /* Darker than the background color for active state */
 }
 
 /* =========================
