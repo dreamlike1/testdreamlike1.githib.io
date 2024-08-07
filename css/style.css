@@ -211,3 +211,10 @@ button:hover {
     opacity: 1;
     transform: rotate(45deg) scale(1);
 }
+
+/* =========================
+   Specific Styling for Start Date Input
+   ========================= */
+#startDate {
+    margin-bottom: 5px; /* Adjust as needed */
+}
