@@ -131,6 +131,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     transform: translateY(-50%); /* Center the icon vertically */
 }
 
+/* Ensure dropdown text color matches input text color */
 .ui.dropdown .text, .ui.search.dropdown .text {
     color: #FFFFFF !important; /* Ensure preview text color is white */
 }
