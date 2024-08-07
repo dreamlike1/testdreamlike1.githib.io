@@ -7,7 +7,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Menlo', monospace;
+    font-family: 'Menlo', monospace; /* Ensure all text uses Menlo */
     background: linear-gradient(to right bottom, #222831, #31363F) fixed;
     font-size: 1em; /* Set base font size to 1em */
 }
@@ -100,16 +100,15 @@ input, select {
     width: 100%;
     padding: 12px;
     margin: 5px 0;
-    border: 1px solid #76ABAE;
+    border: none; /* Remove border for cleaner look */
     border-radius: 4px;
     box-sizing: border-box;
     background: #2A2E34;
     color: #FFFFFF; /* Ensure input and select text color is white */
-    font-family: 'Menlo', monospace;
+    font-family: 'Menlo', monospace; /* Ensure font is Menlo */
     font-size: 1em; /* Set font size to 1em */
 }
 
-/* Adjust input and select sizes */
 #businessDays, #addDays {
     color: #FFFFFF; /* Ensure text color is white */
     background: #2A2E34;
@@ -125,7 +124,7 @@ input, select {
 .ui.dropdown {
     font-size: 1em; /* Set font size to 1em */
     color: #FFFFFF; /* Ensure text color is white */
-    border: 1px solid #76ABAE;
+    border: none; /* Remove border for cleaner look */
     background: #2A2E34;
     padding: 12px;
     border-radius: 4px;
@@ -142,12 +141,12 @@ input, select {
 }
 
 .ui.dropdown .text {
-    color: #FFFFFF; /* Ensure text color is white */
+    color: #FFFFFF; /* Ensure preview text color is white */
 }
 
 .ui.dropdown .menu {
     background: #2A2E34;
-    border: 1px solid #76ABAE;
+    border: none; /* Remove border for cleaner look */
     width: 100%; /* Match the width of the dropdown to the input */
 }
 
@@ -157,11 +156,11 @@ input, select {
 
 .ui.dropdown .item:focus,
 .ui.dropdown .item:hover {
-    background: #1E2428; /* Darker than the background color */
+    background: #1E2428; /* Darker than the background color for hover effect */
 }
 
 .ui.dropdown .item.active {
-    background: #1E2428; /* Darker than the background color */
+    background: #1E2428; /* Darker than the background color for active state */
 }
 
 /* =========================
