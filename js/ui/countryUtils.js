@@ -7,8 +7,8 @@ let holidaysCache = {};  // Cache to store holidays data for all countries
  * Populate the country dropdown with options based on the selected service type,
  * and set the first country as the selected option.
  */
-export async function populateCountries(serviceType = 'default') {
-    const countrySelectDropdown = $('#countrySelectDropdown');
+export async function populateCountries(serviceType = 'expressPaid') {
+    const countrySelectDropdown = $('#countrySelect'); // Ensure correct ID is used here
     const countries = countryOptions[serviceType] || [];
 
     // Clear existing options
