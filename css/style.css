@@ -7,7 +7,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Menlo', monospace; /* Ensure all text uses Menlo */
+    font-family: 'Menlo', monospace;
     background: linear-gradient(to right bottom, #222831, #31363F) fixed;
     font-size: 1em; /* Set base font size to 1em */
 }
@@ -81,16 +81,21 @@ h1, #couponTitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 2em; /* Larger font size for titles */
+    font-size: 2em; /* Increased font size for titles */
 }
 
 #businessDays {
-    font-size: 1em; /* Match the font size of input fields */
+    font-size: 1em; /* Match font size to input fields */
 }
 
+/* =========================
+   Timezone Text Styling
+   ========================= */
 .timezone-text {
     font-size: 0.7em; /* Smaller font size for timezone text */
     color: #FFFFFF; /* Ensure text color is white */
+    margin-bottom: 10px;
+    font-style: italic;
 }
 
 /* =========================
@@ -103,19 +108,14 @@ input, select {
     border: none; /* Remove border for cleaner look */
     border-radius: 4px;
     box-sizing: border-box;
-    background: #2A2E34; /* Slightly darker background close to the calculator box */
+    background: #2A2E34; /* Close to the color of the calculator box */
     color: #FFFFFF; /* Ensure input and select text color is white */
-    font-family: 'Menlo', monospace; /* Ensure font is Menlo */
+    font-family: 'Menlo', monospace;
     font-size: 1em; /* Set font size to 1em */
 }
 
-#businessDays, #addDays {
-    color: #FFFFFF; /* Ensure text color is white */
-    background: #2A2E34; /* Slightly darker background close to the calculator box */
-}
-
-#businessDays::placeholder, #addDays::placeholder {
-    color: #65676C; /* Placeholder text color */
+input::placeholder, select::placeholder {
+    color: #FFFFFF; /* Ensure placeholder text color is white */
 }
 
 /* =========================
@@ -123,7 +123,7 @@ input, select {
    ========================= */
 .ui.dropdown {
     font-size: 1em; /* Set font size to 1em */
-    color: #FFFFFF; /* Ensure text color is white */
+    color: #FFFFFF !important; /* Force text color to white */
     border: none; /* Remove border for cleaner look */
     background: #2A2E34; /* Background close to the input field color */
     padding: 12px;
@@ -133,7 +133,7 @@ input, select {
 }
 
 .ui.dropdown .dropdown.icon {
-    color: #FFFFFF; /* Ensure the arrow color is white */
+    color: #FFFFFF !important; /* Ensure the arrow color is white */
     right: 10px; /* Adjust the position of the dropdown icon */
     position: absolute; /* Ensure proper positioning */
     top: 50%;
@@ -141,12 +141,11 @@ input, select {
 }
 
 .ui.dropdown .text {
-    color: #FFFFFF; /* Ensure preview text color is white */
+    color: #FFFFFF !important; /* Ensure preview text color is white */
 }
 
-/* Ensure placeholder text in the dropdown is white */
 .ui.dropdown .default.text {
-    color: #FFFFFF; /* Ensure placeholder text is white */
+    color: #FFFFFF !important; /* Ensure placeholder text color is white */
 }
 
 .ui.dropdown .menu {
@@ -156,16 +155,16 @@ input, select {
 }
 
 .ui.dropdown .item {
-    color: #FFFFFF; /* Ensure item text color is white */
+    color: #FFFFFF !important; /* Ensure item text color is white */
 }
 
 .ui.dropdown .item:focus,
 .ui.dropdown .item:hover {
-    background: #1E2428; /* Darker than the background color for hover effect */
+    background: #1E2428 !important; /* Darker than the background color for hover effect */
 }
 
 .ui.dropdown .item.active {
-    background: #1E2428; /* Darker than the background color for active state */
+    background: #1E2428 !important; /* Darker than the background color for active state */
 }
 
 /* =========================
