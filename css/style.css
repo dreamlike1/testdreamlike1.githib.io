@@ -81,11 +81,11 @@ h1, #couponTitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 1.5em; /* Larger font size for titles */
+    font-size: 2em; /* Larger font size for titles */
 }
 
 #businessDays {
-    font-size: 1.4em; /* Increased font size for business days input */
+    font-size: 1em; /* Match the font size of input fields */
 }
 
 .timezone-text {
@@ -148,6 +148,7 @@ input, select {
 .ui.dropdown .menu {
     background: #2A2E34;
     border: 1px solid #76ABAE;
+    width: 100%; /* Match the width of the dropdown to the input */
 }
 
 .ui.dropdown .item {
