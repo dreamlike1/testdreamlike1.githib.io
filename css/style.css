@@ -109,15 +109,6 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
-   Dropdown Icon Alignment
-   ========================= */
-.ui.dropdown .dropdown.icon,
-.ui.search.dropdown .dropdown.icon {
-    right: 10px; /* Align dropdown icon to the right */
-    left: auto;  /* Prevent left alignment */
-}
-
-/* =========================
    Service Type Dropdown Specific Styling
    ========================= */
 .ui.dropdown#serviceTypeDropdown {
@@ -130,6 +121,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     position: relative;
     width: 100%; /* Match the width to the input/select fields */
     margin-bottom: 10px; /* Reduced margin between dropdowns */
+    padding-right: 40px; /* Add space for custom styling */
 }
 
 /* =========================
