@@ -30,7 +30,7 @@
             </div>
             <div class="input-group">
                 <!-- Semantic UI search dropdown for country selection -->
-                <div class="ui search dropdown" id="countrySelectDropdown">
+                <div class="ui search selection dropdown" id="countrySelectDropdown">
                     <input type="hidden" name="country" id="countrySelect">
                     <i class="dropdown icon"></i>
                     <div class="default text">Select Country</div>
@@ -99,7 +99,6 @@
                     cache: false,
                     response: {
                         results: function(response) {
-                            console.log(response); // Check the response format
                             return response.map(country => ({
                                 title: country.name,
                                 value: country.alpha3Code
