@@ -4,8 +4,7 @@ import { fetchHolidays } from '../api/holidays.js';
 let holidaysCache = {};  // Cache to store holidays data for all countries
 
 /**
- * Populate the country dropdown with options based on the selected service type,
- * and set the first country as the selected option.
+ * Populate the country dropdown with options based on the selected service type.
  */
 export async function populateCountries(serviceType = 'expressPaid') {
     const countrySelectDropdown = $('#countrySelect');
@@ -28,33 +27,26 @@ export async function populateCountries(serviceType = 'expressPaid') {
     // Append the default option
     countrySelectDropdown.append('<option value="" disabled selected>Select Country</option>');
 
-    // Destroy existing dropdown instance
-    console.log('Destroying existing dropdown'); // Debugging line
+    // Destroy existing dropdown instance if exists
     countrySelectDropdown.dropdown('destroy');
 
     // Append new options
-    countrySelectDropdown.append(options.map(option => `<option value="${option.value}">${option.text}</option>`).join(''));
+    const optionElements = options.map(option => `<option value="${option.value}">${option.text}</option>`).join('');
+    countrySelectDropdown.append(optionElements);
 
-    // Reinitialize Semantic UI dropdown
-    console.log('Reinitializing dropdown'); // Debugging line
-    countrySelectDropdown.dropdown();
-
-    // Set the first country as selected if options are available
-    if (options.length > 0) {
-        console.log('Setting selected value:', options[0].value); // Debugging line
-        countrySelectDropdown.dropdown('set selected', options[0].value);
-    }
-
-    // Add event listener to handle dropdown closure after selection
+    // Reinitialize Semantic UI dropdown with the custom options
     countrySelectDropdown.dropdown({
         onChange: function (value) {
             console.log('Dropdown value changed to:', value); // Debugging line
             // Manually hide the dropdown
-            setTimeout(() => {
-                countrySelectDropdown.dropdown('hide');
-            }, 0);
+            countrySelectDropdown.dropdown('hide');
         }
     });
+
+    // Set the first country as selected if options are available
+    if (options.length > 0) {
+        countrySelectDropdown.dropdown('set selected', options[0].value);
+    }
 
     // Clear previous holidays data
     holidaysCache = {};
