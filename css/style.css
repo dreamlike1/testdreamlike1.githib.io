@@ -144,6 +144,11 @@ input, select {
     color: #FFFFFF; /* Ensure preview text color is white */
 }
 
+/* Ensure placeholder text in the dropdown is white */
+.ui.dropdown .default.text {
+    color: #FFFFFF; /* Ensure placeholder text is white */
+}
+
 .ui.dropdown .menu {
     background: #2A2E34;
     border: none; /* Remove border for cleaner look */
