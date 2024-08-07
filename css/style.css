@@ -1,4 +1,3 @@
-
 /* =========================
    General Styling
    ========================= */
@@ -195,13 +194,14 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
-   Timezone Styling
+   Timezone Text Specific Styling
    ========================= */
-.timezone {
-    font-size: 0.6em; /* Font size for timezone */
-    white-space: nowrap; /* Ensure timezone text stays on one line */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+#timezoneText {
+    font-size: 0.7em; /* Adjust font size to 0.7em */
+    margin: 0; /* Remove any margin to prevent layout shift */
+    padding: 0; /* Remove any padding if applicable */
+    color: #FFFFFF; /* Ensure text color is white */
+    /* Add any additional styles specific to this element if required */
 }
 
 /* =========================
@@ -296,11 +296,4 @@ button:hover {
 .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx:after {
     opacity: 1;
     transform: rotate(45deg) scale(1);
-}
-
-@-moz-keyframes jelly-42 {
-    from { transform: scale(1, 1); }
-    30% { transform: scale(1.25, 0.75); }
-    50% { transform: scale(0.75, 1.25); }
-    100% { transform: scale(1, 1); }
 }
