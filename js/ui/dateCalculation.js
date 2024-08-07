@@ -27,7 +27,7 @@ export async function calculateBusinessDate() {
         numDaysStart = numDaysEnd = Number(dateRangeInput);
     }
 
-    const holidays = getHolidays();
+    const holidays = getHolidaysForCountry();
     const endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays);
     const endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays);
 
