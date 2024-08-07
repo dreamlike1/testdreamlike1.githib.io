@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceTypeDropdown = document.getElementById('serviceTypeDropdown');
     const defaultServiceType = serviceTypeDropdown ? serviceTypeDropdown.querySelector('.default.text').innerText : 'Express (Paid)';
 
-    // Initialize Semantic UI dropdown
+    // Initialize Semantic UI dropdowns
     $('.ui.dropdown').dropdown();
 
     // Populate countries dropdown and fetch holidays based on default serviceType
