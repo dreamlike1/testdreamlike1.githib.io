@@ -85,7 +85,7 @@ h1, #couponTitle {
 }
 
 #businessDays {
-    font-size: 1.2em; /* Larger font size for business days input */
+    font-size: 1.4em; /* Increased font size for business days input */
 }
 
 .timezone-text {
@@ -131,11 +131,14 @@ input, select {
     border-radius: 4px;
     position: relative;
     width: 100%; /* Match the width to the input/select fields */
-    text-align: left; /* Align text to the left */
 }
 
 .ui.dropdown .dropdown.icon {
     color: #FFFFFF; /* Ensure the arrow color is white */
+    right: 10px; /* Adjust the position of the dropdown icon */
+    position: absolute; /* Ensure proper positioning */
+    top: 50%;
+    transform: translateY(-50%); /* Center the icon vertically */
 }
 
 .ui.dropdown .text {
