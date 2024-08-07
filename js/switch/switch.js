@@ -12,6 +12,11 @@ export function setupSwitchButton() {
     const couponResultInput = document.getElementById('couponResult');
     const couponCalculateButton = document.getElementById('couponCalculateButton');
 
+    if (!switchButton || !calculatorBox || !couponExpiryBox || !boxTitle || !couponTitle || !couponDateInput || !addDaysInput || !removeExtraDayCheckbox || !couponResultInput || !couponCalculateButton) {
+        console.error('One or more required elements are missing.');
+        return;
+    }
+
     switchButton.addEventListener('click', () => {
         if (calculatorBox.classList.contains('hidden')) {
             showCalculatorBox();
@@ -38,7 +43,7 @@ export function setupSwitchButton() {
 
     couponCalculateButton.addEventListener('click', () => {
         const startDate = new Date(couponDateInput.value);
-        const addDays = parseInt(addDaysInput.value);
+        const addDays = parseInt(addDaysInput.value, 10);
         let expiryDate = new Date(startDate.setDate(startDate.getDate() + addDays));
 
         if (removeExtraDayCheckbox.checked) {
