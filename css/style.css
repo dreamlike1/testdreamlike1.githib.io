@@ -300,7 +300,7 @@ button:hover {
 @-moz-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
-    50% { transform: scale(0.75, 1.25); }
+     50% { transform: scale(0.75, 1.25); }
     100% { transform: scale(1, 1); }
 }
 @-webkit-keyframes jelly-42 {
@@ -335,12 +335,16 @@ button:hover {
     }
 
     /* Add space between service type and country select */
-    .service-type, .country-select {
-        margin-bottom: 10px; /* Adjust the value as needed */
+    .service-type {
+        margin-bottom: 20px; /* Increased space between service type and country select */
+    }
+
+    .country-select {
+        margin-bottom: 10px; /* Space between country select and other elements */
     }
 
     /* Add space below the timezone text */
     .timezone-text {
-        margin-bottom: 30px; /* Adjust the value as needed */
+        margin-bottom: 30px; /* Space below the timezone text */
     }
 }
