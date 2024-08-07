@@ -123,8 +123,30 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     margin-bottom: 10px; /* Reduced margin between dropdowns */
 }
 
-.ui.dropdown .dropdown.icon, .ui.search.dropdown .dropdown.icon {
+/* =========================
+   Country Dropdown Styling
+   ========================= */
+.ui.search.country-dropdown, .ui.country-dropdown {
+    /* Common styles for country dropdowns */
+}
+
+.ui.search.country-dropdown .dropdown.icon, .ui.country-dropdown .dropdown.icon {
     color: #FFFFFF !important; /* Ensure the arrow color is white */
+    right: 10px; /* Adjust the position of the dropdown icon */
+    position: absolute; /* Ensure proper positioning */
+    top: 50%;
+    transform: translateY(-50%); /* Center the icon vertically */
+}
+
+/* =========================
+   Service Type Dropdown Styling
+   ========================= */
+.ui.dropdown#serviceTypeDropdown, .ui.search.dropdown#serviceTypeDropdown {
+    /* Common styles for service type dropdowns */
+}
+
+.ui.dropdown#serviceTypeDropdown .dropdown.icon, .ui.search.dropdown#serviceTypeDropdown .dropdown.icon {
+    color: #76ABAE !important; /* Ensure the arrow color is a different shade */
     right: 10px; /* Adjust the position of the dropdown icon */
     position: absolute; /* Ensure proper positioning */
     top: 50%;
@@ -258,53 +280,4 @@ button:hover {
     30% { transform: scale(1.25, 0.75); }
     50% { transform: scale(0.75, 1.25); }
     100% { transform: scale(1, 1); }
-}
-
-@-webkit-keyframes jelly-42 {
-    from { transform: scale(1, 1); }
-    30% { transform: scale(1.25, 0.75); }
-    50% { transform: scale(0.75, 1.25); }
-    100% { transform: scale(1, 1); }
-}
-
-@-ms-keyframes jelly-42 {
-    from { transform: scale(1, 1); }
-    30% { transform: scale(1.25, 0.75); }
-    50% { transform: scale(0.75, 1.25); }
-    100% { transform: scale(1, 1); }
-}
-
-@keyframes jelly-42 {
-    from { transform: scale(1, 1); }
-    30% { transform: scale(1.25, 0.75); }
-    50% { transform: scale(0.75, 1.25); }
-    100% { transform: scale(1, 1); }
-}
-
-.checkbox-wrapper-42 .cbx:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: #76ABAE; /* Ensure checkbox color matches button */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* =========================
-   Links Styling
-   ========================= */
-a {
-    color: #76ABAE;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a:active {
-    color: #5F9EA0;
 }
