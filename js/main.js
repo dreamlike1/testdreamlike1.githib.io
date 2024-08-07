@@ -10,12 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Semantic UI dropdowns
     $('.ui.dropdown').dropdown();
 
-    // Set default value for service type dropdown
-    serviceTypeDropdown.value = defaultServiceType;
-    
     // Populate countries dropdown and fetch holidays based on default serviceType
     populateCountries(defaultServiceType).then(() => {
-        $('#countrySelect').dropdown('refresh'); // Ensure correct ID is used here
+        $('#countrySelect').dropdown('refresh'); // Ensure dropdown is refreshed
     });
 
     setupEventListeners(); // Setup event listeners for UI elements
