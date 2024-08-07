@@ -8,25 +8,23 @@ let holidaysCache = {};  // Cache to store holidays data for all countries
  * and set the first country as the selected option.
  */
 export async function populateCountries(serviceType = 'default') {
-    const countrySelect = document.getElementById('countrySelect');
+    const countrySelectDropdown = $('#countrySelectDropdown');
     const countries = countryOptions[serviceType] || [];
 
-    // Clear the current options in the dropdown
-    countrySelect.innerHTML = '<option value="">Select a country</option>'; // Add default option
+    // Clear existing options
+    countrySelectDropdown.dropdown('clear');
+    countrySelectDropdown.dropdown('hide');
+    
+    // Prepare options for Semantic UI dropdown
+    const options = countries.map(country => ({
+        title: country,
+        value: country
+    }));
 
-    // Populate the country dropdown with options
-    countries.forEach((country, index) => {
-        const option = document.createElement('option');
-        option.value = country;
-        option.textContent = country;
-        countrySelect.appendChild(option);
-
-        // Set the first country as selected
-        if (index === 0) {
-            countrySelect.value = country;
-        }
-    });
-
+    // Populate the dropdown
+    countrySelectDropdown.dropdown('setting', 'values', options.map(option => option.value));
+    countrySelectDropdown.dropdown('setting', 'text', options.map(option => option.title));
+    
     // Clear previous holidays data
     holidaysCache = {};
 
