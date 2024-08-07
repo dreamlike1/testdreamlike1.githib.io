@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Date Calculator</title>
+    <!-- Include Semantic UI CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!-- Include your custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Semantic UI CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 </head>
 <body>
     <div class="container">
         <div id="calculatorBox" class="box">
             <h1>Business Date Calculator</h1>
             <div style="position: relative;">
-                <div class="ui selection dropdown" id="serviceTypeDropdown">
-                    <input type="hidden" name="serviceType">
+                <!-- Semantic UI dropdown -->
+                <div class="ui dropdown" id="serviceTypeDropdown">
+                    <input type="hidden" name="serviceType" id="serviceType">
                     <i class="dropdown icon"></i>
                     <div class="default text">Select Service Type</div>
                     <div class="menu">
@@ -64,8 +66,21 @@
             <div id="copyMessageCoupon" class="copy-message">Copied!</div> <!-- Unique ID for couponBox -->
         </div>
     </div>
-    <!-- Semantic UI JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <!-- Include jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Semantic UI JS -->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
+    <!-- Initialize Semantic UI dropdown -->
+    <script>
+        $(document).ready(function() {
+            $('.ui.dropdown').dropdown({
+                onChange: function(value, text, $selectedItem) {
+                    $('#serviceType').val(value); // Update hidden input field
+                }
+            });
+        });
+    </script>
 </body>
 </html>
