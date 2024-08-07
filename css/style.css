@@ -86,6 +86,7 @@ h1, #couponTitle {
 
 #businessDays {
     font-size: 1em; /* Match font size to input fields */
+    color: #B0B0B0; /* Gray color for the "Business Days" text */
 }
 
 /* =========================
