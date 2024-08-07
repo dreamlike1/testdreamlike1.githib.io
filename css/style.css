@@ -136,6 +136,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     position: absolute; /* Ensure proper positioning */
     top: 50%;
     transform: translateY(-50%); /* Center the icon vertically */
+    font-size: 1em; /* Match font size with other dropdowns */
 }
 
 /* =========================
@@ -146,11 +147,12 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 .ui.dropdown#serviceTypeDropdown .dropdown.icon, .ui.search.dropdown#serviceTypeDropdown .dropdown.icon {
-    color: #76ABAE !important; /* Ensure the arrow color is a different shade */
+    color: #76ABAE !important; /* Ensure the arrow color matches the desired color */
     right: 10px; /* Adjust the position of the dropdown icon */
     position: absolute; /* Ensure proper positioning */
     top: 50%;
     transform: translateY(-50%); /* Center the icon vertically */
+    font-size: 1em; /* Match font size with other dropdowns */
 }
 
 /* Ensure dropdown text color matches input text color */
