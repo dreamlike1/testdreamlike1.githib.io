@@ -331,7 +331,10 @@ button:hover {
     }
 
     /* Increased space below the timezone text on small screens */
-    .timezone-text {
-        margin-bottom: 60px; /* Increase space below the timezone text */
+    .timezone-text {  
+      font-style: italic;
+      color: #CCCCCC; /* Light grey for contrast */
+      margin-bottom: 60px; /* Increase space below the timezone text */
+
     }
 }
