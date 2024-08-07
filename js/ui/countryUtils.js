@@ -34,12 +34,14 @@ export async function populateCountries(serviceType = 'expressPaid') {
     const optionElements = options.map(option => `<option value="${option.value}">${option.text}</option>`).join('');
     countrySelectDropdown.append(optionElements);
 
-    // Reinitialize Semantic UI dropdown with the custom options
+    // Reinitialize Semantic UI dropdown
     countrySelectDropdown.dropdown({
         onChange: function (value) {
             console.log('Dropdown value changed to:', value); // Debugging line
             // Manually hide the dropdown
-            countrySelectDropdown.dropdown('hide');
+            setTimeout(() => {
+                countrySelectDropdown.dropdown('hide');
+            }, 0);
         }
     });
 
