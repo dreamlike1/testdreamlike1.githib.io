@@ -1,3 +1,4 @@
+
 /* =========================
    General Styling
    ========================= */
@@ -111,33 +112,86 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 /* =========================
    Dropdown Styling
    ========================= */
-.ui.dropdown, .ui.search.selection.dropdown {
-    width: 100%; /* Ensure dropdowns take full width of their container */
-    box-sizing: border-box; /* Include padding and border in width calculation */
-    position: relative; /* Ensure positioning is relative for alignment */
-}
-
-.ui.dropdown .dropdown.icon,
-.ui.search.selection.dropdown .dropdown.icon {
-    vertical-align: middle; /* Align icons vertically in the middle */
-    margin-left: 8px; /* Adjust spacing from text if needed */
-}
-
-.ui.dropdown .menu,
-.ui.search.selection.dropdown .menu {
-    background: #2A2E34; /* Match background color */
+.ui.dropdown, .ui.search.dropdown {
+    font-size: 1em; /* Match font size with other dropdowns */
+    color: #FFFFFF !important; /* Ensure text color is white */
     border: none; /* Remove border for cleaner look */
-    padding: 0; /* Adjust padding for consistency */
+    background: #2A2E34; /* Background close to the input field color */
+    padding: 12px;
+    border-radius: 4px;
+    position: relative;
+    width: 100%; /* Match the width to the input/select fields */
+    margin-bottom: 10px; /* Reduced margin between dropdowns */
 }
 
-.ui.dropdown .item,
-.ui.search.selection.dropdown .item {
-    color: #FFFFFF; /* Ensure item text color is white */
+/* =========================
+   Country Dropdown Styling
+   ========================= */
+.ui.search.dropdown#countrySelectDropdown, 
+.ui.dropdown#countrySelectDropdown {
+    /* Revert to default styles for country dropdown */
 }
 
-.ui.dropdown .item:hover,
-.ui.search.selection.dropdown .item:hover {
-    background: #1E2428; /* Darker background for hover effect */
+/* =========================
+   Country Dropdown Menu Styling
+   ========================= */
+.ui.search.dropdown#countrySelectDropdown .menu, 
+.ui.dropdown#countrySelectDropdown .menu {
+    background: #2A2E34; /* Background close to the dropdown itself */
+    border: none; /* Remove border for cleaner look */
+    width: 100%; /* Match the width of the dropdown to the input */
+}
+
+.ui.search.dropdown#countrySelectDropdown .menu .item, 
+.ui.dropdown#countrySelectDropdown .menu .item {
+    color: #FFFFFF !important; /* Ensure item text color is white */
+}
+
+.ui.search.dropdown#countrySelectDropdown .menu .item:focus, 
+.ui.dropdown#countrySelectDropdown .menu .item:focus,
+.ui.search.dropdown#countrySelectDropdown .menu .item:hover, 
+.ui.dropdown#countrySelectDropdown .menu .item:hover {
+    background: #1E2428 !important; /* Darker than the background color for hover effect */
+}
+
+.ui.search.dropdown#countrySelectDropdown .menu .item.active, 
+.ui.dropdown#countrySelectDropdown .menu .item.active {
+    background: #1E2428 !important; /* Darker than the background color for active state */
+}
+
+/* =========================
+   Service Type Dropdown Styling
+   ========================= */
+.ui.search.dropdown#serviceTypeDropdown, 
+.ui.dropdown#serviceTypeDropdown {
+    /* Revert to default styles for service type dropdown */
+}
+
+/* =========================
+   Dropdown Menu Styling
+   ========================= */
+.ui.dropdown .menu, 
+.ui.search.dropdown .menu {
+    background: #2A2E34; /* Background close to the dropdown itself */
+    border: none; /* Remove border for cleaner look */
+    width: 100%; /* Match the width of the dropdown to the input */
+}
+
+.ui.dropdown .item, 
+.ui.search.dropdown .item {
+    color: #FFFFFF !important; /* Ensure item text color is white */
+}
+
+.ui.dropdown .item:focus, 
+.ui.search.dropdown .item:focus,
+.ui.dropdown .item:hover, 
+.ui.search.dropdown .item:hover {
+    background: #1E2428 !important; /* Darker than the background color for hover effect */
+}
+
+.ui.dropdown .item.active, 
+.ui.search.dropdown .item.active {
+    background: #1E2428 !important; /* Darker than the background color for active state */
 }
 
 /* =========================
