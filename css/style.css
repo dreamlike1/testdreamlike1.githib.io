@@ -115,40 +115,41 @@ input, select {
    ========================= */
 .ui.dropdown {
     font-size: 0.9em; /* Slightly smaller font size to match country dropdown */
-    color: #EEEEEE;
-    border: 1px solid #76ABAE;
-    background: #2A2E34;
+    color: #EEEEEE; /* Set default text color to white */
+    border: 1px solid #76ABAE; /* Border color */
+    background: #2A2E34; /* Background color */
     padding: 12px;
     border-radius: 4px;
     position: relative;
     width: 100%; /* Match the width to the input/select fields */
+    text-align: left; /* Align text to the left */
 }
 
 .ui.dropdown .dropdown.icon {
-    left: 12px;
-    right: auto;
+    right: 12px; /* Move the arrow icon to the right */
+    left: auto;
 }
 
 .ui.dropdown .text {
-    color: #EEEEEE;
+    color: #EEEEEE; /* Set text color to white */
 }
 
 .ui.dropdown .menu {
-    background: #2A2E34;
-    border: 1px solid #76ABAE;
+    background: #2A2E34; /* Background color for the dropdown menu */
+    border: 1px solid #76ABAE; /* Border color for the menu */
 }
 
 .ui.dropdown .item {
-    color: #EEEEEE;
+    color: #EEEEEE; /* Set item text color to white */
 }
 
 .ui.dropdown .item:focus,
 .ui.dropdown .item:hover {
-    background: #1E2428;
+    background: #1E2428; /* Darker background color for hover/focus state */
 }
 
 .ui.dropdown .item.active {
-    background: #1E2428;
+    background: #1E2428; /* Darker background color for active state */
 }
 
 /* =========================
