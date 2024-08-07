@@ -4,7 +4,6 @@ import { setupSwitchButton } from './switch/switch.js'; // Import the switch but
 import { initializeTimezone } from './timezone/timezone.js'; // Import the timezone initialization function
 
 document.addEventListener('DOMContentLoaded', () => {
-    const serviceTypeDropdown = document.getElementById('serviceType');
     const defaultServiceType = 'expressPaid'; // Default service type
 
     // Initialize Semantic UI dropdowns
