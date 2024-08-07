@@ -93,14 +93,24 @@
                 onChange: function(value, text, $selectedItem) {
                     $('#countrySelect').val(value); // Update hidden input field
                 },
-                allowAdditions: true, // Allow adding new items if needed
+                allowAdditions: true,
                 apiSettings: {
-                    url: 'https://restcountries.com/v2/all', // URL for fetching country data (example)
-                    cache: false
+                    url: 'https://restcountries.com/v2/all', // URL for fetching country data
+                    cache: false,
+                    response: {
+                        results: function(response) {
+                            // Check the response format
+                            console.log(response);
+                            return response.map(country => ({
+                                title: country.name,
+                                value: country.alpha3Code
+                            }));
+                        }
+                    }
                 },
                 fields: {
                     results: 'results',
-                    title: 'name'
+                    title: 'title'
                 },
                 minCharacters: 1
             });
