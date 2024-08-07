@@ -128,12 +128,12 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
    ========================= */
 .ui.dropdown .dropdown.icon, 
 .ui.search.dropdown .dropdown.icon {
-    color: #76ABAE !important; /* Arrow color */
-    right: 12px; /* Position from the right */
+    color: #FFFFFF !important; /* Default arrow color */
+    right: 10px; /* Default positioning from the right */
     position: absolute; /* Ensure proper positioning */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust vertical alignment */
-    font-size: 1em; /* Match font size with other dropdowns */
+    font-size: 1em; /* Default font size for arrows */
 }
 
 /* =========================
@@ -141,14 +141,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
    ========================= */
 .ui.search.dropdown#countrySelectDropdown, 
 .ui.dropdown#countrySelectDropdown {
-    /* Ensure that the country dropdown is styled consistently */
-}
-
-.ui.search.dropdown#countrySelectDropdown .dropdown.icon, 
-.ui.dropdown#countrySelectDropdown .dropdown.icon {
-    /* Use the same styles for the country dropdown arrow */
-    color: #76ABAE !important; /* Arrow color */
-    right: 12px; /* Position from the right */
+    /* Revert to default styles for country dropdown */
 }
 
 /* =========================
@@ -183,14 +176,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
    ========================= */
 .ui.search.dropdown#serviceTypeDropdown, 
 .ui.dropdown#serviceTypeDropdown {
-    /* Ensure that the service type dropdown is styled consistently */
-}
-
-.ui.search.dropdown#serviceTypeDropdown .dropdown.icon, 
-.ui.dropdown#serviceTypeDropdown .dropdown.icon {
-    /* Use the same styles for the service type dropdown arrow */
-    color: #76ABAE !important; /* Arrow color */
-    right: 12px; /* Position from the right */
+    /* Revert to default styles for service type dropdown */
 }
 
 /* =========================
@@ -218,6 +204,16 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 .ui.dropdown .item.active, 
 .ui.search.dropdown .item.active {
     background: #1E2428 !important; /* Darker than the background color for active state */
+}
+
+/* =========================
+   Timezone Styling
+   ========================= */
+.timezone {
+    font-size: 0.6em; /* Font size for timezone */
+    white-space: nowrap; /* Ensure timezone text stays on one line */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
 
 /* =========================
