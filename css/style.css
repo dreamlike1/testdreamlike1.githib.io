@@ -95,7 +95,7 @@ h1, #couponTitle {
 .timezone-text {
     font-size: 0.7em; /* Smaller font size for timezone text */
     color: #FFFFFF; /* Ensure text color is white */
-    margin-bottom: 20px; /* Add space below the timezone text */
+    margin-bottom: 30px; /* Add space below the timezone text */
     font-style: italic;
 }
 
@@ -255,7 +255,7 @@ button:hover {
 .checkbox-wrapper-42 {
     display: flex;
     align-items: center;
-    margin: 5px 0;
+    margin: 10px 0; /* Increased margin for better spacing */
 }
 
 .checkbox-wrapper-42 input[type="checkbox"] {
@@ -300,21 +300,24 @@ button:hover {
 @-moz-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
-     50% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(0.75, 1.25); }
     100% { transform: scale(1, 1); }
 }
+
 @-webkit-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
     50% { transform: scale(0.75, 1.25); }
     100% { transform: scale(1, 1); }
 }
+
 @-ms-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
     50% { transform: scale(0.75, 1.25); }
     100% { transform: scale(1, 1); }
 }
+
 @keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
@@ -335,12 +338,12 @@ button:hover {
     }
 
     /* Add space between service type and country select */
-    .service-type {
-        margin-bottom: 20px; /* Increased space between service type and country select */
+    .ui.dropdown#serviceTypeDropdown {
+        margin-bottom: 20px; /* Space between service type and country select */
     }
 
-    .country-select {
-        margin-bottom: 10px; /* Space between country select and other elements */
+    .ui.search.dropdown#countrySelectDropdown {
+        margin-bottom: 20px; /* Space between country select and other elements */
     }
 
     /* Add space below the timezone text */
