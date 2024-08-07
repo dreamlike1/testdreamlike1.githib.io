@@ -244,54 +244,39 @@ button:hover {
     to { transform: scale(1, 1); }
 }
 
-/* New container for timezone text and select */
-.input-group {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align items to the left */
-    width: 100%; /* Ensure it takes full width */
-}
-
-/* Style the timezone text to ensure it aligns properly */
+/* Style timezone text */
 .timezone-text {
-    font-size: 0.1em; /* Smaller font size */
-    color: #CCCCCC; /* Light grey for contrast */
-    margin-bottom: 10px; /* Space below the timezone text */
-    white-space: nowrap; /* Ensure text stays on one line */
-    font-style: italic;
+    font-size: 1em; /* Ensure font size matches other inputs */
+    color: #EEEEEE; /* Light text color */
+    margin-top: 10px; /* Space between input and timezone text */
 }
 
-/* Adjust the select to align with the timezone text */
-select {
-    margin-bottom: 10px; /* Space between select and timezone text */
-}
-
-/* Override default Select2 styles to match your design */
+/* Style for Select2 dropdown */
 .select2-container--default .select2-selection--single {
-    background-color: #2A2E34; /* Match your input background */
-    border: 1px solid #76ABAE; /* Match your border color */
-    color: #EEEEEE; /* Match your text color */
+    background-color: #2A2E34; /* Match input background */
+    color: #EEEEEE; /* Match input text color */
+    border: 1px solid #76ABAE; /* Match input border */
+    border-radius: 4px;
+    font-size: 1em; /* Match font size */
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: #EEEEEE; /* Match your text color */
+    color: #EEEEEE; /* Match text color */
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    background: #2A2E34; /* Match your input background */
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    color: #EEEEEE; /* Match arrow color */
 }
 
 .select2-container--default .select2-results__option {
-    background: #2A2E34; /* Match your dropdown background */
-    color: #EEEEEE; /* Match your text color */
+    background-color: #2A2E34; /* Match dropdown background */
+    color: #EEEEEE; /* Match dropdown text color */
 }
 
 .select2-container--default .select2-results__option--highlighted {
-    background: #76ABAE; /* Highlighted item background */
-    color: #FFFFFF; /* Highlighted item text color */
-}
-
-/* Adjust the width of the dropdown if needed */
-.select2-container--default .select2-selection--single {
-    width: 100%;
+    background-color: #76ABAE; /* Highlighted option background */
+    color: #2A2E34; /* Highlighted option text color */
 }
