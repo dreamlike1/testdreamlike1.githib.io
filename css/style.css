@@ -1,4 +1,187 @@
+/* =========================
+   General Styling
+   ========================= */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif; /* Use default sans-serif font */
+    background: linear-gradient(to right bottom, #222831, #31363F) fixed;
+    font-size: 1em; /* Set base font size to 1em */
+}
 
+/* =========================
+   Container Styling
+   ========================= */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 80px;
+}
+
+/* =========================
+   Box Styling
+   ========================= */
+.box {
+    padding: 20px;
+    background: #31363F;
+    border-radius: 12px;
+    box-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.075),
+        0 2px 2px rgba(0, 0, 0, 0.075),
+        0 4px 4px rgba(0, 0, 0, 0.075),
+        0 8px 8px rgba(0, 0, 0, 0.075),
+        0 16px 16px rgba(0, 0, 0, 0.075);
+    color: #FFFFFF; /* Ensure text color is white */
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    min-height: 200px;
+}
+
+/* =========================
+   Switch Button Styling
+   ========================= */
+.switch-button {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px;
+    background-color: #5F9EA0;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.switch-button:hover {
+    background-color: #4F8C8A;
+}
+
+/* =========================
+   Hidden Class
+   ========================= */
+.hidden {
+    display: none;
+}
+
+/* =========================
+   Title Styling
+   ========================= */
+h1, #couponTitle {
+    font-size: 2.5em; /* Increased font size for titles */
+}
+
+/* =========================
+   Input and Select Styling
+   ========================= */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0; /* Reduced margin for cleaner spacing */
+    background: #2A2E34; /* Close to the color of the calculator box */
+    color: #FFFFFF; /* Ensure input and select text color is white */
+    font-size: 1em; /* Set font size to 1em */
+}
+
+input::placeholder, select::placeholder {
+    color: #B0B0B0; /* Gray color for placeholder text */
+}
+
+input:not(:placeholder-shown), select:not(:placeholder-shown) {
+    color: #FFFFFF; /* White color when input has a value */
+}
+
+/* =========================
+   Dropdown Menu Styling
+   ========================= */
+.ui.dropdown .menu, 
+.ui.search.dropdown .menu {
+    background: #2A2E34; /* Background close to the dropdown itself */
+    border: none; /* Remove border for cleaner look */
+    width: 100%; /* Match the width of the dropdown to the input */
+}
+
+.ui.dropdown .menu .item, 
+.ui.search.dropdown .menu .item {
+    color: #FFFFFF !important; /* Ensure item text color is white */
+}
+
+.ui.dropdown .menu .item:focus, 
+.ui.search.dropdown .menu .item:focus,
+.ui.dropdown .menu .item:hover, 
+.ui.search.dropdown .menu .item:hover {
+    background: #1E2428 !important; /* Darker than the background color for hover effect */
+}
+
+.ui.dropdown .menu .item.active, 
+.ui.search.dropdown .menu .item.active {
+    background: #1E2428 !important; /* Darker than the background color for active state */
+}
+
+/* =========================
+   Timezone Text Specific Styling
+   ========================= */
+#timezoneText {
+    font-size: 0.7em; /* Adjust font size to 0.7em */
+    margin-bottom: 10px; /* Add space below the timezone text */
+    color: #FFFFFF; /* Ensure text color is white */
+}
+
+/* =========================
+   Button Styling
+   ========================= */
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    background-color: #76ABAE;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #6b9f97;
+}
+
+/* =========================
+   Result Field Styling
+   ========================= */
+.result-field {
+    background: #EEEEEE;
+    color: #31363F;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* =========================
+   Copy Message Styling
+   ========================= */
+.copy-message {
+    position: absolute;
+    background: #76ABAE;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+    z-index: 10;
+}
 
 /* =========================
    Checkbox Styling
