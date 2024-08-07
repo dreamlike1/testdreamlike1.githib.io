@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Date Calculator</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Add select2 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.2/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -14,16 +14,6 @@
             <h1>Business Date Calculator</h1>
             <div style="position: relative;">
                 <select id="serviceType">
-                    <option value="expressPaid" selected>Express (Paid)</option>
-                    <option value="expressFree">Express (Free)</option>
-                    <option value="standard">Standard</option>
-                    <option value="economy">Economy</option>
-                    <option value="collection">Collection</option>
-                </select>
-            </div>
-            <!-- Add searchable select below -->
-            <div style="position: relative;">
-                <select id="searchableServiceType">
                     <option value="expressPaid" selected>Express (Paid)</option>
                     <option value="expressFree">Express (Free)</option>
                     <option value="standard">Standard</option>
@@ -69,16 +59,6 @@
             <div id="copyMessageCoupon" class="copy-message">Copied!</div> <!-- Unique ID for couponBox -->
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Add select2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.2/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Initialize select2 for searchable dropdown
-            $('#searchableServiceType').select2({
-                minimumResultsForSearch: Infinity // Hide the search box initially
-            });
-        });
-    </script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
