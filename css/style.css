@@ -1,5 +1,3 @@
-
-
 /* General styling for body and container */
 html, body {
     height: 100%;
@@ -268,6 +266,26 @@ select {
     margin-bottom: 10px; /* Space between select and timezone text */
 }
 
-.lbl {
-    font-size: 1em; /* Change this value to adjust the font size */
+/* Style the Semantic UI dropdown */
+.ui.dropdown {
+    border: 1px solid #76ABAE; /* Match the border color with other inputs */
+    background: #2A2E34; /* Darker background */
+    color: #EEEEEE; /* Light text color */
+    border-radius: 4px; /* Match the border radius */
+    padding: 12px; /* Match padding with other inputs */
+}
+
+/* Adjust dropdown for Semantic UI */
+.ui.dropdown .text {
+    color: #EEEEEE; /* Light text color */
+}
+
+.ui.dropdown .menu {
+    background: #2A2E34; /* Match background color */
+    border: 1px solid #76ABAE; /* Match border color */
+}
+
+/* Ensure correct color for dropdown items */
+.ui.dropdown .item {
+    color: #EEEEEE; /* Light text color */
 }
