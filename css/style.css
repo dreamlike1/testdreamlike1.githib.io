@@ -95,7 +95,7 @@ h1, #couponTitle {
 .timezone-text {
     font-size: 0.7em; /* Smaller font size for timezone text */
     color: #FFFFFF; /* Ensure text color is white */
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Add space below the timezone text */
     font-style: italic;
 }
 
@@ -332,5 +332,15 @@ button:hover {
 
     .switch-button {
         width: 100%;
+    }
+
+    /* Add space between service type and country select */
+    .service-type, .country-select {
+        margin-bottom: 10px; /* Adjust the value as needed */
+    }
+
+    /* Add space below the timezone text */
+    .timezone-text {
+        margin-bottom: 30px; /* Adjust the value as needed */
     }
 }
