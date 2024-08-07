@@ -1,3 +1,5 @@
+
+
 /* General styling for body and container */
 html, body {
     height: 100%;
@@ -12,7 +14,6 @@ html, body {
     font-size: 1.15em;
 }
 
-/* Container styling */
 .container {
     display: flex;
     flex-direction: column;
