@@ -169,7 +169,8 @@ button:hover {
 .checkbox-wrapper-42 {
     display: flex;
     align-items: center;
-    margin: 10px 0; /* Consistent margin for spacing */
+    margin-top: 5px;
+    margin-bottom: 10px 0; /* Consistent margin for spacing */
 }
 
 .checkbox-wrapper-42 input[type="checkbox"] {
