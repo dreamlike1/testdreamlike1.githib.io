@@ -1,4 +1,4 @@
-import { countryOptions } from '../api/countryData.js'; // Ensure correct path
+import { countryOptions } from '../api/countryData.js'; // Adjust the path as needed
 import { fetchHolidays } from '../api/holidays.js';
 
 let holidaysCache = {};  // Cache to store holidays data for all countries
@@ -11,26 +11,21 @@ export async function populateCountries(serviceType = 'expressPaid') {
     const countrySelectDropdown = $('#countrySelect'); // Ensure correct ID is used here
     const countries = countryOptions[serviceType] || [];
 
-    console.log('Selected Service Type:', serviceType); // Debugging line
-    console.log('Countries:', countries); // Debugging line
-
     // Prepare options for Semantic UI dropdown
     const options = countries.map(country => ({
-        text: country, // This is the visible text in the dropdown
-        value: country // This is the value of the selected option
+        text: country,
+        value: country
     }));
 
     console.log('Dropdown Options:', options); // Debugging line
 
-    // Clear existing options
+    // Clear existing options and add new ones
     countrySelectDropdown.dropdown('clear');
-
-    // Update dropdown with new options
     countrySelectDropdown.dropdown('setup menu', {
         values: options
     });
 
-    // Set the first country as selected if there are options available
+    // Set the first country as selected if options are available
     if (options.length > 0) {
         countrySelectDropdown.dropdown('set selected', options[0].value);
     }
