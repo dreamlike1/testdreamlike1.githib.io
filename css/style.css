@@ -133,7 +133,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 .ui.search.dropdown#countrySelectDropdown .dropdown.icon, 
 .ui.dropdown#countrySelectDropdown .dropdown.icon {
     color: #76ABAE !important; /* Arrow color */
-    right: 10px; /* Position from the right */
+    right: 11px; /* Move arrow 1px to the right */
     position: absolute; /* Ensure proper positioning */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust vertical alignment */
@@ -142,7 +142,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 
 .ui.search.dropdown#countrySelectDropdown .text, 
 .ui.dropdown#countrySelectDropdown .text {
-    color: #FFFFFF !important; /* Ensure text color in dropdown matches serviceTypeDropdown */
+    color: #FFFFFF !important; /* Ensure text color in dropdown is white */
 }
 
 /* =========================
