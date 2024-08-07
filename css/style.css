@@ -130,7 +130,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    margin-bottom: 60px !important; /* Explicitly set space below button */
+    margin-bottom: 25px !important; /* Explicitly set space below button */
 }
 
 button:hover {
