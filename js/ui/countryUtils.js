@@ -13,18 +13,23 @@ export async function populateCountries(serviceType = 'default') {
 
     // Clear existing options
     countrySelectDropdown.dropdown('clear');
-    countrySelectDropdown.dropdown('hide');
-    
+
     // Prepare options for Semantic UI dropdown
     const options = countries.map(country => ({
-        title: country,
+        text: country,
         value: country
     }));
 
-    // Populate the dropdown
-    countrySelectDropdown.dropdown('setting', 'values', options.map(option => option.value));
-    countrySelectDropdown.dropdown('setting', 'text', options.map(option => option.title));
-    
+    // Update dropdown with new options
+    countrySelectDropdown.dropdown('setup menu', {
+        values: options
+    });
+
+    // Set the first country as selected
+    if (options.length > 0) {
+        countrySelectDropdown.dropdown('set selected', options[0].value);
+    }
+
     // Clear previous holidays data
     holidaysCache = {};
 
