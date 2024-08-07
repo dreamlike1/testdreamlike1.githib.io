@@ -121,6 +121,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     position: relative;
     width: 100%; /* Match the width to the input/select fields */
     margin-bottom: 10px; /* Reduced margin between dropdowns */
+    cursor: pointer; /* Ensure pointer cursor on dropdown */
 }
 
 .ui.dropdown .dropdown.icon {
@@ -129,6 +130,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     position: absolute; /* Ensure proper positioning */
     top: 50%;
     transform: translateY(-50%); /* Center the icon vertically */
+    cursor: pointer; /* Ensure the cursor is a pointer on the dropdown arrow */
 }
 
 .ui.dropdown .text {
@@ -167,6 +169,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     background: #2A2E34; /* Match the background with the input fields */
     border: none; /* Remove border for cleaner look */
     margin-bottom: 10px; /* Reduced margin below the search dropdown */
+    cursor: pointer; /* Ensure pointer cursor on search dropdown */
 }
 
 .ui.search.dropdown .text {
