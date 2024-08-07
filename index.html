@@ -15,7 +15,6 @@
             <h1>Business Date Calculator</h1>
             <div class="ui form">
                 <div class="field">
-                    <label for="serviceType">Service Type</label>
                     <select id="serviceType" class="ui dropdown" name="serviceType">
                         <option value="" disabled selected>Select Service Type</option>
                         <option value="expressPaid" selected>Express (Paid)</option>
@@ -26,14 +25,12 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label for="countrySelect">Country</label>
                     <select id="countrySelect" class="ui search dropdown" name="country">
                         <option value="" disabled selected>Select Country</option>
                     </select>
                     <p id="timezoneText" class="timezone-text"></p>
                 </div>
                 <div class="field">
-                    <label for="startDate">Start Date</label>
                     <input type="date" id="startDate" required>
                 </div>
                 <div class="field">
@@ -44,7 +41,6 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label for="businessDays">Business Days</label>
                     <input type="text" id="businessDays" placeholder="Business Days (ex. 1-2 or 1,2)" required>
                 </div>
                 <button id="calculateButton" class="ui button">Calculate</button>
@@ -57,11 +53,9 @@
             <h1 id="couponTitle">Coupon Expiry</h1>
             <div class="ui form">
                 <div class="field">
-                    <label for="couponDate">Coupon Date</label>
                     <input type="date" id="couponDate" required>
                 </div>
                 <div class="field">
-                    <label for="addDays">Add Days</label>
                     <input type="text" id="addDays" placeholder="Add Days" required>
                 </div>
                 <div class="field">
