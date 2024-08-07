@@ -313,6 +313,18 @@ button:hover {
 }
 
 /* =========================
+   Timezone Text Styling
+   ========================= */
+.timezone-text {
+    font-size: 0.5em; /* Reduced font size for single line text */
+    font-style: italic;
+    color: #CCCCCC; /* Light grey for contrast */
+    white-space: nowrap; /* Ensure text does not wrap */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+}
+
+/* =========================
    Responsive Design
    ========================= */
 @media only screen and (max-width: 600px) {
@@ -331,10 +343,7 @@ button:hover {
     }
 
     /* Increased space below the timezone text on small screens */
-    .timezone-text {  
-      font-style: italic;
-      color: #CCCCCC; /* Light grey for contrast */
+    .timezone-text { 
       margin-bottom: 60px; /* Increase space below the timezone text */
-
     }
 }
