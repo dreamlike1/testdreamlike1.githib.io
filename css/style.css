@@ -1,4 +1,6 @@
-/* General styling for body and container */
+/* =========================
+   General Styling
+   ========================= */
 html, body {
     height: 100%;
     margin: 0;
@@ -6,24 +8,25 @@ html, body {
     justify-content: center;
     align-items: center;
     font-family: 'Menlo', monospace;
-    background-image: linear-gradient(to right bottom, #222831, #31363F);
-    background-size: cover;
-    background-attachment: fixed;
+    background: linear-gradient(to right bottom, #222831, #31363F) fixed;
     font-size: 1.15em;
 }
 
-/* Container styling */
+/* =========================
+   Container Styling
+   ========================= */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 400px;
-    position: relative;
     padding-bottom: 80px;
 }
 
-/* Box styling */
+/* =========================
+   Box Styling
+   ========================= */
 .box {
     padding: 20px;
     background: #31363F;
@@ -41,7 +44,9 @@ html, body {
     min-height: 200px;
 }
 
-/* Switch button styling */
+/* =========================
+   Switch Button Styling
+   ========================= */
 .switch-button {
     width: 80%;
     max-width: 300px;
@@ -52,7 +57,6 @@ html, body {
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    font-family: 'Menlo', monospace;
     position: fixed;
     bottom: 20px;
     left: 50%;
@@ -63,12 +67,16 @@ html, body {
     background-color: #4F8C8A;
 }
 
-/* Hide elements */
+/* =========================
+   Hidden Class
+   ========================= */
 .hidden {
     display: none;
 }
 
-/* Title styling */
+/* =========================
+   Title Styling
+   ========================= */
 h1, #couponTitle {
     white-space: nowrap;
     overflow: hidden;
@@ -76,7 +84,9 @@ h1, #couponTitle {
     font-size: 1.15em;
 }
 
-/* Input and select styling */
+/* =========================
+   Input and Select Styling
+   ========================= */
 input, select {
     width: 100%;
     padding: 12px;
@@ -86,11 +96,11 @@ input, select {
     box-sizing: border-box;
     background: #2A2E34;
     color: #EEEEEE;
-    appearance: none;
     font-family: 'Menlo', monospace;
     color-scheme: dark;
 }
 
+/* Adjust input and select sizes */
 #businessDays, #addDays {
     color: #EEEEEE;
     background: #2A2E34;
@@ -100,17 +110,50 @@ input, select {
     color: #65676C;
 }
 
-/* Remove default dropdown arrow */
-select {
-    background-image: none;
+/* =========================
+   Dropdown Styling
+   ========================= */
+.ui.dropdown {
+    font-size: 0.9em; /* Slightly smaller font size to match country dropdown */
+    color: #EEEEEE;
+    border: 1px solid #76ABAE;
+    background: #2A2E34;
+    padding: 12px;
+    border-radius: 4px;
+    position: relative;
+    width: 100%; /* Match the width to the input/select fields */
 }
 
-/* Restore calendar icon for date input */
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: block;
+.ui.dropdown .dropdown.icon {
+    left: 12px;
+    right: auto;
 }
 
-/* Button styling */
+.ui.dropdown .text {
+    color: #EEEEEE;
+}
+
+.ui.dropdown .menu {
+    background: #2A2E34;
+    border: 1px solid #76ABAE;
+}
+
+.ui.dropdown .item {
+    color: #EEEEEE;
+}
+
+.ui.dropdown .item:focus,
+.ui.dropdown .item:hover {
+    background: #1E2428;
+}
+
+.ui.dropdown .item.active {
+    background: #1E2428;
+}
+
+/* =========================
+   Button Styling
+   ========================= */
 button {
     width: 100%;
     padding: 12px;
@@ -121,15 +164,15 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    font-family: 'Menlo', monospace;
-    position: relative;
 }
 
 button:hover {
     background-color: #6b9f97;
 }
 
-/* Result field styling */
+/* =========================
+   Result Field Styling
+   ========================= */
 .result-field {
     background: #EEEEEE;
     color: #31363F;
@@ -141,7 +184,9 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Copy message styling */
+/* =========================
+   Copy Message Styling
+   ========================= */
 .copy-message {
     position: absolute;
     background: #76ABAE;
@@ -152,7 +197,9 @@ button:hover {
     z-index: 10;
 }
 
-/* Checkbox styling */
+/* =========================
+   Checkbox Styling
+   ========================= */
 .checkbox-wrapper-42 {
     display: flex;
     align-items: center;
@@ -170,7 +217,6 @@ button:hover {
     border-radius: 3px;
     background: #2A2E34;
     position: relative;
-    transition: background 0.1s ease;
     cursor: pointer;
     margin-right: 10px;
 }
@@ -199,7 +245,6 @@ button:hover {
     transform: rotate(45deg) scale(1);
 }
 
-/* Animation for checkbox */
 @-moz-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
@@ -240,7 +285,9 @@ button:hover {
     to { transform: scale(1, 1); }
 }
 
-/* New container for timezone text and select */
+/* =========================
+   Input Group for Timezone and Select
+   ========================= */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -248,85 +295,58 @@ button:hover {
     width: 100%;
 }
 
-/* Timezone text styling */
 .timezone-text {
     font-size: 0.1em;
     color: #CCCCCC;
     margin-bottom: 10px;
-    white-space: nowrap;
     font-style: italic;
 }
 
-/* Adjust select styling */
-select {
-    margin-bottom: 10px;
-}
-
-/* Semantic UI dropdown styling */
-.ui.dropdown {
-    border: 1px solid #76ABAE;
-    background: #2A2E34;
-    color: #EEEEEE;
-    border-radius: 4px;
-    padding: 12px;
-}
-
-.ui.dropdown .text {
-    color: #EEEEEE;
-}
-
-.ui.dropdown .menu {
-    background: #2A2E34;
-    border: 1px solid #76ABAE;
-}
-
-.ui.dropdown .item {
-    color: #EEEEEE;
-}
-
-/* Forced Colors Mode styles */
+/* =========================
+   Forced Colors Mode
+   ========================= */
 @media (forced-colors: active) {
     html, body {
-        background-image: none; /* Remove background image */
-        color: CanvasText; /* Use system text color */
-        background-color: Canvas; /* Use system background color */
+        background-image: none;
+        color: CanvasText;
+        background-color: Canvas;
     }
 
     .box {
-        background: Canvas; /* Use system background color */
-        color: CanvasText; /* Use system text color */
+        background: Canvas;
+        color: CanvasText;
     }
 
     .switch-button, button {
-        background-color: Highlight; /* Use system highlight color */
-        color: HighlightText; /* Use system highlight text color */
+        background-color: Highlight;
+        color: HighlightText;
     }
 
     .result-field, .copy-message {
-        background: Canvas; /* Use system background color */
-        color: CanvasText; /* Use system text color */
+        background: Canvas;
+        color: CanvasText;
     }
 
     .checkbox-wrapper-42 .cbx {
-        border: 1px solid Highlight; /* Use system highlight color */
+        border: 1px solid Highlight;
     }
 
     .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
-        background: Highlight; /* Use system highlight color */
-        border-color: Highlight; /* Use system highlight color */
+        background: Highlight;
+        border-color: Highlight;
     }
 
     .ui.dropdown {
-        border: 1px solid Highlight; /* Use system highlight color */
-        background: Canvas; /* Use system background color */
-        color: CanvasText; /* Use system text color */
+        border: 1px solid Highlight;
+        background: Canvas;
+        color: CanvasText;
     }
 
     .ui.dropdown .item {
-        color: CanvasText; /* Use system text color */
+        color: CanvasText;
     }
 
     .timezone-text {
-        color: CanvasText; /* Use system text color */
+        color: CanvasText;
     }
 }
