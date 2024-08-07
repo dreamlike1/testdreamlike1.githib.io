@@ -84,6 +84,10 @@ h1, #couponTitle {
     font-size: 1.15em; /* Keep title size slightly larger */
 }
 
+#businessDateCalculator {
+    font-size: 1.5em; /* Larger font size for the title */
+}
+
 /* =========================
    Input and Select Styling
    ========================= */
@@ -127,6 +131,7 @@ input, select {
 .ui.dropdown .dropdown.icon {
     right: 12px; /* Move the arrow to the right side */
     left: auto; /* Remove any default left positioning */
+    color: #FFFFFF; /* Ensure the arrow color is white */
 }
 
 .ui.dropdown .text {
@@ -286,67 +291,14 @@ button:hover {
 }
 
 /* =========================
-   Input Group for Timezone and Select
+   Responsive Styling
    ========================= */
-.input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.timezone-text {
-    font-size: 1em; /* Set font size to 1em */
-    color: #FFFFFF; /* Ensure text color is white */
-    margin-bottom: 10px;
-    font-style: italic;
-}
-
-/* =========================
-   Forced Colors Mode
-   ========================= */
-@media (forced-colors: active) {
-    html, body {
-        background-image: none;
-        color: CanvasText;
-        background-color: Canvas;
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
     }
 
-    .box {
-        background: Canvas;
-        color: CanvasText;
-    }
-
-    .switch-button, button {
-        background-color: Highlight;
-        color: HighlightText;
-    }
-
-    .result-field, .copy-message {
-        background: Canvas;
-        color: CanvasText;
-    }
-
-    .checkbox-wrapper-42 .cbx {
-        border: 1px solid Highlight;
-    }
-
-    .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
-        background: Highlight;
-        border-color: Highlight;
-    }
-
-    .ui.dropdown {
-        border: 1px solid Highlight;
-        background: Canvas;
-        color: CanvasText;
-    }
-
-    .ui.dropdown .item {
-        color: CanvasText;
-    }
-
-    .timezone-text {
-        color: CanvasText;
+    .switch-button {
+        font-size: 0.8em;
     }
 }
