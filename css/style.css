@@ -1,3 +1,4 @@
+
 /* =========================
    General Styling
    ========================= */
@@ -118,46 +119,39 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     background: #2A2E34; /* Background close to the input field color */
     padding: 12px;
     border-radius: 4px;
-    position: relative; /* Ensure the icon can be positioned relative to this container */
+    position: relative;
     width: 100%; /* Match the width to the input/select fields */
     margin-bottom: 10px; /* Reduced margin between dropdowns */
-    cursor: pointer; /* Ensure pointer cursor on dropdown */
 }
 
-/* Align dropdown icon correctly */
 .ui.dropdown .dropdown.icon {
     color: #FFFFFF !important; /* Ensure the arrow color is white */
-    position: absolute; /* Position the icon absolutely within the dropdown container */
-    right: 12px; /* Position the icon from the right edge */
-    top: 50%; /* Vertically center the icon */
+    right: 10px; /* Adjust the position of the dropdown icon */
+    position: absolute; /* Ensure proper positioning */
+    top: 50%;
     transform: translateY(-50%); /* Center the icon vertically */
-    pointer-events: none; /* Prevent the icon from capturing pointer events */
 }
 
-/* Ensure dropdown text color is white */
 .ui.dropdown .text {
     color: #FFFFFF !important; /* Ensure preview text color is white */
 }
 
-/* Default text color for placeholder text */
 .ui.dropdown .default.text {
     color: #B0B0B0 !important; /* Gray color for placeholder text */
 }
 
-/* Menu styling */
 .ui.dropdown .menu {
     background: #2A2E34; /* Background close to the dropdown itself */
     border: none; /* Remove border for cleaner look */
     width: 100%; /* Match the width of the dropdown to the input */
 }
 
-/* Dropdown item styling */
 .ui.dropdown .item {
     color: #FFFFFF !important; /* Ensure item text color is white */
 }
 
-.ui.dropdown .item:hover,
-.ui.dropdown .item:focus {
+.ui.dropdown .item:focus,
+.ui.dropdown .item:hover {
     background: #1E2428 !important; /* Darker than the background color for hover effect */
 }
 
@@ -174,26 +168,22 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     background: #2A2E34; /* Match the background with the input fields */
     border: none; /* Remove border for cleaner look */
     margin-bottom: 10px; /* Reduced margin below the search dropdown */
-    cursor: pointer; /* Ensure pointer cursor on search dropdown */
 }
 
-/* Ensure search dropdown text color is white */
 .ui.search.dropdown .text {
     color: #FFFFFF !important; /* Ensure preview text color is white */
 }
 
-/* Menu styling for search dropdown */
 .ui.search.dropdown .menu {
     background: #2A2E34; /* Match the dropdown background with the input field */
 }
 
-/* Search dropdown item styling */
 .ui.search.dropdown .item {
     color: #FFFFFF !important; /* Ensure item text color is white */
 }
 
-.ui.search.dropdown .item:hover,
-.ui.search.dropdown .item:focus {
+.ui.search.dropdown .item:focus,
+.ui.search.dropdown .item:hover {
     background: #1E2428 !important; /* Darker than the background color for hover effect */
 }
 
@@ -295,43 +285,66 @@ button:hover {
     transform: rotate(45deg) scale(1);
 }
 
-.checkbox-wrapper-42 .lbl {
-    color: #FFFFFF;
-    font-size: 0.9em;
-    white-space: nowrap;
+@-moz-keyframes jelly-42 {
+    from { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    50% { transform: scale(0.75, 1.25); }
+    100% { transform: scale(1, 1); }
+}
+
+@-webkit-keyframes jelly-42 {
+    from { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    50% { transform: scale(0.75, 1.25); }
+    100% { transform: scale(1, 1); }
+}
+
+@-ms-keyframes jelly-42 {
+    from { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    50% { transform: scale(0.75, 1.25); }
+    100% { transform: scale(1, 1); }
+}
+
+@keyframes jelly-42 {
+    from { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    50% { transform: scale(0.75, 1.25); }
+    100% { transform: scale(1, 1); }
 }
 
 /* =========================
-   Placeholder Text Color Fix
+   Timezone Text Styling
    ========================= */
-input::-webkit-input-placeholder {
-    color: #B0B0B0;
+.timezone-text {
+    font-size: 0.5em; /* Reduced font size for single line text */
+    font-style: italic;
+    color: #CCCCCC; /* Light grey for contrast */
+    white-space: nowrap; /* Ensure text does not wrap */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
 }
 
-input::-moz-placeholder {
-    color: #B0B0B0;
-}
+/* =========================
+   Responsive Design
+   ========================= */
+@media only screen and (max-width: 600px) {
+    .container {
+        padding-bottom: 20px;
+    }
 
-input:-ms-input-placeholder {
-    color: #B0B0B0;
-}
+    .switch-button {
+        width: 100%;
+    }
 
-input::-ms-input-placeholder {
-    color: #B0B0B0;
-}
+    /* Reduced space between service type and country select */
+    .ui.dropdown#serviceTypeDropdown,
+    .ui.search.dropdown#countrySelectDropdown {
+        margin-bottom: 10px; /* Reduced space between dropdowns */
+    }
 
-textarea::-webkit-input-placeholder {
-    color: #B0B0B0;
-}
-
-textarea::-moz-placeholder {
-    color: #B0B0B0;
-}
-
-textarea:-ms-input-placeholder {
-    color: #B0B0B0;
-}
-
-textarea::-ms-input-placeholder {
-    color: #B0B0B0;
+    /* Increased space below the timezone text on small screens */
+    .timezone-text { 
+      margin-bottom: 60px; /* Increase space below the timezone text */
+    }
 }
