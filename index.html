@@ -1,299 +1,119 @@
-/* =========================
-   General Styling
-   ========================= */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Menlo', monospace;
-    background: linear-gradient(to right bottom, #222831, #31363F) fixed;
-    font-size: 1em; /* Set base font size to 1em */
-}
 
-/* =========================
-   Container Styling
-   ========================= */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    padding-bottom: 80px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Date Calculator</title>
+    <!-- Include Semantic UI CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!-- Include your custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="calculatorBox" class="box">
+            <h1>Business Date Calculator</h1>
+            <div style="position: relative;">
+                <!-- Semantic UI dropdown for service type -->
+                <div class="ui dropdown" id="serviceTypeDropdown">
+                    <input type="hidden" name="serviceType" id="serviceType">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Select Service Type</div>
+                    <div class="menu">
+                        <div class="item" data-value="expressPaid">Express (Paid)</div>
+                        <div class="item" data-value="expressFree">Express (Free)</div>
+                        <div class="item" data-value="standard">Standard</div>
+                        <div class="item" data-value="economy">Economy</div>
+                        <div class="item" data-value="collection">Collection</div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <!-- Semantic UI search dropdown for country selection -->
+                <div class="ui search selection dropdown" id="countrySelectDropdown">
+                    <input type="hidden" name="country" id="countrySelect">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Select Country</div>
+                    <div class="menu">
+                        <!-- Options will be populated dynamically -->
+                    </div>
+                </div>
+                <p id="timezoneText" class="timezone-text"></p> <!-- Timezone text here -->
+            </div>
+            <div style="position: relative;">
+                <input type="date" id="startDate" required>
+            </div>
+            <div class="checkbox-wrapper-42">
+                <input id="cbx-42" type="checkbox" />
+                <label class="cbx" for="cbx-42"></label>
+                <label class="lbl" for="cbx-42">Order is past 5pm</label>
+            </div>
+            <input type="text" id="businessDays" placeholder="Business Days (ex. 1-2 or 1,2)" required>
+            <button id="calculateButton">Calculate</button>
+            <input type="text" id="result" class="result-field" readonly>
+            <div id="copyMessageCalculator" class="copy-message">Copied!</div> <!-- Unique ID for calculatorBox -->
+        </div>
+        <button id="switchButton" class="switch-button">Switch to Coupon Expiry</button>
+        <div id="couponBox" class="box hidden">
+            <h1 id="couponTitle">Coupon Expiry</h1>
+            <div style="position: relative;">
+                <input type="date" id="couponDate" required>
+            </div>
+            <div style="position: relative;">
+                <input type="text" id="addDays" placeholder="Add Days" required>
+            </div>
+            <div class="checkbox-wrapper-42">
+                <input id="cbx-43" type="checkbox" />
+                <label class="cbx" for="cbx-43"></label>
+                <label class="lbl" for="cbx-43" style="white-space: nowrap;">Remove extra day (for email ready)</label>
+            </div>
+            <button id="couponCalculateButton">Calculate</button>
+            <input type="text" id="couponResult" class="result-field" readonly>
+            <div id="copyMessageCoupon" class="copy-message">Copied!</div> <!-- Unique ID for couponBox -->
+        </div>
+    </div>
+    <!-- Include jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Semantic UI JS -->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!-- Include your custom JS -->
+    <script type="module" src="js/main.js"></script>
+    <!-- Initialize Semantic UI dropdowns -->
+    <script>
+        $(document).ready(function() {
+            // Initialize service type dropdown
+            $('#serviceTypeDropdown').dropdown({
+                onChange: function(value, text, $selectedItem) {
+                    $('#serviceType').val(value); // Update hidden input field
+                }
+            });
 
-/* =========================
-   Box Styling
-   ========================= */
-.box {
-    padding: 20px;
-    background: #31363F;
-    border-radius: 12px;
-    box-shadow:
-        0 1px 1px rgba(0, 0, 0, 0.075),
-        0 2px 2px rgba(0, 0, 0, 0.075),
-        0 4px 4px rgba(0, 0, 0, 0.075),
-        0 8px 8px rgba(0, 0, 0, 0.075),
-        0 16px 16px rgba(0, 0, 0, 0.075);
-    color: #FFFFFF; /* Ensure text color is white */
-    text-align: center;
-    margin-bottom: 60px;
-    position: relative;
-    min-height: 200px;
-}
-
-/* =========================
-   Switch Button Styling
-   ========================= */
-.switch-button {
-    width: 80%;
-    max-width: 300px;
-    padding: 12px;
-    background-color: #5F9EA0;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.switch-button:hover {
-    background-color: #4F8C8A;
-}
-
-/* =========================
-   Hidden Class
-   ========================= */
-.hidden {
-    display: none;
-}
-
-/* =========================
-   Title Styling
-   ========================= */
-h1, #couponTitle {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 2.5em; /* Increased font size for titles */
-}
-
-/* =========================
-   Input and Select Styling
-   ========================= */
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin: 5px 0; /* Reduced margin for cleaner spacing */
-    border: none; /* Remove border for cleaner look */
-    border-radius: 4px;
-    box-sizing: border-box;
-    background: #2A2E34; /* Close to the color of the calculator box */
-    color: #FFFFFF; /* Ensure input and select text color is white */
-    font-family: 'Menlo', monospace;
-    font-size: 1em; /* Set font size to 1em */
-}
-
-input::placeholder, select::placeholder {
-    color: #B0B0B0; /* Gray color for placeholder text */
-}
-
-input:not(:placeholder-shown), select:not(:placeholder-shown) {
-    color: #FFFFFF; /* White color when input has a value */
-}
-
-/* =========================
-   Dropdown Styling
-   ========================= */
-.ui.dropdown, .ui.search.dropdown {
-    font-size: 1em; /* Match font size with other dropdowns */
-    color: #FFFFFF !important; /* Ensure text color is white */
-    border: none; /* Remove border for cleaner look */
-    background: #2A2E34; /* Background close to the input field color */
-    padding: 12px;
-    border-radius: 4px;
-    position: relative;
-    width: 100%; /* Match the width to the input/select fields */
-    margin-bottom: 10px; /* Reduced margin between dropdowns */
-}
-
-/* =========================
-   Country Dropdown Styling
-   ========================= */
-.ui.search.dropdown#countrySelectDropdown, 
-.ui.dropdown#countrySelectDropdown {
-    /* Revert to default styles for country dropdown */
-}
-
-/* =========================
-   Country Dropdown Menu Styling
-   ========================= */
-.ui.search.dropdown#countrySelectDropdown .menu, 
-.ui.dropdown#countrySelectDropdown .menu {
-    background: #2A2E34; /* Background close to the dropdown itself */
-    border: none; /* Remove border for cleaner look */
-    width: 100%; /* Match the width of the dropdown to the input */
-}
-
-.ui.search.dropdown#countrySelectDropdown .menu .item, 
-.ui.dropdown#countrySelectDropdown .menu .item {
-    color: #FFFFFF !important; /* Ensure item text color is white */
-}
-
-.ui.search.dropdown#countrySelectDropdown .menu .item:focus, 
-.ui.dropdown#countrySelectDropdown .menu .item:focus,
-.ui.search.dropdown#countrySelectDropdown .menu .item:hover, 
-.ui.dropdown#countrySelectDropdown .menu .item:hover {
-    background: #1E2428 !important; /* Darker than the background color for hover effect */
-}
-
-.ui.search.dropdown#countrySelectDropdown .menu .item.active, 
-.ui.dropdown#countrySelectDropdown .menu .item.active {
-    background: #1E2428 !important; /* Darker than the background color for active state */
-}
-
-/* =========================
-   Service Type Dropdown Styling
-   ========================= */
-.ui.search.dropdown#serviceTypeDropdown, 
-.ui.dropdown#serviceTypeDropdown {
-    /* Revert to default styles for service type dropdown */
-}
-
-/* =========================
-   Dropdown Menu Styling
-   ========================= */
-.ui.dropdown .menu, 
-.ui.search.dropdown .menu {
-    background: #2A2E34; /* Background close to the dropdown itself */
-    border: none; /* Remove border for cleaner look */
-    width: 100%; /* Match the width of the dropdown to the input */
-}
-
-.ui.dropdown .item, 
-.ui.search.dropdown .item {
-    color: #FFFFFF !important; /* Ensure item text color is white */
-}
-
-.ui.dropdown .item:focus, 
-.ui.search.dropdown .item:focus,
-.ui.dropdown .item:hover, 
-.ui.search.dropdown .item:hover {
-    background: #1E2428 !important; /* Darker than the background color for hover effect */
-}
-
-.ui.dropdown .item.active, 
-.ui.search.dropdown .item.active {
-    background: #1E2428 !important; /* Darker than the background color for active state */
-}
-
-/* =========================
-   Timezone Text Specific Styling
-   ========================= */
-#timezoneText {
-    font-size: 0.7em; /* Adjust font size to 0.7em */
-    margin: 0; /* Remove any margin to prevent layout shift */
-    padding: 0; /* Remove any padding if applicable */
-    color: #FFFFFF; /* Ensure text color is white */
-    /* Add any additional styles specific to this element if required */
-}
-
-/* =========================
-   Button Styling
-   ========================= */
-button {
-    width: 100%;
-    padding: 12px;
-    margin: 5px 0;
-    background-color: #76ABAE;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: #6b9f97;
-}
-
-/* =========================
-   Result Field Styling
-   ========================= */
-.result-field {
-    background: #EEEEEE;
-    color: #31363F;
-    border: none;
-    padding: 12px;
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* =========================
-   Copy Message Styling
-   ========================= */
-.copy-message {
-    position: absolute;
-    background: #76ABAE;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    display: none;
-    z-index: 10;
-}
-
-/* =========================
-   Checkbox Styling
-   ========================= */
-.checkbox-wrapper-42 {
-    display: flex;
-    align-items: center;
-    margin: 10px 0; /* Increased margin for better spacing */
-}
-
-.checkbox-wrapper-42 input[type="checkbox"] {
-    display: none;
-}
-
-.checkbox-wrapper-42 .cbx {
-    width: 17px;
-    height: 17px;
-    border: 1px solid #76ABAE;
-    border-radius: 3px;
-    background: #2A2E34;
-    position: relative;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.checkbox-wrapper-42 .cbx:after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    width: 5px;
-    height: 10px;
-    opacity: 0;
-    transform: rotate(45deg) scale(0);
-    border-right: 2px solid #FFFFFF; /* Ensure checkmark color is white */
-    border-bottom: 2px solid #FFFFFF; /* Ensure checkmark color is white */
-    transition: all 0.3s ease;
-}
-
-.checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
-    background: #76ABAE;
-    border-color: #76ABAE;
-}
-
-.checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx:after {
-    opacity: 1;
-    transform: rotate(45deg) scale(1);
-}
+            // Initialize search dropdown for country selection
+            $('#countrySelectDropdown').dropdown({
+                onChange: function(value, text, $selectedItem) {
+                    $('#countrySelect').val(value); // Update hidden input field
+                },
+                allowAdditions: true,
+                apiSettings: {
+                    url: 'https://restcountries.com/v2/all', // URL for fetching country data
+                    cache: false,
+                    response: {
+                        results: function(response) {
+                            return response.map(country => ({
+                                title: country.name,
+                                value: country.alpha3Code
+                            }));
+                        }
+                    }
+                },
+                fields: {
+                    results: 'results',
+                    title: 'title'
+                },
+                minCharacters: 1
+            });
+        });
+    </script>
+</body>
+</html>
