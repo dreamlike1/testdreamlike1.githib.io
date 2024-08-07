@@ -109,14 +109,14 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
-   Dropdown Styling
+   Dropdown Styling (Reverted to Default)
    ========================= */
 .ui.dropdown {
     font-size: 1em; /* Set font size to 1em */
     color: #FFFFFF !important; /* Force text color to white */
     border: none; /* Remove border for cleaner look */
     background: #2A2E34; /* Background close to the input field color */
-    padding: 12px 40px 12px 12px; /* Adjust padding for consistent alignment */
+    padding: 12px;
     border-radius: 4px;
     position: relative; /* Ensure the icon can be positioned relative to this container */
     width: 100%; /* Match the width to the input/select fields */
@@ -124,7 +124,12 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     cursor: pointer; /* Ensure pointer cursor on dropdown */
 }
 
-/* Align the dropdown icon consistently */
+/* Apply pointer cursor on hover */
+.ui.dropdown:hover {
+    cursor: pointer;
+}
+
+/* Default dropdown icon styling */
 .ui.dropdown .dropdown.icon {
     color: #FFFFFF !important; /* Ensure the arrow color is white */
     right: 12px; /* Position the icon from the right edge */
