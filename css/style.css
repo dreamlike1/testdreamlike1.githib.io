@@ -126,13 +126,14 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 /* =========================
    Country Dropdown Styling
    ========================= */
-.ui.search.country-dropdown, .ui.country-dropdown {
-    /* Common styles for country dropdowns */
+.ui.search.dropdown#countrySelectDropdown, .ui.dropdown#countrySelectDropdown {
+    /* Ensure that the country dropdown is styled consistently */
 }
 
-.ui.search.country-dropdown .dropdown.icon, .ui.country-dropdown .dropdown.icon {
-    color: #76ABAE !important; /* Match color to serviceTypeDropdown arrow color */
-    right: 10px; /* Positioning from the right */
+.ui.search.dropdown#countrySelectDropdown .dropdown.icon, 
+.ui.dropdown#countrySelectDropdown .dropdown.icon {
+    color: #76ABAE !important; /* Match arrow color to serviceTypeDropdown */
+    right: 10px; /* Position from the right */
     position: absolute; /* Ensure proper positioning */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust vertical alignment */
@@ -142,13 +143,14 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 /* =========================
    Service Type Dropdown Styling
    ========================= */
-.ui.dropdown#serviceTypeDropdown, .ui.search.dropdown#serviceTypeDropdown {
-    /* Common styles for service type dropdowns */
+.ui.search.dropdown#serviceTypeDropdown, .ui.dropdown#serviceTypeDropdown {
+    /* Ensure that the service type dropdown is styled consistently */
 }
 
-.ui.dropdown#serviceTypeDropdown .dropdown.icon, .ui.search.dropdown#serviceTypeDropdown .dropdown.icon {
+.ui.search.dropdown#serviceTypeDropdown .dropdown.icon, 
+.ui.dropdown#serviceTypeDropdown .dropdown.icon {
     color: #76ABAE !important; /* Arrow color */
-    right: 10px; /* Positioning from the right */
+    right: 10px; /* Position from the right */
     position: absolute; /* Ensure proper positioning */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust vertical alignment */
@@ -280,6 +282,6 @@ button:hover {
 @-moz-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
-     50% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(0.75, 1.25); }
     100% { transform: scale(1, 1); }
 }
