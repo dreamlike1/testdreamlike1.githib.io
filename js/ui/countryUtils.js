@@ -11,14 +11,22 @@ export async function populateCountries(serviceType = 'expressPaid') {
     const countrySelectDropdown = $('#countrySelect'); // Ensure correct ID is used here
     const countries = countryOptions[serviceType] || [];
 
+    console.log('Selected Service Type:', serviceType); // Debugging line
+    console.log('Countries:', countries); // Debugging line
+
     // Prepare options for Semantic UI dropdown
     const options = countries.map(country => ({
         text: country, // This is the visible text in the dropdown
         value: country // This is the value of the selected option
     }));
 
+    console.log('Dropdown Options:', options); // Debugging line
+
+    // Clear existing options
+    countrySelectDropdown.dropdown('clear');
+
     // Update dropdown with new options
-    countrySelectDropdown.dropdown('clear').dropdown('setup menu', {
+    countrySelectDropdown.dropdown('setup menu', {
         values: options
     });
 
