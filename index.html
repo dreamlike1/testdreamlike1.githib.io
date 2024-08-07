@@ -14,7 +14,7 @@
         <div id="calculatorBox" class="box">
             <h1>Business Date Calculator</h1>
             <div style="position: relative;">
-                <!-- Semantic UI dropdown -->
+                <!-- Semantic UI dropdown for service type -->
                 <div class="ui dropdown" id="serviceTypeDropdown">
                     <input type="hidden" name="serviceType" id="serviceType">
                     <i class="dropdown icon"></i>
@@ -82,7 +82,7 @@
     <script>
         $(document).ready(function() {
             // Initialize service type dropdown
-            $('.ui.dropdown').dropdown({
+            $('#serviceTypeDropdown').dropdown({
                 onChange: function(value, text, $selectedItem) {
                     $('#serviceType').val(value); // Update hidden input field
                 }
@@ -99,8 +99,7 @@
                     cache: false,
                     response: {
                         results: function(response) {
-                            // Check the response format
-                            console.log(response);
+                            console.log(response); // Check the response format
                             return response.map(country => ({
                                 title: country.name,
                                 value: country.alpha3Code
