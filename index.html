@@ -13,63 +13,71 @@
     <div class="container">
         <div id="calculatorBox" class="box">
             <h1>Business Date Calculator</h1>
-            <div style="position: relative;">
-                <!-- Semantic UI dropdown for service type -->
-                <div class="ui dropdown" id="serviceTypeDropdown">
-                    <input type="hidden" name="serviceType" id="serviceType">
-                    <i class="dropdown icon"></i>
-                    <div class="default text">Select Service Type</div>
-                    <div class="menu">
-                        <div class="item" data-value="expressPaid">Express (Paid)</div>
-                        <div class="item" data-value="expressFree">Express (Free)</div>
-                        <div class="item" data-value="standard">Standard</div>
-                        <div class="item" data-value="economy">Economy</div>
-                        <div class="item" data-value="collection">Collection</div>
-                    </div>
+            <div class="ui form">
+                <div class="field">
+                    <label for="serviceType">Service Type</label>
+                    <!-- Semantic UI styled select for service type -->
+                    <select id="serviceType" class="ui dropdown" name="serviceType">
+                        <option value="" disabled selected>Select Service Type</option>
+                        <option value="expressPaid">Express (Paid)</option>
+                        <option value="expressFree">Express (Free)</option>
+                        <option value="standard">Standard</option>
+                        <option value="economy">Economy</option>
+                        <option value="collection">Collection</option>
+                    </select>
                 </div>
-            </div>
-            <div class="input-group">
-                <!-- Semantic UI search dropdown for country selection -->
-                <div class="ui search selection dropdown" id="countrySelectDropdown">
-                    <input type="hidden" name="country" id="countrySelect">
-                    <i class="dropdown icon"></i>
-                    <div class="default text">Select Country</div>
-                    <div class="menu">
+                <div class="field">
+                    <label for="countrySelect">Country</label>
+                    <!-- Semantic UI styled select for country selection -->
+                    <select id="countrySelect" class="ui search dropdown" name="country">
+                        <option value="" disabled selected>Select Country</option>
                         <!-- Options will be populated dynamically -->
+                    </select>
+                    <p id="timezoneText" class="timezone-text"></p> <!-- Timezone text here -->
+                </div>
+                <div class="field">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="field">
+                    <div class="checkbox-wrapper-42">
+                        <input id="cbx-42" type="checkbox" />
+                        <label class="cbx" for="cbx-42"></label>
+                        <label class="lbl" for="cbx-42">Order is past 5pm</label>
                     </div>
                 </div>
-                <p id="timezoneText" class="timezone-text"></p> <!-- Timezone text here -->
+                <div class="field">
+                    <label for="businessDays">Business Days</label>
+                    <input type="text" id="businessDays" placeholder="Business Days (ex. 1-2 or 1,2)" required>
+                </div>
+                <button id="calculateButton" class="ui button">Calculate</button>
+                <input type="text" id="result" class="result-field" readonly>
+                <div id="copyMessageCalculator" class="copy-message">Copied!</div> <!-- Unique ID for calculatorBox -->
             </div>
-            <div style="position: relative;">
-                <input type="date" id="startDate" required>
-            </div>
-            <div class="checkbox-wrapper-42">
-                <input id="cbx-42" type="checkbox" />
-                <label class="cbx" for="cbx-42"></label>
-                <label class="lbl" for="cbx-42">Order is past 5pm</label>
-            </div>
-            <input type="text" id="businessDays" placeholder="Business Days (ex. 1-2 or 1,2)" required>
-            <button id="calculateButton">Calculate</button>
-            <input type="text" id="result" class="result-field" readonly>
-            <div id="copyMessageCalculator" class="copy-message">Copied!</div> <!-- Unique ID for calculatorBox -->
         </div>
-        <button id="switchButton" class="switch-button">Switch to Coupon Expiry</button>
+        <button id="switchButton" class="switch-button ui button">Switch to Coupon Expiry</button>
         <div id="couponBox" class="box hidden">
             <h1 id="couponTitle">Coupon Expiry</h1>
-            <div style="position: relative;">
-                <input type="date" id="couponDate" required>
+            <div class="ui form">
+                <div class="field">
+                    <label for="couponDate">Coupon Date</label>
+                    <input type="date" id="couponDate" required>
+                </div>
+                <div class="field">
+                    <label for="addDays">Add Days</label>
+                    <input type="text" id="addDays" placeholder="Add Days" required>
+                </div>
+                <div class="field">
+                    <div class="checkbox-wrapper-42">
+                        <input id="cbx-43" type="checkbox" />
+                        <label class="cbx" for="cbx-43"></label>
+                        <label class="lbl" for="cbx-43" style="white-space: nowrap;">Remove extra day (for email ready)</label>
+                    </div>
+                </div>
+                <button id="couponCalculateButton" class="ui button">Calculate</button>
+                <input type="text" id="couponResult" class="result-field" readonly>
+                <div id="copyMessageCoupon" class="copy-message">Copied!</div> <!-- Unique ID for couponBox -->
             </div>
-            <div style="position: relative;">
-                <input type="text" id="addDays" placeholder="Add Days" required>
-            </div>
-            <div class="checkbox-wrapper-42">
-                <input id="cbx-43" type="checkbox" />
-                <label class="cbx" for="cbx-43"></label>
-                <label class="lbl" for="cbx-43" style="white-space: nowrap;">Remove extra day (for email ready)</label>
-            </div>
-            <button id="couponCalculateButton">Calculate</button>
-            <input type="text" id="couponResult" class="result-field" readonly>
-            <div id="copyMessageCoupon" class="copy-message">Copied!</div> <!-- Unique ID for couponBox -->
         </div>
     </div>
     <!-- Include jQuery first -->
@@ -78,5 +86,9 @@
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
+    <script>
+        // Initialize Semantic UI dropdowns
+        $('.ui.dropdown').dropdown();
+    </script>
 </body>
 </html>
