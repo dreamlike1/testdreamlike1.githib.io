@@ -20,10 +20,15 @@ export async function populateCountries(serviceType = 'expressPaid') {
     console.log('Dropdown Options:', options); // Debugging line
 
     // Clear existing options and add new ones
-    countrySelectDropdown.dropdown('clear');
-    countrySelectDropdown.dropdown('setup menu', {
-        values: options
-    });
+    countrySelectDropdown.empty(); // Ensure dropdown is cleared
+    countrySelectDropdown.append('<option value="" disabled selected>Select Country</option>'); // Reset the default option
+
+    // Reinitialize the dropdown
+    countrySelectDropdown.dropdown('destroy'); // Destroy any existing dropdown instance
+    countrySelectDropdown.append(options.map(option => `<option value="${option.value}">${option.text}</option>`).join(''));
+
+    // Initialize Semantic UI dropdown
+    countrySelectDropdown.dropdown(); // Reinitialize dropdown
 
     // Set the first country as selected if options are available
     if (options.length > 0) {
