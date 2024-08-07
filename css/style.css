@@ -90,7 +90,7 @@ h1, #couponTitle {
 input, select {
     width: 100%;
     padding: 12px;
-    margin: 5px 0; /* Reduced margin for cleaner spacing */
+    margin: 5px 0; /* Consistent margin for spacing */
     border: none; /* Remove border for cleaner look */
     border-radius: 4px;
     box-sizing: border-box;
@@ -124,7 +124,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 button {
     width: 100%;
     padding: 12px;
-    margin: 5px 0 30px !important; /* Increased bottom margin with !important to override */
+    margin: 5px 0; /* Uniform margin to match other fields */
     background-color: #76ABAE;
     color: #ffffff;
     border: none;
@@ -148,7 +148,7 @@ button:hover {
     width: 100%;
     text-align: center;
     cursor: pointer;
-    margin-top: 30px !important; /* Increased top margin with !important to override */
+    margin: 5px 0; /* Uniform margin to match other fields */
 }
 
 /* =========================
@@ -170,7 +170,7 @@ button:hover {
 .checkbox-wrapper-42 {
     display: flex;
     align-items: center;
-    margin: 10px 0; /* Increased margin for better spacing */
+    margin: 10px 0; /* Consistent margin for spacing */
 }
 
 .checkbox-wrapper-42 input[type="checkbox"] {
