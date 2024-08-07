@@ -44,6 +44,12 @@ export async function populateCountries(serviceType = 'expressPaid') {
         countrySelectDropdown.dropdown('set selected', options[0].value);
     }
 
+    // Add event listener to handle dropdown closure after selection
+    countrySelectDropdown.on('change', function() {
+        console.log('Dropdown value changed'); // Debugging line
+        countrySelectDropdown.dropdown('hide'); // Manually hide the dropdown
+    });
+
     // Clear previous holidays data
     holidaysCache = {};
 
