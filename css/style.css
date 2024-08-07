@@ -132,12 +132,17 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 
 .ui.search.dropdown#countrySelectDropdown .dropdown.icon, 
 .ui.dropdown#countrySelectDropdown .dropdown.icon {
-    color: #76ABAE !important; /* Match arrow color to serviceTypeDropdown */
+    color: #76ABAE !important; /* Arrow color */
     right: 10px; /* Position from the right */
     position: absolute; /* Ensure proper positioning */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust vertical alignment */
     font-size: 1em; /* Match font size with other dropdowns */
+}
+
+.ui.search.dropdown#countrySelectDropdown .text, 
+.ui.dropdown#countrySelectDropdown .text {
+    color: #FFFFFF !important; /* Ensure text color in dropdown matches serviceTypeDropdown */
 }
 
 /* =========================
@@ -157,15 +162,14 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     font-size: 1em; /* Match font size with other dropdowns */
 }
 
-/* Ensure dropdown text color matches input text color */
-.ui.dropdown .text, .ui.search.dropdown .text {
-    color: #FFFFFF !important; /* Ensure preview text color is white */
+.ui.search.dropdown#serviceTypeDropdown .text, 
+.ui.dropdown#serviceTypeDropdown .text {
+    color: #FFFFFF !important; /* Ensure text color in dropdown matches countrySelectDropdown */
 }
 
-.ui.dropdown .default.text, .ui.search.dropdown .default.text {
-    color: #B0B0B0 !important; /* Gray color for placeholder text */
-}
-
+/* =========================
+   Dropdown Menu Styling
+   ========================= */
 .ui.dropdown .menu, .ui.search.dropdown .menu {
     background: #2A2E34; /* Background close to the dropdown itself */
     border: none; /* Remove border for cleaner look */
