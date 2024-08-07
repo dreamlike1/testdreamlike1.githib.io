@@ -109,68 +109,6 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
-   Service Type Dropdown Specific Styling
-   ========================= */
-.ui.dropdown#serviceTypeDropdown {
-    font-size: 1em; /* Match font size with other dropdowns */
-    color: #FFFFFF !important; /* Ensure text color is white */
-    border: none; /* Remove border for cleaner look */
-    background: #2A2E34; /* Background close to the input field color */
-    padding: 12px;
-    border-radius: 4px;
-    position: relative;
-    width: 100%; /* Match the width to the input/select fields */
-    margin-bottom: 10px; /* Reduced margin between dropdowns */
-    padding-right: 40px; /* Add space for custom styling */
-}
-
-/* Remove the dropdown icon for the service type dropdown */
-.ui.dropdown#serviceTypeDropdown .dropdown.icon {
-    display: none;
-}
-
-/* =========================
-   Country Dropdown Specific Styling
-   ========================= */
-.ui.search.selection.dropdown#countrySelectDropdown {
-    width: 100%; /* Match the width to the input/select fields */
-    font-size: 1em; /* Match font size with other dropdowns */
-    background: #2A2E34; /* Background close to the input field color */
-    border: none; /* Remove border for cleaner look */
-    padding: 12px;
-    border-radius: 4px;
-    color: #FFFFFF !important; /* Ensure text color is white */
-    margin-bottom: 5px; /* Reduced margin between dropdowns */
-}
-
-/* =========================
-   Dropdown Menu Styling
-   ========================= */
-.ui.dropdown .menu, 
-.ui.search.dropdown .menu {
-    background: #2A2E34; /* Background close to the dropdown itself */
-    border: none; /* Remove border for cleaner look */
-    width: 100%; /* Match the width of the dropdown to the input */
-}
-
-.ui.dropdown .menu .item, 
-.ui.search.dropdown .menu .item {
-    color: #FFFFFF !important; /* Ensure item text color is white */
-}
-
-.ui.dropdown .menu .item:focus, 
-.ui.search.dropdown .menu .item:focus,
-.ui.dropdown .menu .item:hover, 
-.ui.search.dropdown .menu .item:hover {
-    background: #1E2428 !important; /* Darker than the background color for hover effect */
-}
-
-.ui.dropdown .menu .item.active, 
-.ui.search.dropdown .menu .item.active {
-    background: #1E2428 !important; /* Darker than the background color for active state */
-}
-
-/* =========================
    Timezone Text Specific Styling
    ========================= */
 #timezoneText {
