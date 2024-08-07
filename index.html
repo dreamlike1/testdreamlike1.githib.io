@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Date Calculator</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Semantic UI CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 </head>
 <body>
     <div class="container">
         <div id="calculatorBox" class="box">
             <h1>Business Date Calculator</h1>
             <div style="position: relative;">
-                <select id="serviceType">
-                    <option value="expressPaid" selected>Express (Paid)</option>
-                    <option value="expressFree">Express (Free)</option>
-                    <option value="standard">Standard</option>
-                    <option value="economy">Economy</option>
-                    <option value="collection">Collection</option>
-                </select>
+                <div class="ui selection dropdown" id="serviceTypeDropdown">
+                    <input type="hidden" name="serviceType">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Select Service Type</div>
+                    <div class="menu">
+                        <div class="item" data-value="expressPaid">Express (Paid)</div>
+                        <div class="item" data-value="expressFree">Express (Free)</div>
+                        <div class="item" data-value="standard">Standard</div>
+                        <div class="item" data-value="economy">Economy</div>
+                        <div class="item" data-value="collection">Collection</div>
+                    </div>
+                </div>
             </div>
             <div class="input-group">
                 <select id="countrySelect">
@@ -59,6 +64,8 @@
             <div id="copyMessageCoupon" class="copy-message">Copied!</div> <!-- Unique ID for couponBox -->
         </div>
     </div>
+    <!-- Semantic UI JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
