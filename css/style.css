@@ -103,7 +103,7 @@ input, select {
     border: none; /* Remove border for cleaner look */
     border-radius: 4px;
     box-sizing: border-box;
-    background: #1E2428; /* Darker background for input fields */
+    background: #2A2E34; /* Slightly darker background close to the calculator box */
     color: #FFFFFF; /* Ensure input and select text color is white */
     font-family: 'Menlo', monospace; /* Ensure font is Menlo */
     font-size: 1em; /* Set font size to 1em */
@@ -111,7 +111,7 @@ input, select {
 
 #businessDays, #addDays {
     color: #FFFFFF; /* Ensure text color is white */
-    background: #1E2428; /* Darker background for input fields */
+    background: #2A2E34; /* Slightly darker background close to the calculator box */
 }
 
 #businessDays::placeholder, #addDays::placeholder {
@@ -125,7 +125,7 @@ input, select {
     font-size: 1em; /* Set font size to 1em */
     color: #FFFFFF; /* Ensure text color is white */
     border: none; /* Remove border for cleaner look */
-    background: #1E2428; /* Darker background for dropdown */
+    background: #2A2E34; /* Background close to the input field color */
     padding: 12px;
     border-radius: 4px;
     position: relative;
@@ -150,7 +150,7 @@ input, select {
 }
 
 .ui.dropdown .menu {
-    background: #1E2428; /* Darker background for dropdown menu */
+    background: #2A2E34; /* Background close to the dropdown itself */
     border: none; /* Remove border for cleaner look */
     width: 100%; /* Match the width of the dropdown to the input */
 }
@@ -161,11 +161,11 @@ input, select {
 
 .ui.dropdown .item:focus,
 .ui.dropdown .item:hover {
-    background: #161A1E; /* Darker than the background color for hover effect */
+    background: #1E2428; /* Darker than the background color for hover effect */
 }
 
 .ui.dropdown .item.active {
-    background: #161A1E; /* Darker than the background color for active state */
+    background: #1E2428; /* Darker than the background color for active state */
 }
 
 /* =========================
