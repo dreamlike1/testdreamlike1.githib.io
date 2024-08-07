@@ -143,6 +143,8 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     border: none; /* Remove border for cleaner look */
     padding: 12px;
     border-radius: 4px;
+    color: #FFFFFF !important; /* Ensure text color is white */
+    margin-bottom: 5px; /* Reduced margin between dropdowns */
 }
 
 /* =========================
