@@ -81,7 +81,7 @@ h1, #couponTitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 2em; /* Increased font size for titles */
+    font-size: 2.5em; /* Increased font size for titles */
 }
 
 #businessDays {
@@ -169,6 +169,37 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 .ui.dropdown .item.active {
+    background: #1E2428 !important; /* Darker than the background color for active state */
+}
+
+/* =========================
+   Search Dropdown Styling
+   ========================= */
+.ui.search.dropdown {
+    font-size: 1em; /* Match font size with other dropdowns */
+    color: #FFFFFF !important; /* Ensure text color is white */
+    background: #2A2E34; /* Match the background with the input fields */
+    border: none; /* Remove border for cleaner look */
+}
+
+.ui.search.dropdown .text {
+    color: #FFFFFF !important; /* Ensure preview text color is white */
+}
+
+.ui.search.dropdown .menu {
+    background: #2A2E34; /* Match the dropdown background with the input field */
+}
+
+.ui.search.dropdown .item {
+    color: #FFFFFF !important; /* Ensure item text color is white */
+}
+
+.ui.search.dropdown .item:focus,
+.ui.search.dropdown .item:hover {
+    background: #1E2428 !important; /* Darker than the background color for hover effect */
+}
+
+.ui.search.dropdown .item.active {
     background: #1E2428 !important; /* Darker than the background color for active state */
 }
 
@@ -269,105 +300,37 @@ button:hover {
 @-moz-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
-    40% { transform: scale(0.75, 1.25); }
-    50% { transform: scale(1.15, 0.85); }
-    65% { transform: scale(0.95, 1.05); }
-    75% { transform: scale(1.05, 0.95); }
-    to { transform: scale(1, 1); }
+    50% { transform: scale(0.75, 1.25); }
+    100% { transform: scale(1, 1); }
 }
-
 @-webkit-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
-    40% { transform: scale(0.75, 1.25); }
-    50% { transform: scale(1.15, 0.85); }
-    65% { transform: scale(0.95, 1.05); }
-    75% { transform: scale(1.05, 0.95); }
-    to { transform: scale(1, 1); }
+    50% { transform: scale(0.75, 1.25); }
+    100% { transform: scale(1, 1); }
 }
-
-@-o-keyframes jelly-42 {
+@-ms-keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
-    40% { transform: scale(0.75, 1.25); }
-    50% { transform: scale(1.15, 0.85); }
-    65% { transform: scale(0.95, 1.05); }
-    75% { transform: scale(1.05, 0.95); }
-    to { transform: scale(1, 1); }
+    50% { transform: scale(0.75, 1.25); }
+    100% { transform: scale(1, 1); }
 }
-
 @keyframes jelly-42 {
     from { transform: scale(1, 1); }
     30% { transform: scale(1.25, 0.75); }
-    40% { transform: scale(0.75, 1.25); }
-    50% { transform: scale(1.15, 0.85); }
-    65% { transform: scale(0.95, 1.05); }
-    75% { transform: scale(1.05, 0.95); }
-    to { transform: scale(1, 1); }
+    50% { transform: scale(0.75, 1.25); }
+    100% { transform: scale(1, 1); }
 }
 
 /* =========================
-   Input Group for Timezone and Select
+   Responsive Design
    ========================= */
-.input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.timezone-text {
-    font-size: 0.7em; /* Smaller font size for timezone text */
-    color: #FFFFFF; /* Ensure text color is white */
-    margin-bottom: 10px;
-    font-style: italic;
-}
-
-/* =========================
-   Forced Colors Mode
-   ========================= */
-@media (forced-colors: active) {
-    html, body {
-        background-image: none;
-        color: CanvasText;
-        background-color: Canvas;
+@media only screen and (max-width: 600px) {
+    .container {
+        padding-bottom: 20px;
     }
 
-    .box {
-        background: Canvas;
-        color: CanvasText;
-    }
-
-    .switch-button, button {
-        background-color: Highlight;
-        color: HighlightText;
-    }
-
-    .result-field, .copy-message {
-        background: Canvas;
-        color: CanvasText;
-    }
-
-    .checkbox-wrapper-42 .cbx {
-        border: 1px solid Highlight;
-    }
-
-    .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
-        background: Highlight;
-        border-color: Highlight;
-    }
-
-    .ui.dropdown {
-        border: 1px solid Highlight;
-        background: Canvas;
-        color: CanvasText;
-    }
-
-    .ui.dropdown .item {
-        color: CanvasText;
-    }
-
-    .timezone-text {
-        color: CanvasText;
+    .switch-button {
+        width: 100%;
     }
 }
