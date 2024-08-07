@@ -78,41 +78,5 @@
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
-    <!-- Initialize Semantic UI dropdowns -->
-    <script>
-        $(document).ready(function() {
-            // Initialize service type dropdown
-            $('#serviceTypeDropdown').dropdown({
-                onChange: function(value, text, $selectedItem) {
-                    $('#serviceType').val(value); // Update hidden input field
-                }
-            });
-
-            // Initialize search dropdown for country selection
-            $('#countrySelectDropdown').dropdown({
-                onChange: function(value, text, $selectedItem) {
-                    $('#countrySelect').val(value); // Update hidden input field
-                },
-                allowAdditions: true,
-                apiSettings: {
-                    url: 'https://restcountries.com/v2/all', // URL for fetching country data
-                    cache: false,
-                    response: {
-                        results: function(response) {
-                            return response.map(country => ({
-                                title: country.name,
-                                value: country.alpha3Code
-                            }));
-                        }
-                    }
-                },
-                fields: {
-                    results: 'results',
-                    title: 'title'
-                },
-                minCharacters: 1
-            });
-        });
-    </script>
 </body>
 </html>
