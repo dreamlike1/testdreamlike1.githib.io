@@ -29,9 +29,15 @@
                 </div>
             </div>
             <div class="input-group">
-                <select id="countrySelect">
-                    <!-- Options will be populated dynamically -->
-                </select>
+                <!-- Semantic UI search dropdown for country selection -->
+                <div class="ui search dropdown" id="countrySelectDropdown">
+                    <input type="hidden" name="country" id="countrySelect">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Select Country</div>
+                    <div class="menu">
+                        <!-- Options will be populated dynamically -->
+                    </div>
+                </div>
                 <p id="timezoneText" class="timezone-text"></p> <!-- Timezone text here -->
             </div>
             <div style="position: relative;">
@@ -72,13 +78,31 @@
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
-    <!-- Initialize Semantic UI dropdown -->
+    <!-- Initialize Semantic UI dropdowns -->
     <script>
         $(document).ready(function() {
+            // Initialize service type dropdown
             $('.ui.dropdown').dropdown({
                 onChange: function(value, text, $selectedItem) {
                     $('#serviceType').val(value); // Update hidden input field
                 }
+            });
+
+            // Initialize search dropdown for country selection
+            $('#countrySelectDropdown').dropdown({
+                onChange: function(value, text, $selectedItem) {
+                    $('#countrySelect').val(value); // Update hidden input field
+                },
+                allowAdditions: true, // Allow adding new items if needed
+                apiSettings: {
+                    url: 'https://restcountries.com/v2/all', // URL for fetching country data (example)
+                    cache: false
+                },
+                fields: {
+                    results: 'results',
+                    title: 'name'
+                },
+                minCharacters: 1
             });
         });
     </script>
