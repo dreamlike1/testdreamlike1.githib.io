@@ -1,5 +1,3 @@
-
-
 // js/switch.js
 
 export function setupSwitchButton() {
@@ -34,8 +32,8 @@ export function setupSwitchButton() {
         calculatorBox.classList.add('hidden');
         couponExpiryBox.classList.remove('hidden');
         switchButton.textContent = 'Switch to ETA Calculator';
-        boxTitle.textContent = 'Coupon Expiry';
-        couponTitle.textContent = 'Business Date Calculator';
+        boxTitle.textContent = 'Business Date Calculator';
+        couponTitle.textContent = 'Coupon Expiry';
     }
 
     couponCalculateButton.addEventListener('click', () => {
