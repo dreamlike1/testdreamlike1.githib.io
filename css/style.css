@@ -332,6 +332,6 @@ button:hover {
 
     /* Increased space below the timezone text on small screens */
     .timezone-text {
-        margin-bottom: 40px; /* Increase space below the timezone text */
+        margin-bottom: 60px; /* Increase space below the timezone text */
     }
 }
