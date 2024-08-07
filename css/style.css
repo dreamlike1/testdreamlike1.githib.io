@@ -216,5 +216,5 @@ button:hover {
    Specific Styling for Start Date Input
    ========================= */
 #startDate {
-    margin-bottom: 5px; !important/* Adjust as needed */
+    margin-bottom: 5px !important;/* Adjust as needed */
 }
