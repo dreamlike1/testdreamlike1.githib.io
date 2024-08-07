@@ -12,20 +12,21 @@ html, body {
     font-size: 1.15em;
 }
 
+/* Container styling */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 400px; /* Ensures the container doesn't get too wide */
-    position: relative; /* For absolute positioning inside it */
-    padding-bottom: 80px; /* Add padding at the bottom for the switch button */
+    max-width: 400px;
+    position: relative;
+    padding-bottom: 80px;
 }
 
-/* General styling for boxes */
+/* Box styling */
 .box {
     padding: 20px;
-    background: #31363F; /* Secondary background for boxes */
+    background: #31363F;
     border-radius: 12px;
     box-shadow:
         0 1px 1px rgba(0, 0, 0, 0.075),
@@ -33,103 +34,102 @@ html, body {
         0 4px 4px rgba(0, 0, 0, 0.075),
         0 8px 8px rgba(0, 0, 0, 0.075),
         0 16px 16px rgba(0, 0, 0, 0.075);
-    color: #EEEEEE; /* Light text color for readability */
+    color: #EEEEEE;
     text-align: center;
-    margin-bottom: 60px; /* Space between boxes and button */
-    position: relative; /* For positioning elements within the box */
-    min-height: 200px; /* Ensures the box has a minimum height */
+    margin-bottom: 60px;
+    position: relative;
+    min-height: 200px;
 }
 
-/* Ensure the switch button stays at the bottom */
+/* Switch button styling */
 .switch-button {
-    width: 80%; /* Adjusted width to make it smaller */
-    max-width: 300px; /* Optional: maximum width to keep it from getting too large */
+    width: 80%;
+    max-width: 300px;
     padding: 12px;
-    background-color: #5F9EA0; /* Darker button color */
-    color: #ffffff; /* White text color */
+    background-color: #5F9EA0;
+    color: #ffffff;
     border: none;
-    border-radius: 20px; /* More rounded edges */
+    border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
     font-family: 'Menlo', monospace;
-    position: fixed; /* Position the button fixedly */
-    bottom: 20px; /* Align it at the bottom with some margin */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .switch-button:hover {
-    background-color: #4F8C8A; /* Slightly lighter color for hover */
+    background-color: #4F8C8A;
 }
 
-/* Hide the box */
+/* Hide elements */
 .hidden {
     display: none;
 }
 
-/* Ensure titles fit on a single line */
+/* Title styling */
 h1, #couponTitle {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 1.15em;
 }
 
-/* Style input and select elements */
+/* Input and select styling */
 input, select {
     width: 100%;
     padding: 12px;
     margin: 5px 0;
-    border: 1px solid #76ABAE; /* Darker border */
+    border: 1px solid #76ABAE;
     border-radius: 4px;
     box-sizing: border-box;
-    background: #2A2E34; /* Darker shade for input background */
-    color: #EEEEEE; /* Light text color */
+    background: #2A2E34;
+    color: #EEEEEE;
     appearance: none;
     font-family: 'Menlo', monospace;
     color-scheme: dark;
 }
 
-/* Ensure correct color for businessDays field */
 #businessDays, #addDays {
     color: #EEEEEE;
-    background: #2A2E34; /* Darker shade for background */
+    background: #2A2E34;
 }
 
 #businessDays::placeholder, #addDays::placeholder {
-    color: #65676C; /* Darker placeholder color to match input background */
+    color: #65676C;
 }
 
-/* Remove dropdown arrow */
+/* Remove default dropdown arrow */
 select {
-    background-image: none; /* Removes default dropdown arrow */
+    background-image: none;
 }
 
 /* Restore calendar icon for date input */
 input[type="date"]::-webkit-calendar-picker-indicator {
-    display: block; /* Shows the calendar icon in WebKit browsers */
+    display: block;
 }
 
-/* Style button */
+/* Button styling */
 button {
     width: 100%;
     padding: 12px;
     margin: 5px 0;
-    background-color: #76ABAE; /* Updated button color */
-    color: #ffffff; /* White text color */
+    background-color: #76ABAE;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
     font-family: 'Menlo', monospace;
-    position: relative; /* Ensures it's positioned correctly within the box */
+    position: relative;
 }
 
 button:hover {
-    background-color: #6b9f97; /* Slightly lighter green for hover */
+    background-color: #6b9f97;
 }
 
-/* Style result field */
+/* Result field styling */
 .result-field {
     background: #EEEEEE;
     color: #31363F;
@@ -141,10 +141,10 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Style copy message */
+/* Copy message styling */
 .copy-message {
     position: absolute;
-    background: #76ABAE; /* Darker green for consistency */
+    background: #76ABAE;
     color: white;
     padding: 10px;
     border-radius: 4px;
@@ -152,32 +152,29 @@ button:hover {
     z-index: 10;
 }
 
-/* Style checkbox wrapper and adjust alignment */
+/* Checkbox styling */
 .checkbox-wrapper-42 {
     display: flex;
     align-items: center;
     margin: 5px 0;
 }
 
-/* Hide default checkbox appearance */
 .checkbox-wrapper-42 input[type="checkbox"] {
-    display: none; /* Hide default checkbox */
+    display: none;
 }
 
-/* Style custom checkbox */
 .checkbox-wrapper-42 .cbx {
     width: 17px;
     height: 17px;
-    border: 1px solid #76ABAE; /* Darker border */
+    border: 1px solid #76ABAE;
     border-radius: 3px;
-    background: #2A2E34; /* Match the input field background */
+    background: #2A2E34;
     position: relative;
     transition: background 0.1s ease;
     cursor: pointer;
-    margin-right: 10px; /* Space between checkbox and label */
+    margin-right: 10px;
 }
 
-/* Style checkmark */
 .checkbox-wrapper-42 .cbx:after {
     content: '';
     position: absolute;
@@ -187,15 +184,14 @@ button:hover {
     height: 10px;
     opacity: 0;
     transform: rotate(45deg) scale(0);
-    border-right: 2px solid #EEEEEE; /* Light checkmark color */
-    border-bottom: 2px solid #EEEEEE; /* Light checkmark color */
+    border-right: 2px solid #EEEEEE;
+    border-bottom: 2px solid #EEEEEE;
     transition: all 0.3s ease;
 }
 
-/* Checkbox checked state */
 .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
-    background: #76ABAE; /* Darker green background for checked state */
-    border-color: #76ABAE; /* Matching border color */
+    background: #76ABAE;
+    border-color: #76ABAE;
 }
 
 .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx:after {
@@ -247,45 +243,98 @@ button:hover {
 /* New container for timezone text and select */
 .input-group {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align items to the left */
-    width: 100%; /* Ensure it takes full width */
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
 
-/* Style the timezone text to ensure it aligns properly */
+/* Timezone text styling */
 .timezone-text {
-    font-size: 0.1em; /* Smaller font size */
-    color: #CCCCCC; /* Light grey for contrast */
-    margin-bottom: 10px; /* Space below the timezone text */
-    white-space: nowrap; /* Ensure text stays on one line */
+    font-size: 0.1em;
+    color: #CCCCCC;
+    margin-bottom: 10px;
+    white-space: nowrap;
     font-style: italic;
 }
 
-/* Adjust the select to align with the timezone text */
+/* Adjust select styling */
 select {
-    margin-bottom: 10px; /* Space between select and timezone text */
+    margin-bottom: 10px;
 }
 
-/* Style the Semantic UI dropdown */
+/* Semantic UI dropdown styling */
 .ui.dropdown {
-    border: 1px solid #76ABAE; /* Match the border color with other inputs */
-    background: #2A2E34; /* Darker background */
-    color: #EEEEEE; /* Light text color */
-    border-radius: 4px; /* Match the border radius */
-    padding: 12px; /* Match padding with other inputs */
+    border: 1px solid #76ABAE;
+    background: #2A2E34;
+    color: #EEEEEE;
+    border-radius: 4px;
+    padding: 12px;
 }
 
-/* Adjust dropdown for Semantic UI */
 .ui.dropdown .text {
-    color: #EEEEEE; /* Light text color */
+    color: #EEEEEE;
 }
 
 .ui.dropdown .menu {
-    background: #2A2E34; /* Match background color */
-    border: 1px solid #76ABAE; /* Match border color */
+    background: #2A2E34;
+    border: 1px solid #76ABAE;
 }
 
-/* Ensure correct color for dropdown items */
 .ui.dropdown .item {
-    color: #EEEEEE; /* Light text color */
+    color: #EEEEEE;
+}
+
+/* Forced Colors Mode styles */
+@media (forced-colors: active) {
+    html, body {
+        background-image: none; /* Remove background image for better contrast */
+    }
+
+    .box {
+        background: Canvas; /* Use system-defined color for contrast */
+        color: CanvasText; /* Use system-defined color for text */
+    }
+
+    .switch-button {
+        background-color: Highlight; /* Use system-defined highlight color */
+        color: HighlightText; /* Use system-defined highlight text color */
+    }
+
+    button {
+        background-color: Highlight; /* Use system-defined highlight color */
+        color: HighlightText; /* Use system-defined highlight text color */
+    }
+
+    .result-field {
+        background: Canvas; /* Use system-defined color for result field */
+        color: CanvasText; /* Use system-defined color for text */
+    }
+
+    .copy-message {
+        background: Highlight; /* Use system-defined highlight color */
+        color: HighlightText; /* Use system-defined highlight text color */
+    }
+
+    .checkbox-wrapper-42 .cbx {
+        border: 1px solid Highlight; /* Use system-defined highlight color */
+    }
+
+    .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
+        background: Highlight; /* Use system-defined highlight color */
+        border-color: Highlight; /* Use system-defined highlight color */
+    }
+
+    .ui.dropdown {
+        border: 1px solid Highlight; /* Use system-defined highlight color */
+        background: Canvas; /* Use system-defined color */
+        color: CanvasText; /* Use system-defined color */
+    }
+
+    .ui.dropdown .item {
+        color: CanvasText; /* Use system-defined color */
+    }
+
+    .timezone-text {
+        color: CanvasText; /* Use system-defined color */
+    }
 }
