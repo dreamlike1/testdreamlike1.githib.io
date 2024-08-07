@@ -109,9 +109,19 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
-   Dropdown Styling
+   Dropdown Icon Alignment
    ========================= */
-.ui.dropdown, .ui.search.dropdown {
+.ui.dropdown .dropdown.icon,
+.ui.search.dropdown .dropdown.icon {
+    right: 10px; /* Adjust this value as needed for proper alignment */
+    left: auto;  /* Ensure it doesn't interfere with left alignment */
+}
+
+/* =========================
+   Service Type Dropdown Styling
+   ========================= */
+.ui.dropdown#serviceTypeDropdown,
+.ui.search.dropdown#serviceTypeDropdown {
     font-size: 1em; /* Match font size with other dropdowns */
     color: #FFFFFF !important; /* Ensure text color is white */
     border: none; /* Remove border for cleaner look */
@@ -124,49 +134,6 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
-   Country Dropdown Styling
-   ========================= */
-.ui.search.dropdown#countrySelectDropdown, 
-.ui.dropdown#countrySelectDropdown {
-    /* Revert to default styles for country dropdown */
-}
-
-/* =========================
-   Country Dropdown Menu Styling
-   ========================= */
-.ui.search.dropdown#countrySelectDropdown .menu, 
-.ui.dropdown#countrySelectDropdown .menu {
-    background: #2A2E34; /* Background close to the dropdown itself */
-    border: none; /* Remove border for cleaner look */
-    width: 100%; /* Match the width of the dropdown to the input */
-}
-
-.ui.search.dropdown#countrySelectDropdown .menu .item, 
-.ui.dropdown#countrySelectDropdown .menu .item {
-    color: #FFFFFF !important; /* Ensure item text color is white */
-}
-
-.ui.search.dropdown#countrySelectDropdown .menu .item:focus, 
-.ui.dropdown#countrySelectDropdown .menu .item:focus,
-.ui.search.dropdown#countrySelectDropdown .menu .item:hover, 
-.ui.dropdown#countrySelectDropdown .menu .item:hover {
-    background: #1E2428 !important; /* Darker than the background color for hover effect */
-}
-
-.ui.search.dropdown#countrySelectDropdown .menu .item.active, 
-.ui.dropdown#countrySelectDropdown .menu .item.active {
-    background: #1E2428 !important; /* Darker than the background color for active state */
-}
-
-/* =========================
-   Service Type Dropdown Styling
-   ========================= */
-.ui.search.dropdown#serviceTypeDropdown, 
-.ui.dropdown#serviceTypeDropdown {
-    /* Revert to default styles for service type dropdown */
-}
-
-/* =========================
    Dropdown Menu Styling
    ========================= */
 .ui.dropdown .menu, 
@@ -176,20 +143,20 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     width: 100%; /* Match the width of the dropdown to the input */
 }
 
-.ui.dropdown .item, 
-.ui.search.dropdown .item {
+.ui.dropdown .menu .item, 
+.ui.search.dropdown .menu .item {
     color: #FFFFFF !important; /* Ensure item text color is white */
 }
 
-.ui.dropdown .item:focus, 
-.ui.search.dropdown .item:focus,
-.ui.dropdown .item:hover, 
-.ui.search.dropdown .item:hover {
+.ui.dropdown .menu .item:focus, 
+.ui.search.dropdown .menu .item:focus,
+.ui.dropdown .menu .item:hover, 
+.ui.search.dropdown .menu .item:hover {
     background: #1E2428 !important; /* Darker than the background color for hover effect */
 }
 
-.ui.dropdown .item.active, 
-.ui.search.dropdown .item.active {
+.ui.dropdown .menu .item.active, 
+.ui.search.dropdown .menu .item.active {
     background: #1E2428 !important; /* Darker than the background color for active state */
 }
 
