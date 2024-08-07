@@ -124,19 +124,6 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
-   Dropdown Arrow Styling
-   ========================= */
-.ui.dropdown .dropdown.icon, 
-.ui.search.dropdown .dropdown.icon {
-    color: #FFFFFF !important; /* Default arrow color */
-    right: 10px; /* Default positioning from the right */
-    position: absolute; /* Ensure proper positioning */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust vertical alignment */
-    font-size: 1em; /* Default font size for arrows */
-}
-
-/* =========================
    Country Dropdown Styling
    ========================= */
 .ui.search.dropdown#countrySelectDropdown, 
