@@ -1,75 +1,95 @@
-import { countryOptions } from '../api/countryData.js'; // Adjust the path as needed
+import { countryOptions } from '../api/countryData.js';
 import { fetchHolidays } from '../api/holidays.js';
 
 let holidaysCache = {};  // Cache to store holidays data for all countries
 
 /**
  * Populate the country dropdown with options based on the selected service type.
+ * @param {string} serviceType - The service type to filter countries.
  */
 export async function populateCountries(serviceType = 'expressPaid') {
     const countrySelectDropdown = $('#countrySelect');
     const countries = countryOptions[serviceType] || [];
-
-    console.log('Service Type:', serviceType); // Debugging line
-    console.log('Countries:', countries); // Debugging line
-
-    // Prepare options for Semantic UI dropdown
+    
+    // Debugging: log service type and available countries
+    console.log('Service Type:', serviceType);
+    console.log('Countries:', countries);
+    
+    // Prepare dropdown options
     const options = countries.map(country => ({
         text: country,
         value: country
     }));
 
-    console.log('Dropdown Options:', options); // Debugging line
+    // Debugging: log dropdown options
+    console.log('Dropdown Options:', options);
 
+    // Reinitialize dropdown
+    await initializeDropdown(countrySelectDropdown, options);
+
+    // Clear previous holidays data
+    holidaysCache = {};
+
+    // Fetch and cache holidays
+    await fetchAndCacheHolidays(countries);
+}
+
+/**
+ * Initialize or reinitialize the dropdown with the provided options.
+ * @param {jQuery} dropdown - The jQuery object of the dropdown element.
+ * @param {Array} options - Array of options to populate the dropdown.
+ */
+async function initializeDropdown(dropdown, options) {
     // Clear existing options
-    countrySelectDropdown.empty();
-
+    dropdown.empty();
+    
     // Append the default option
-    countrySelectDropdown.append('<option value="" disabled selected>Select Country</option>');
+    dropdown.append('<option value="" disabled selected>Select Country</option>');
 
-    // Destroy existing dropdown instance if exists
-    countrySelectDropdown.dropdown('destroy');
+    // Destroy existing dropdown instance
+    dropdown.dropdown('destroy');
 
     // Append new options
     const optionElements = options.map(option => `<option value="${option.value}">${option.text}</option>`).join('');
-    countrySelectDropdown.append(optionElements);
+    dropdown.append(optionElements);
 
     // Reinitialize Semantic UI dropdown
-    countrySelectDropdown.dropdown({
-        onChange: function (value) {
-            console.log('Dropdown value changed to:', value); // Debugging line
-            // Manually hide the dropdown
-            setTimeout(() => {
-                countrySelectDropdown.dropdown('hide');
-            }, 0);
+    dropdown.dropdown({
+        onChange: function(value) {
+            console.log('Dropdown value changed to:', value);
+            // Manually hide the dropdown with a slight delay
+            setTimeout(() => dropdown.dropdown('hide'), 100);
         }
     });
 
     // Set the first country as selected if options are available
     if (options.length > 0) {
-        countrySelectDropdown.dropdown('set selected', options[0].value);
+        dropdown.dropdown('set selected', options[0].value);
     }
+}
 
-    // Clear previous holidays data
-    holidaysCache = {};
-
-    // Fetch and cache holidays for each country in the background
-    const fetchHolidaysPromises = countries.map(async (country) => {
+/**
+ * Fetch holidays for each country and cache the results.
+ * @param {Array} countries - Array of country names to fetch holidays for.
+ */
+async function fetchAndCacheHolidays(countries) {
+    // Create an array of promises to fetch holidays for all countries
+    const fetchHolidaysPromises = countries.map(async country => {
         try {
-            console.log('Fetching holidays for:', country); // Debugging line
+            console.log('Fetching holidays for:', country);
             const currentYear = new Date().getFullYear();
             const holidays = await fetchHolidays(country, currentYear);
             holidaysCache[country] = holidays; // Store holidays in cache
-            console.log('Holidays fetched for:', country, holidays); // Debugging line
+            console.log('Holidays fetched for:', country, holidays);
         } catch (error) {
             console.error(`Error fetching holidays for ${country}:`, error);
         }
     });
 
-    // Wait for all holidays data to be fetched and cached
+    // Wait for all promises to resolve
     await Promise.all(fetchHolidaysPromises);
 
-    console.log('All holidays data fetched and cached'); // Debugging line
+    console.log('All holidays data fetched and cached');
 }
 
 /**
