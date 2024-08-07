@@ -1,13 +1,11 @@
-// ui/countryUtils.js
-
 import { countryOptions } from '../api/countryData.js';
 import { fetchHolidays } from '../api/holidays.js';
 
 let holidaysCache = {};  // Cache to store holidays data for all countries
 
 /**
- * Fetch and cache holidays for countries based on the selected service type,
- * and populate the country dropdown.
+ * Populate the country dropdown with options based on the selected service type,
+ * and set the first country as the selected option.
  */
 export async function populateCountries(serviceType = 'default') {
     const countrySelect = document.getElementById('countrySelect');
@@ -16,11 +14,24 @@ export async function populateCountries(serviceType = 'default') {
     // Clear the current options in the dropdown
     countrySelect.innerHTML = '<option value="">Select a country</option>'; // Add default option
 
+    // Populate the country dropdown with options
+    countries.forEach((country, index) => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        countrySelect.appendChild(option);
+
+        // Set the first country as selected
+        if (index === 0) {
+            countrySelect.value = country;
+        }
+    });
+
     // Clear previous holidays data
     holidaysCache = {};
 
-    // Fetch holidays for each country and update cache
-    for (const country of countries) {
+    // Fetch and cache holidays for each country in the background
+    const fetchHolidaysPromises = countries.map(async (country) => {
         try {
             const currentYear = new Date().getFullYear();
             const holidays = await fetchHolidays(country, currentYear);
@@ -28,15 +39,10 @@ export async function populateCountries(serviceType = 'default') {
         } catch (error) {
             console.error(`Error fetching holidays for ${country}:`, error);
         }
-    }
-
-    // Populate the country dropdown
-    countries.forEach(country => {
-        const option = document.createElement('option');
-        option.value = country;
-        option.textContent = country;
-        countrySelect.appendChild(option);
     });
+
+    // Wait for all holidays data to be fetched and cached
+    await Promise.all(fetchHolidaysPromises);
 }
 
 /**
