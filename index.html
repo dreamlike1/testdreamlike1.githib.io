@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +10,24 @@
     <div class="container">
         <div id="calculatorBox" class="box">
             <h1>Business Date Calculator</h1>
-            <div style="position: relative;">
-                <select id="serviceType">
+            <div class="searchSelect3">
+                <select id="serviceType" class="searchSelect3_Input">
                     <option value="expressPaid" selected>Express (Paid)</option>
                     <option value="expressFree">Express (Free)</option>
                     <option value="standard">Standard</option>
                     <option value="economy">Economy</option>
                     <option value="collection">Collection</option>
                 </select>
+                <span class="searchSelect3_Caret_Down">&#9660;</span>
             </div>
             <div class="input-group">
-                <select id="countrySelect">
-                    <!-- Options will be populated dynamically -->
-                </select>
-                <p id="timezoneText" class="timezone-text"></p> <!-- Timezone text here -->
+                <div class="searchSelect3">
+                    <select id="countrySelect" class="searchSelect3_Input">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                    <span class="searchSelect3_Caret_Down">&#9660;</span>
+                </div>
+                <p id="timezoneText" class="timezone-text"></p>
             </div>
             <div style="position: relative;">
                 <input type="date" id="startDate" required>
@@ -37,16 +40,18 @@
             <input type="text" id="businessDays" placeholder="Business Days (ex. 1-2 or 1,2)" required>
             <button id="calculateButton">Calculate</button>
             <input type="text" id="result" class="result-field" readonly>
-            <div id="copyMessageCalculator" class="copy-message">Copied!</div> <!-- Unique ID for calculatorBox -->
+            <div id="copyMessageCalculator" class="copy-message">Copied!</div>
         </div>
         <button id="switchButton" class="switch-button">Switch to Coupon Expiry</button>
         <div id="couponBox" class="box hidden">
             <h1 id="couponTitle">Coupon Expiry</h1>
-            <div style="position: relative;">
-                <input type="date" id="couponDate" required>
+            <div class="searchSelect3">
+                <input type="date" id="couponDate" required class="searchSelect3_Input">
+                <span class="searchSelect3_Caret_Down">&#9660;</span>
             </div>
-            <div style="position: relative;">
-                <input type="text" id="addDays" placeholder="Add Days" required>
+            <div class="searchSelect3">
+                <input type="text" id="addDays" placeholder="Add Days" required class="searchSelect3_Input">
+                <span class="searchSelect3_Caret_Down">&#9660;</span>
             </div>
             <div class="checkbox-wrapper-42">
                 <input id="cbx-43" type="checkbox" />
@@ -55,7 +60,7 @@
             </div>
             <button id="couponCalculateButton">Calculate</button>
             <input type="text" id="couponResult" class="result-field" readonly>
-            <div id="copyMessageCoupon" class="copy-message">Copied!</div> <!-- Unique ID for couponBox -->
+            <div id="copyMessageCoupon" class="copy-message">Copied!</div>
         </div>
     </div>
     <script type="module" src="js/main.js"></script>
