@@ -4,15 +4,14 @@ import { setupSwitchButton } from './switch/switch.js'; // Import the switch but
 import { initializeTimezone } from './timezone/timezone.js'; // Import the timezone initialization function
 
 document.addEventListener('DOMContentLoaded', () => {
-    const serviceTypeDropdown = document.getElementById('serviceTypeDropdown');
-    const defaultServiceType = serviceTypeDropdown ? serviceTypeDropdown.querySelector('.default.text').innerText : 'Express (Paid)';
+    const defaultServiceType = 'expressPaid'; // Set default service type if necessary
 
     // Initialize Semantic UI dropdowns
     $('.ui.dropdown').dropdown();
 
     // Populate countries dropdown and fetch holidays based on default serviceType
     populateCountries(defaultServiceType).then(() => {
-        $('#countrySelectDropdown').dropdown('refresh');
+        $('#countrySelect').dropdown('refresh'); // Ensure correct ID is used here
     });
 
     setupEventListeners(); // Setup event listeners for UI elements
