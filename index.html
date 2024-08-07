@@ -8,23 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <!-- Include your custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .hidden {
-            display: none;
-        }
-        .copy-message {
-            display: none;
-            color: green;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Calculator Box -->
         <div id="calculatorBox" class="box">
-            <div id="boxTitle">Business Date Calculator</div> <!-- Added this -->
+            <h1>Business Date Calculator</h1>
             <div class="ui form">
-                <!-- Form fields for the Business Date Calculator -->
                 <div class="field">
                     <select id="serviceType" class="ui dropdown" name="serviceType">
                         <option value="" disabled selected>Select Service Type</option>
@@ -59,15 +48,10 @@
                 <div id="copyMessageCalculator" class="copy-message">Copied!</div>
             </div>
         </div>
-
-        <!-- Switch Button -->
         <button id="switchButton" class="switch-button ui button">Switch to Coupon Expiry</button>
-
-        <!-- Coupon Box -->
         <div id="couponBox" class="box hidden">
             <h1 id="couponTitle">Coupon Expiry</h1>
             <div class="ui form">
-                <!-- Form fields for the Coupon Expiry -->
                 <div class="field">
                     <input type="date" id="couponDate" required>
                 </div>
@@ -87,7 +71,6 @@
             </div>
         </div>
     </div>
-
     <!-- Include jQuery first -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include Semantic UI JS -->
