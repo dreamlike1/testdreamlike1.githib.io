@@ -46,8 +46,10 @@ async function initializeDropdown(dropdown, options) {
     // Append the default option
     dropdown.append('<option value="" disabled selected>Select Country</option>');
 
-    // Destroy existing dropdown instance
-    dropdown.dropdown('destroy');
+    // Destroy existing dropdown instance if it exists
+    if (dropdown.hasClass('ui dropdown')) {
+        dropdown.dropdown('destroy');
+    }
 
     // Append new options
     const optionElements = options.map(option => `<option value="${option.value}">${option.text}</option>`).join('');
@@ -59,7 +61,9 @@ async function initializeDropdown(dropdown, options) {
             console.log('Dropdown value changed to:', value);
             // Manually hide the dropdown with a slight delay
             setTimeout(() => dropdown.dropdown('hide'), 100);
-        }
+        },
+        allowAdditions: false, // Disable adding new items if not needed
+        fullTextSearch: true   // Enable full text search if needed
     });
 
     // Set the first country as selected if options are available
