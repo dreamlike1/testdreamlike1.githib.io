@@ -84,28 +84,13 @@ h1, #couponTitle {
     font-size: 2.5em; /* Increased font size for titles */
 }
 
-#businessDays {
-    font-size: 1em; /* Match font size to input fields */
-    color: #B0B0B0; /* Default gray color */
-}
-
-/* =========================
-   Timezone Text Styling
-   ========================= */
-.timezone-text {
-    font-size: 0.7em; /* Smaller font size for timezone text */
-    color: #FFFFFF; /* Ensure text color is white */
-    margin-bottom: 30px; /* Add space below the timezone text */
-    font-style: italic;
-}
-
 /* =========================
    Input and Select Styling
    ========================= */
 input, select {
     width: 100%;
     padding: 12px;
-    margin: 5px 0;
+    margin: 5px 0; /* Reduced margin for cleaner spacing */
     border: none; /* Remove border for cleaner look */
     border-radius: 4px;
     box-sizing: border-box;
@@ -135,7 +120,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     border-radius: 4px;
     position: relative;
     width: 100%; /* Match the width to the input/select fields */
-    margin-bottom: 15px; /* Add space between dropdowns */
+    margin-bottom: 10px; /* Reduced margin between dropdowns */
 }
 
 .ui.dropdown .dropdown.icon {
@@ -181,7 +166,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     color: #FFFFFF !important; /* Ensure text color is white */
     background: #2A2E34; /* Match the background with the input fields */
     border: none; /* Remove border for cleaner look */
-    margin-bottom: 15px; /* Add space below the search dropdown */
+    margin-bottom: 10px; /* Reduced margin below the search dropdown */
 }
 
 .ui.search.dropdown .text {
@@ -339,14 +324,14 @@ button:hover {
         width: 100%;
     }
 
-    /* Add space between service type and country select */
+    /* Reduced space between service type and country select */
     .ui.dropdown#serviceTypeDropdown,
     .ui.search.dropdown#countrySelectDropdown {
-        margin-bottom: 20px; /* Add space between dropdowns */
+        margin-bottom: 10px; /* Reduced space between dropdowns */
     }
 
-    /* Add space below the timezone text */
+    /* Increased space below the timezone text on small screens */
     .timezone-text {
-        margin-bottom: 30px; /* Space below the timezone text */
+        margin-bottom: 40px; /* Increase space below the timezone text */
     }
 }
