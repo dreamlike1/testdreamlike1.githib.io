@@ -118,10 +118,9 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
-   Service Type Dropdown Styling
+   Service Type Dropdown Specific Styling
    ========================= */
-.ui.dropdown#serviceTypeDropdown,
-.ui.search.dropdown#serviceTypeDropdown {
+.ui.dropdown#serviceTypeDropdown {
     font-size: 1em; /* Match font size with other dropdowns */
     color: #FFFFFF !important; /* Ensure text color is white */
     border: none; /* Remove border for cleaner look */
