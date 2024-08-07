@@ -124,6 +124,11 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     padding-right: 40px; /* Add space for custom styling */
 }
 
+/* Remove the dropdown icon for the service type dropdown */
+.ui.dropdown#serviceTypeDropdown .dropdown.icon {
+    display: none;
+}
+
 /* =========================
    Country Dropdown Specific Styling
    ========================= */
