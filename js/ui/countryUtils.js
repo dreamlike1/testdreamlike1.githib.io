@@ -8,7 +8,7 @@ let holidaysCache = {};  // Cache to store holidays data for all countries
  * and set the first country as the selected option.
  */
 export async function populateCountries(serviceType = 'expressPaid') {
-    const countrySelectDropdown = $('#countrySelect'); // Ensure correct ID is used here
+    const countrySelectDropdown = $('#countrySelect');
     const countries = countryOptions[serviceType] || [];
 
     console.log('Service Type:', serviceType); // Debugging line
@@ -22,17 +22,18 @@ export async function populateCountries(serviceType = 'expressPaid') {
 
     console.log('Dropdown Options:', options); // Debugging line
 
-    // Clear existing options and add new ones
-    countrySelectDropdown.empty(); // Ensure dropdown is cleared
-    countrySelectDropdown.append('<option value="" disabled selected>Select Country</option>'); // Reset the default option
+    // Clear existing options
+    countrySelectDropdown.empty();
+
+    // Append the default option
+    countrySelectDropdown.append('<option value="" disabled selected>Select Country</option>');
 
     // Destroy existing dropdown instance
     console.log('Destroying existing dropdown'); // Debugging line
     countrySelectDropdown.dropdown('destroy');
 
-    // Add new options
-    const optionElements = options.map(option => `<option value="${option.value}">${option.text}</option>`).join('');
-    countrySelectDropdown.append(optionElements);
+    // Append new options
+    countrySelectDropdown.append(options.map(option => `<option value="${option.value}">${option.text}</option>`).join(''));
 
     // Reinitialize Semantic UI dropdown
     console.log('Reinitializing dropdown'); // Debugging line
@@ -45,9 +46,14 @@ export async function populateCountries(serviceType = 'expressPaid') {
     }
 
     // Add event listener to handle dropdown closure after selection
-    countrySelectDropdown.on('change', function() {
-        console.log('Dropdown value changed'); // Debugging line
-        countrySelectDropdown.dropdown('hide'); // Manually hide the dropdown
+    countrySelectDropdown.dropdown({
+        onChange: function (value) {
+            console.log('Dropdown value changed to:', value); // Debugging line
+            // Manually hide the dropdown
+            setTimeout(() => {
+                countrySelectDropdown.dropdown('hide');
+            }, 0);
+        }
     });
 
     // Clear previous holidays data
