@@ -1,3 +1,4 @@
+
 /* General styling for body and container */
 html, body {
     height: 100%;
@@ -244,39 +245,28 @@ button:hover {
     to { transform: scale(1, 1); }
 }
 
-/* Style timezone text */
+/* New container for timezone text and select */
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+    width: 100%; /* Ensure it takes full width */
+}
+
+/* Style the timezone text to ensure it aligns properly */
 .timezone-text {
-    font-size: 1em; /* Ensure font size matches other inputs */
-    color: #EEEEEE; /* Light text color */
-    margin-top: 10px; /* Space between input and timezone text */
+    font-size: 0.1em; /* Smaller font size */
+    color: #CCCCCC; /* Light grey for contrast */
+    margin-bottom: 10px; /* Space below the timezone text */
+    white-space: nowrap; /* Ensure text stays on one line */
+    font-style: italic;
 }
 
-/* Style for Select2 dropdown */
-.select2-container--default .select2-selection--single {
-    background-color: #2A2E34; /* Match input background */
-    color: #EEEEEE; /* Match input text color */
-    border: 1px solid #76ABAE; /* Match input border */
-    border-radius: 4px;
-    font-size: 1em; /* Match font size */
+/* Adjust the select to align with the timezone text */
+select {
+    margin-bottom: 10px; /* Space between select and timezone text */
 }
 
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: #EEEEEE; /* Match text color */
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow {
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    color: #EEEEEE; /* Match arrow color */
-}
-
-.select2-container--default .select2-results__option {
-    background-color: #2A2E34; /* Match dropdown background */
-    color: #EEEEEE; /* Match dropdown text color */
-}
-
-.select2-container--default .select2-results__option--highlighted {
-    background-color: #76ABAE; /* Highlighted option background */
-    color: #2A2E34; /* Highlighted option text color */
+.lbl {
+    font-size: 1em; /* Change this value to adjust the font size */
 }
