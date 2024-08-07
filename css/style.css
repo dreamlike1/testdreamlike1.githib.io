@@ -116,7 +116,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     color: #FFFFFF !important; /* Force text color to white */
     border: none; /* Remove border for cleaner look */
     background: #2A2E34; /* Background close to the input field color */
-    padding: 12px;
+    padding: 12px 40px 12px 12px; /* Adjust padding for consistent alignment */
     border-radius: 4px;
     position: relative; /* Ensure the icon can be positioned relative to this container */
     width: 100%; /* Match the width to the input/select fields */
@@ -124,15 +124,17 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     cursor: pointer; /* Ensure pointer cursor on dropdown */
 }
 
+/* Align the dropdown icon consistently */
 .ui.dropdown .dropdown.icon {
     color: #FFFFFF !important; /* Ensure the arrow color is white */
-    right: 12px; /* Adjust the position of the dropdown icon from the right */
+    right: 12px; /* Position the icon from the right edge */
     top: 50%; /* Vertically center the icon */
     transform: translateY(-50%); /* Center the icon vertically */
     position: absolute; /* Position the icon absolutely within the dropdown container */
     pointer-events: none; /* Prevent the icon from capturing pointer events */
 }
 
+/* Dropdown text color */
 .ui.dropdown .text {
     color: #FFFFFF !important; /* Ensure preview text color is white */
 }
@@ -349,4 +351,4 @@ button:hover {
     .timezone-text { 
       margin-bottom: 60px; /* Increase space below the timezone text */
     }
-} 
+}
