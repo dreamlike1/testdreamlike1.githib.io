@@ -1,3 +1,4 @@
+
 /* General styling for body and container */
 html, body {
     height: 100%;
@@ -159,88 +160,113 @@ button:hover {
     margin: 5px 0;
 }
 
-.cbx {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
+/* Hide default checkbox appearance */
+.checkbox-wrapper-42 input[type="checkbox"] {
+    display: none; /* Hide default checkbox */
+}
+
+/* Style custom checkbox */
+.checkbox-wrapper-42 .cbx {
+    width: 17px;
+    height: 17px;
+    border: 1px solid #76ABAE; /* Darker border */
     border-radius: 3px;
-    border: 1px solid #76ABAE; /* Darker border for checkbox */
-    cursor: pointer;
+    background: #2A2E34; /* Match the input field background */
     position: relative;
-    margin-right: 10px;
+    transition: background 0.1s ease;
+    cursor: pointer;
+    margin-right: 10px; /* Space between checkbox and label */
 }
 
-.cbx:after {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 10px;
-    background: #76ABAE; /* Darker green for checked state */
+/* Style checkmark */
+.checkbox-wrapper-42 .cbx:after {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 2px;
+    left: 5px;
+    width: 5px;
+    height: 10px;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transform: rotate(45deg) scale(0);
+    border-right: 2px solid #EEEEEE; /* Light checkmark color */
+    border-bottom: 2px solid #EEEEEE; /* Light checkmark color */
+    transition: all 0.3s ease;
 }
 
-input[type="checkbox"]:checked + .cbx:after {
+/* Checkbox checked state */
+.checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
+    background: #76ABAE; /* Darker green background for checked state */
+    border-color: #76ABAE; /* Matching border color */
+}
+
+.checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx:after {
     opacity: 1;
+    transform: rotate(45deg) scale(1);
+}
+
+/* Animation for checkbox */
+@-moz-keyframes jelly-42 {
+    from { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    to { transform: scale(1, 1); }
+}
+
+@-webkit-keyframes jelly-42 {
+    from { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    to { transform: scale(1, 1); }
+}
+
+@-o-keyframes jelly-42 {
+    from { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    to { transform: scale(1, 1); }
+}
+
+@keyframes jelly-42 {
+    from { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    to { transform: scale(1, 1); }
+}
+
+/* New container for timezone text and select */
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+    width: 100%; /* Ensure it takes full width */
+}
+
+/* Style the timezone text to ensure it aligns properly */
+.timezone-text {
+    font-size: 0.1em; /* Smaller font size */
+    color: #CCCCCC; /* Light grey for contrast */
+    margin-bottom: 10px; /* Space below the timezone text */
+    white-space: nowrap; /* Ensure text stays on one line */
+    font-style: italic;
+}
+
+/* Adjust the select to align with the timezone text */
+select {
+    margin-bottom: 10px; /* Space between select and timezone text */
 }
 
 .lbl {
-    margin-left: 5px;
-    color: #EEEEEE; /* Light text color */
-}
-
-/* Style custom dropdowns */
-.searchSelect3 {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.searchSelect3_Input {
-    width: 100%;
-    padding: 12px;
-    background: #2A2E34; /* Darker shade for background */
-    color: #EEEEEE; /* Light text color */
-    border: 1px solid #76ABAE; /* Darker border */
-    border-radius: 4px;
-    appearance: none;
-    font-family: 'Menlo', monospace;
-}
-
-.searchSelect3_Caret_Down {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-size: 1.2em;
-    color: #EEEEEE; /* Light text color */
-}
-
-.searchSelect3_List {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #2A2E34; /* Darker shade for dropdown background */
-    border: 1px solid #76ABAE; /* Darker border */
-    border-radius: 4px;
-    max-height: 200px; /* Optional: maximum height for dropdown */
-    overflow-y: auto; /* Enable scrolling if needed */
-    z-index: 10;
-    color: #EEEEEE; /* Light text color */
-    font-family: 'Menlo', monospace;
-}
-
-.searchSelect3_List li {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.searchSelect3_List li:hover {
-    background: #31363F; /* Darker hover background */
+    font-size: 1em; /* Change this value to adjust the font size */
 }
