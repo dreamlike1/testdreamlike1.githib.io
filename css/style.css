@@ -135,6 +135,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     border-radius: 4px;
     position: relative;
     width: 100%; /* Match the width to the input/select fields */
+    margin-bottom: 15px; /* Add space between dropdowns */
 }
 
 .ui.dropdown .dropdown.icon {
@@ -180,6 +181,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
     color: #FFFFFF !important; /* Ensure text color is white */
     background: #2A2E34; /* Match the background with the input fields */
     border: none; /* Remove border for cleaner look */
+    margin-bottom: 15px; /* Add space below the search dropdown */
 }
 
 .ui.search.dropdown .text {
@@ -338,12 +340,9 @@ button:hover {
     }
 
     /* Add space between service type and country select */
-    .ui.dropdown#serviceTypeDropdown {
-        margin-bottom: 20px; /* Space between service type and country select */
-    }
-
+    .ui.dropdown#serviceTypeDropdown,
     .ui.search.dropdown#countrySelectDropdown {
-        margin-bottom: 20px; /* Space between country select and other elements */
+        margin-bottom: 20px; /* Add space between dropdowns */
     }
 
     /* Add space below the timezone text */
