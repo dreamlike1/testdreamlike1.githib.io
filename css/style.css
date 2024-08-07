@@ -124,7 +124,7 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 button {
     width: 100%;
     padding: 12px;
-    margin: 5px 0 25px; /* Increased bottom margin for more space */
+    margin: 5px 0 30px; /* Increased bottom margin for more space */
     background-color: #76ABAE;
     color: #ffffff;
     border: none;
@@ -148,7 +148,7 @@ button:hover {
     width: 100%;
     text-align: center;
     cursor: pointer;
-    margin-top: 20px; /* Added top margin for more space */
+    margin-top: 30px; /* Increased top margin for more space */
 }
 
 /* =========================
