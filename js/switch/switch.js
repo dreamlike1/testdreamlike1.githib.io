@@ -5,7 +5,6 @@ export function setupSwitchButton() {
     const switchButton = document.getElementById('switchButton');
     const calculatorBox = document.getElementById('calculatorBox');
     const couponExpiryBox = document.getElementById('couponBox');
-    const boxTitle = document.getElementById('boxTitle');
     const couponTitle = document.getElementById('couponTitle');
     const couponDateInput = document.getElementById('couponDate');
     const addDaysInput = document.getElementById('addDays');
@@ -25,7 +24,6 @@ export function setupSwitchButton() {
         calculatorBox.classList.remove('hidden');
         couponExpiryBox.classList.add('hidden');
         switchButton.textContent = 'Switch to Coupon Expiry';
-        boxTitle.textContent = 'Business Date Calculator';
         couponTitle.textContent = 'Coupon Expiry';
     }
 
@@ -33,7 +31,6 @@ export function setupSwitchButton() {
         calculatorBox.classList.add('hidden');
         couponExpiryBox.classList.remove('hidden');
         switchButton.textContent = 'Switch to ETA Calculator';
-        boxTitle.textContent = 'Coupon Expiry';
         couponTitle.textContent = 'Business Date Calculator';
     }
 
