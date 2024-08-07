@@ -134,6 +134,18 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
+   Country Dropdown Specific Styling
+   ========================= */
+.ui.search.selection.dropdown#countrySelectDropdown {
+    width: 100%; /* Match the width to the input/select fields */
+    font-size: 1em; /* Match font size with other dropdowns */
+    background: #2A2E34; /* Background close to the input field color */
+    border: none; /* Remove border for cleaner look */
+    padding: 12px;
+    border-radius: 4px;
+}
+
+/* =========================
    Dropdown Menu Styling
    ========================= */
 .ui.dropdown .menu, 
