@@ -9,7 +9,7 @@ html, body {
     align-items: center;
     font-family: 'Menlo', monospace;
     background: linear-gradient(to right bottom, #222831, #31363F) fixed;
-    font-size: 1.15em;
+    font-size: 1em; /* Set base font size to 1em */
 }
 
 /* =========================
@@ -37,7 +37,7 @@ html, body {
         0 4px 4px rgba(0, 0, 0, 0.075),
         0 8px 8px rgba(0, 0, 0, 0.075),
         0 16px 16px rgba(0, 0, 0, 0.075);
-    color: #EEEEEE;
+    color: #FFFFFF; /* Ensure text color is white */
     text-align: center;
     margin-bottom: 60px;
     position: relative;
@@ -81,7 +81,7 @@ h1, #couponTitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 1.15em;
+    font-size: 1.15em; /* Keep title size slightly larger */
 }
 
 /* =========================
@@ -95,14 +95,14 @@ input, select {
     border-radius: 4px;
     box-sizing: border-box;
     background: #2A2E34;
-    color: #EEEEEE;
+    color: #FFFFFF; /* Ensure input and select text color is white */
     font-family: 'Menlo', monospace;
-    color-scheme: dark;
+    font-size: 1em; /* Set font size to 1em */
 }
 
 /* Adjust input and select sizes */
 #businessDays, #addDays {
-    color: #EEEEEE;
+    color: #FFFFFF; /* Ensure text color is white */
     background: #2A2E34;
 }
 
@@ -114,42 +114,41 @@ input, select {
    Dropdown Styling
    ========================= */
 .ui.dropdown {
-    font-size: 0.9em; /* Slightly smaller font size to match country dropdown */
-    color: #EEEEEE; /* Set default text color to white */
-    border: 1px solid #76ABAE; /* Border color */
-    background: #2A2E34; /* Background color */
+    font-size: 1em; /* Set font size to 1em */
+    color: #FFFFFF; /* Ensure text color is white */
+    border: 1px solid #76ABAE;
+    background: #2A2E34;
     padding: 12px;
     border-radius: 4px;
     position: relative;
     width: 100%; /* Match the width to the input/select fields */
-    text-align: left; /* Align text to the left */
 }
 
 .ui.dropdown .dropdown.icon {
-    right: 12px; /* Move the arrow icon to the right */
-    left: auto;
+    right: 12px; /* Move the arrow to the right side */
+    left: auto; /* Remove any default left positioning */
 }
 
 .ui.dropdown .text {
-    color: #EEEEEE; /* Set text color to white */
+    color: #FFFFFF; /* Ensure text color is white */
 }
 
 .ui.dropdown .menu {
-    background: #2A2E34; /* Background color for the dropdown menu */
-    border: 1px solid #76ABAE; /* Border color for the menu */
+    background: #2A2E34;
+    border: 1px solid #76ABAE;
 }
 
 .ui.dropdown .item {
-    color: #EEEEEE; /* Set item text color to white */
+    color: #FFFFFF; /* Ensure item text color is white */
 }
 
 .ui.dropdown .item:focus,
 .ui.dropdown .item:hover {
-    background: #1E2428; /* Darker background color for hover/focus state */
+    background: #1E2428; /* Darker than the background color */
 }
 
 .ui.dropdown .item.active {
-    background: #1E2428; /* Darker background color for active state */
+    background: #1E2428; /* Darker than the background color */
 }
 
 /* =========================
@@ -231,8 +230,8 @@ button:hover {
     height: 10px;
     opacity: 0;
     transform: rotate(45deg) scale(0);
-    border-right: 2px solid #EEEEEE;
-    border-bottom: 2px solid #EEEEEE;
+    border-right: 2px solid #FFFFFF; /* Ensure checkmark color is white */
+    border-bottom: 2px solid #FFFFFF; /* Ensure checkmark color is white */
     transition: all 0.3s ease;
 }
 
@@ -297,8 +296,8 @@ button:hover {
 }
 
 .timezone-text {
-    font-size: 0.1em;
-    color: #CCCCCC;
+    font-size: 1em; /* Set font size to 1em */
+    color: #FFFFFF; /* Ensure text color is white */
     margin-bottom: 10px;
     font-style: italic;
 }
