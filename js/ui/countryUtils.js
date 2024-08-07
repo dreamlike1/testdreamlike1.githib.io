@@ -1,4 +1,4 @@
-import { countryOptions } from '../api/countryData.js'; // Adjust the path as needed
+import { countryOptions } from '../api/countryData.js'; // Ensure correct path
 import { fetchHolidays } from '../api/holidays.js';
 
 let holidaysCache = {};  // Cache to store holidays data for all countries
