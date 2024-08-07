@@ -198,10 +198,9 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
    ========================= */
 #timezoneText {
     font-size: 0.7em; /* Adjust font size to 0.7em */
-    margin: 0; /* Remove any margin to prevent layout shift */
+    margin-bottom: 10px; /* Add space below the timezone text */
     padding: 0; /* Remove any padding if applicable */
     color: #FFFFFF; /* Ensure text color is white */
-    /* Add any additional styles specific to this element if required */
 }
 
 /* =========================
