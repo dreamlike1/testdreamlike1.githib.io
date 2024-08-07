@@ -287,54 +287,46 @@ select {
 /* Forced Colors Mode styles */
 @media (forced-colors: active) {
     html, body {
-        background-image: none; /* Remove background image for better contrast */
+        background-image: none; /* Remove background image */
+        color: CanvasText; /* Use system text color */
+        background-color: Canvas; /* Use system background color */
     }
 
     .box {
-        background: Canvas; /* Use system-defined color for contrast */
-        color: CanvasText; /* Use system-defined color for text */
+        background: Canvas; /* Use system background color */
+        color: CanvasText; /* Use system text color */
     }
 
-    .switch-button {
-        background-color: Highlight; /* Use system-defined highlight color */
-        color: HighlightText; /* Use system-defined highlight text color */
+    .switch-button, button {
+        background-color: Highlight; /* Use system highlight color */
+        color: HighlightText; /* Use system highlight text color */
     }
 
-    button {
-        background-color: Highlight; /* Use system-defined highlight color */
-        color: HighlightText; /* Use system-defined highlight text color */
-    }
-
-    .result-field {
-        background: Canvas; /* Use system-defined color for result field */
-        color: CanvasText; /* Use system-defined color for text */
-    }
-
-    .copy-message {
-        background: Highlight; /* Use system-defined highlight color */
-        color: HighlightText; /* Use system-defined highlight text color */
+    .result-field, .copy-message {
+        background: Canvas; /* Use system background color */
+        color: CanvasText; /* Use system text color */
     }
 
     .checkbox-wrapper-42 .cbx {
-        border: 1px solid Highlight; /* Use system-defined highlight color */
+        border: 1px solid Highlight; /* Use system highlight color */
     }
 
     .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
-        background: Highlight; /* Use system-defined highlight color */
-        border-color: Highlight; /* Use system-defined highlight color */
+        background: Highlight; /* Use system highlight color */
+        border-color: Highlight; /* Use system highlight color */
     }
 
     .ui.dropdown {
-        border: 1px solid Highlight; /* Use system-defined highlight color */
-        background: Canvas; /* Use system-defined color */
-        color: CanvasText; /* Use system-defined color */
+        border: 1px solid Highlight; /* Use system highlight color */
+        background: Canvas; /* Use system background color */
+        color: CanvasText; /* Use system text color */
     }
 
     .ui.dropdown .item {
-        color: CanvasText; /* Use system-defined color */
+        color: CanvasText; /* Use system text color */
     }
 
     .timezone-text {
-        color: CanvasText; /* Use system-defined color */
+        color: CanvasText; /* Use system text color */
     }
 }
