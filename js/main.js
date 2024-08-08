@@ -6,13 +6,8 @@ import { initializeTimezone } from './timezone/timezone.js'; // Import the timez
 document.addEventListener('DOMContentLoaded', () => {
     const defaultServiceType = 'expressPaid'; // Default service type
 
-    // Initialize Fomantic UI dropdowns
+    // Initialize Semantic UI dropdowns
     $('.ui.dropdown').dropdown();
-
-    // Initialize Fomantic UI calendar
-    $('.ui.calendar').calendar({
-        type: 'date'
-    });
 
     // Populate countries dropdown and fetch holidays based on default serviceType
     populateCountries(defaultServiceType).then(() => {
