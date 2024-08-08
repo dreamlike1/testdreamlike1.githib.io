@@ -169,7 +169,7 @@ button:hover {
 .checkbox-wrapper-42 {
     display: flex;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 0px;
     margin-bottom: 10px 0; /* Consistent margin for spacing */
 }
 
