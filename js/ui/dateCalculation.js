@@ -6,7 +6,7 @@ import { getHolidaysForCountry } from './countryUtils.js';
 function calculateIndianBusinessDays(startDate, numDays, holidays) {
     let currentDate = new Date(startDate);
     let businessDaysCount = 0;
-    const past5pmCheckbox = document.getElementById('cbx-42')?.checked; // Ensure the checkbox state is accessed correctly
+    const past5pmCheckbox = document.getElementById('cbx-42')?.checked;
 
     // Adjust the start date based on the checkbox state
     if (past5pmCheckbox) {
