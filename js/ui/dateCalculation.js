@@ -1,4 +1,3 @@
-// dateCalculation.js
 import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js'; // Ensure this import is correct
 import { getHolidaysForCountry } from './countryUtils.js';
@@ -7,6 +6,12 @@ import { getHolidaysForCountry } from './countryUtils.js';
 function calculateIndianBusinessDays(startDate, numDays, holidays) {
     let currentDate = new Date(startDate);
     let businessDaysCount = 0;
+    const past5pmCheckbox = document.getElementById('cbx-42')?.checked; // Ensure the checkbox state is accessed correctly
+
+    // Adjust the start date based on the checkbox state
+    if (past5pmCheckbox) {
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
 
     while (businessDaysCount < numDays) {
         currentDate.setDate(currentDate.getDate() + 1);
