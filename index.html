@@ -15,15 +15,18 @@
             <h1 id="boxTitle">Business Date Calculator</h1>
             <div class="ui form">
                 <div class="field">
-                    <label for="serviceType">Service Type</label>
-                    <select id="serviceType" class="ui dropdown" name="serviceType">
-                        <option value="" disabled selected>Select Service Type</option>
-                        <option value="expressPaid" selected>Express (Paid)</option>
-                        <option value="expressFree">Express (Free)</option>
-                        <option value="standard">Standard</option>
-                        <option value="economy">Economy</option>
-                        <option value="collection">Collection</option>
-                    </select>
+                    <div class="ui selection dropdown">
+                        <input type="hidden" id="serviceType" name="serviceType">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Select Service Type</div>
+                        <div class="menu">
+                            <div class="item" data-value="expressPaid">Express (Paid)</div>
+                            <div class="item" data-value="expressFree">Express (Free)</div>
+                            <div class="item" data-value="standard">Standard</div>
+                            <div class="item" data-value="economy">Economy</div>
+                            <div class="item" data-value="collection">Collection</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="field">
                     <div class="ui selection dropdown">
@@ -37,8 +40,9 @@
                     <p id="timezoneText" class="timezone-text"></p>
                 </div>
                 <div class="field">
-                    <label for="startDate">Start Date</label>
-                    <input type="date" id="startDate" required>
+                    <div class="ui input">
+                        <input type="date" id="startDate" required>
+                    </div>
                 </div>
                 <div class="field">
                     <div class="checkbox-wrapper-42">
@@ -62,8 +66,9 @@
             <h1 id="couponTitle">Coupon Expiry</h1>
             <div class="ui form">
                 <div class="field">
-                    <label for="couponDate">Coupon Date</label>
-                    <input type="date" id="couponDate" required>
+                    <div class="ui input">
+                        <input type="date" id="couponDate" required>
+                    </div>
                 </div>
                 <div class="field">
                     <div class="ui input">
