@@ -238,7 +238,7 @@ button:hover {
 
 /* Style the dropdown menu */
 .ui.dropdown .menu {
-    background-color: #353941 !important; /* Ensure menu background color */
+    background-color: #353941 !important; /* Ensure menu background color matches input background color */
     border: none !important; /* Remove border */
     border-radius: 4px; /* Match border radius */
     padding: 0; /* Remove padding */
@@ -250,7 +250,6 @@ button:hover {
     color: #FFFFFF !important; /* White text color for items */
     padding: 10px 12px; /* Add padding for better spacing */
     border-radius: 4px; /* Match border radius */
-    border: none !important; /* Ensure no border */
 }
 
 /* Change the background color when an item is selected */
