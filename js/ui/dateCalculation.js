@@ -13,6 +13,9 @@ function adjustForIndianWorkWeek(startDate, numDays, holidays) {
         const dayOfWeek = currentDate.getDay();
         const formattedDate = formatDate(currentDate);
 
+        // Log the current date and its status
+        console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}`);
+
         // Check if it's a working day (Monday to Saturday) and not a holiday
         if (dayOfWeek !== 0 && dayOfWeek !== 6 && !holidays.includes(formattedDate)) {
             businessDaysCount++;
@@ -31,8 +34,10 @@ export async function calculateBusinessDate() {
         return;
     }
 
-    // Log the selected country for debugging purposes
+    // Log the selected country and input values for debugging
     console.log(`Selected country: ${selectedCountry}`);
+    console.log(`Start date: ${startDate}`);
+    console.log(`Date range input: ${dateRangeInput}`);
 
     let numDaysStart, numDaysEnd;
 
@@ -49,6 +54,8 @@ export async function calculateBusinessDate() {
     }
 
     const holidays = getHolidaysForCountry(selectedCountry); // Ensure this function uses the selectedCountry parameter
+    console.log(`Holidays: ${holidays}`);
+
     let endDateStart, endDateEnd;
 
     if (selectedCountry === 'India') {
