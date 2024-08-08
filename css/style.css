@@ -235,7 +235,7 @@ button:hover {
 
 /* Style the dropdown items */
 .ui.dropdown .menu .item {
-    background-color: #1F2A35; /* Darker background for items */
+    background-color: #2A2E34; /* Darker background for items */
     color: #FFFFFF !important; /* White text color for items */
 }
 
@@ -266,5 +266,6 @@ button:hover {
     padding: 10px;
     border-radius: 4px;
 }
+
 
 
