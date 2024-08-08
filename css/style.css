@@ -94,7 +94,7 @@ input, select {
     border: none; /* Remove border for cleaner look */
     border-radius: 4px;
     box-sizing: border-box;
-    background: #353941; /* Updated background color */
+    background: #353941 !important; /* Updated background color with !important to ensure precedence */
     color: #FFFFFF; /* Ensure input and select text color is white */
     font-family: 'Menlo', monospace;
     font-size: 1em; /* Set font size to 1em */
