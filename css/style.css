@@ -255,7 +255,7 @@ button:hover {
 /* Change the background color when an item is selected */
 .ui.dropdown .menu .item.active {
     background-color: #76ABAE !important; /* Highlight color for selected item */
-    color: #FFFFFF !important; /* White text color for selected item */
+    color: #FFFFFF !important; /* Ensure white text color for selected item */
 }
 
 /* Adjust the hover state for dropdown items */
