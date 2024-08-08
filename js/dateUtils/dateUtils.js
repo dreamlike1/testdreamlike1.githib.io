@@ -13,6 +13,15 @@ function isNonBusinessDay(date, holidays) {
     return dayOfWeek === 0 || holidays.includes(formattedDate);
 }
 
+// Function to get the next business day
+function getNextBusinessDay(date, holidays) {
+    let nextDay = new Date(date);
+    do {
+        nextDay.setDate(nextDay.getDate() + 1);
+    } while (isNonBusinessDay(nextDay, holidays));
+    return nextDay;
+}
+
 // Function to calculate the end date after adding a number of business days
 export function calculateBusinessDays(startDate, numDays, holidays) {
     let currentDate = new Date(startDate);
@@ -21,7 +30,7 @@ export function calculateBusinessDays(startDate, numDays, holidays) {
 
     // Adjust the start date based on the checkbox state
     if (past5pmCheckbox) {
-        currentDate.setDate(currentDate.getDate() + 1);
+        currentDate = getNextBusinessDay(currentDate, holidays);
     }
 
     while (daysAdded < numDays) {
