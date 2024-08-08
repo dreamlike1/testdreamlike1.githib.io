@@ -1,18 +1,24 @@
 import { formatDate } from '../dateUtils/dateUtils.js';
-import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js'; // Ensure this import is correct
+import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
 import { getHolidaysForCountry } from './countryUtils.js';
 
 // Helper function to adjust for India's 6-day work week
 function calculateIndianBusinessDays(startDate, numDays, holidays) {
     let currentDate = new Date(startDate);
     let businessDaysCount = 0;
-    const past5pmCheckbox = document.getElementById('cbx-42')?.checked; // Ensure the checkbox state is accessed correctly
+    const past5pmCheckbox = document.getElementById('cbx-42')?.checked;
 
-    // Adjust the start date based on the checkbox state
+    // If past 5 pm is checked, move to the next day
     if (past5pmCheckbox) {
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
+    // Ensure the start date is a valid business day
+    while (currentDate.getDay() === 0 || holidays.includes(formatDate(currentDate))) {
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    // Start counting business days from the currentDate
     while (businessDaysCount < numDays) {
         currentDate.setDate(currentDate.getDate() + 1);
         const dayOfWeek = currentDate.getDay();
