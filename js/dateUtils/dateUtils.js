@@ -1,10 +1,16 @@
-// businessDayUtils.js
 import { isHoliday } from '../api/holidays.js';
 
 // Function to format a date as a readable string
 export function formatDate(date) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString(undefined, options);
+}
+
+// Function to check if a date is a non-business day
+function isNonBusinessDay(date, holidays) {
+    const dayOfWeek = date.getDay();
+    const formattedDate = formatDate(date);
+    return dayOfWeek === 0 || holidays.includes(formattedDate);
 }
 
 // Function to calculate the end date after adding a number of business days
