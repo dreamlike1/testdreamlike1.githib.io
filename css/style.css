@@ -228,12 +228,14 @@ button:hover {
 
 /* Style the dropdown background to be darker */
 .ui.dropdown {
+    background-color: #1F2A35 !important; /* Darker background */
     color: #FFFFFF !important; /* White text color */
+    border: 1px solid #76ABAE; /* Border color */
 }
 
 /* Style the dropdown items */
 .ui.dropdown .menu .item {
-    background-color: #2A2E34; /* Darker background for items */
+    background-color: #1F2A35; /* Darker background for items */
     color: #FFFFFF !important; /* White text color for items */
 }
 
@@ -264,4 +266,5 @@ button:hover {
     padding: 10px;
     border-radius: 4px;
 }
+
 
