@@ -250,6 +250,7 @@ button:hover {
     color: #FFFFFF !important; /* White text color for items */
     padding: 10px 12px; /* Add padding for better spacing */
     border-radius: 4px; /* Match border radius */
+    border: none !important; /* Ensure no border */
 }
 
 /* Change the background color when an item is selected */
