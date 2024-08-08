@@ -139,6 +139,12 @@ input:focus, select:focus {
     font-size: 1em; /* Consistent font size */
 }
 
+/* Border color on focus for Business Days and Add Days fields */
+#businessDays:focus, #addDays:focus {
+    border: 2px solid #5F85DB; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
 /* Placeholder text color for Business Days and Add Days fields */
 #businessDays::placeholder, #addDays::placeholder {
     color: #65676C !important; /* Darker placeholder color to match input background */
@@ -157,12 +163,6 @@ input:focus, select:focus {
 /* Placeholder text color for Internet Explorer and Edge */
 #businessDays:-ms-input-placeholder, #addDays:-ms-input-placeholder {
     color: #65676C !important; /* Darker placeholder color to match input background */
-}
-
-/* Border color on focus for Business Days and Add Days fields */
-#businessDays:focus, #addDays:focus {
-    border-color: #5F85DB; /* Change border color on focus */
-    outline: none; /* Remove default outline */
 }
 
 /* =========================
