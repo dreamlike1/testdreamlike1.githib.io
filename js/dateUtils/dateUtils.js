@@ -1,3 +1,4 @@
+// businessDayUtils.js
 import { isHoliday } from '../api/holidays.js';
 
 // Function to format a date as a readable string
@@ -6,20 +7,11 @@ export function formatDate(date) {
     return date.toLocaleDateString(undefined, options);
 }
 
-// Function to check if a date is a non-business day
-function isNonBusinessDay(date, holidays) {
-    const dayOfWeek = date.getDay();
-    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
-    const isHoliday = holidays.some(holiday => holiday.getTime() === date.getTime());
-
-    return isWeekend || isHoliday;
-}
-
 // Function to calculate the end date after adding a number of business days
 export function calculateBusinessDays(startDate, numDays, holidays) {
     let currentDate = new Date(startDate);
     let daysAdded = 0;
-    const past5pmCheckbox = document.getElementById('cbx-42')?.checked;
+    const past5pmCheckbox = document.getElementById('cbx-42')?.checked; // Ensure the checkbox state is accessed correctly
 
     // Adjust the start date based on the checkbox state
     if (past5pmCheckbox) {
