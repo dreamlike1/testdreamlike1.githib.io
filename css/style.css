@@ -94,7 +94,7 @@ input, select {
     border: none; /* Remove border for cleaner look */
     border-radius: 4px;
     box-sizing: border-box;
-    background: #2A2E34; /* Close to the color of the calculator box */
+    background: #353941; /* Updated background color */
     color: #FFFFFF; /* Ensure input and select text color is white */
     font-family: 'Menlo', monospace;
     font-size: 1em; /* Set font size to 1em */
@@ -228,9 +228,9 @@ button:hover {
 
 /* Style the dropdown background to be consistent with other inputs */
 .ui.dropdown {
-    background-color: #2A2E34; /* Match the input background color */
+    background-color: #353941; /* Updated background color */
     color: #FFFFFF; /* White text color for dropdown */
-    border: 1px solid #2A2E34; /* Match border color with input */
+    border: 1px solid #353941; /* Match border color with input */
     border-radius: 4px; /* Consistent border radius */
     padding: 12px; /* Match padding with input */
     box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
@@ -271,7 +271,3 @@ button:hover {
     padding: 0; /* Remove extra padding if present */
     border-radius: 4px; /* Match border radius with input */
 }
-
-
-
-
