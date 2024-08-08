@@ -1,6 +1,6 @@
 // dateCalculation.js
 import { formatDate } from '../dateUtils/dateUtils.js';
-import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js'; // Ensure this import is correct
+import { calculateBusinessDays as calculateStandardBusinessDays } from '../businessDayUtils/businessDayUtils.js'; // Ensure this import is correct
 import { getHolidaysForCountry } from './countryUtils.js';
 import { isHoliday } from '../api/holidays.js'; // Import the necessary function
 
@@ -33,10 +33,33 @@ function calculateIndianBusinessDays(startDate, numDays, holidays, past5pm) {
 // Function to calculate business days for other countries
 function calculateForOtherCountries(startDate, numDays, holidays, past5pm) {
     let currentDate = new Date(startDate);
+    
+    // Adjust the start date if past 5 PM checkbox is checked
     if (past5pm) {
-        currentDate.setDate(currentDate.getDate() + 1);
+        currentDate.setHours(17); // Set to 5 PM for more accurate adjustment
     }
-    return calculateBusinessDays(currentDate, numDays, holidays);
+
+    let daysAdded = 0;
+
+    while (daysAdded < numDays) {
+        currentDate.setDate(currentDate.getDate() + 1);
+        
+        // Check if the current date is a non-business day
+        if (!isNonBusinessDay(currentDate, holidays)) {
+            daysAdded++;
+        }
+    }
+
+    return currentDate;
+}
+
+// Function to determine if a date is a non-business day
+function isNonBusinessDay(date, holidays) {
+    const dayOfWeek = date.getDay();
+    const formattedDate = formatDate(date);
+
+    // Check if it's a weekend or a holiday
+    return dayOfWeek === 0 || holidays.includes(formattedDate) || isHoliday(formattedDate);
 }
 
 export async function calculateBusinessDate() {
@@ -74,7 +97,7 @@ export async function calculateBusinessDate() {
         endDateStart = calculateIndianBusinessDays(startDate, numDaysStart, holidays, past5pmCheckbox);
         endDateEnd = calculateIndianBusinessDays(startDate, numDaysEnd, holidays, past5pmCheckbox);
     } else {
-        if (typeof calculateBusinessDays === 'undefined') {
+        if (typeof calculateStandardBusinessDays === 'undefined') {
             console.error('calculateBusinessDays is not defined. Ensure it is imported correctly.');
             return;
         }
