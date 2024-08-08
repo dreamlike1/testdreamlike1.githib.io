@@ -100,49 +100,61 @@ input, select {
     font-size: 1em; /* Set font size to 1em */
 }
 
+/* Placeholder text color for modern browsers */
 input::placeholder, select::placeholder {
     color: #7D8C8D !important; /* Adjusted placeholder color */
 }
 
-input:not(:placeholder-shown), select:not(:placeholder-shown) {
-    color: #FFFFFF; /* White color when input has a value */
+/* Placeholder text color for WebKit browsers */
+input::-webkit-input-placeholder, select::-webkit-input-placeholder {
+    color: #7D8C8D !important; /* Adjusted placeholder color */
+}
+
+/* Placeholder text color for Mozilla Firefox */
+input::-moz-placeholder, select::-moz-placeholder {
+    color: #7D8C8D !important; /* Adjusted placeholder color */
+}
+
+/* Placeholder text color for Internet Explorer and Edge */
+input:-ms-input-placeholder, select:-ms-input-placeholder {
+    color: #7D8C8D !important; /* Adjusted placeholder color */
 }
 
 /* =========================
    Business Days Input Styling
    ========================= */
-#businessDays {
-    border: 1px solid #353941; /* Simple 1 colored border */
+#businessDays, #addDays {
+    color: #EEEEEE !important; /* Ensure text color is light */
+    background: #2A2E34 !important; /* Darker shade for background */
+    border: 2px solid #353941; /* Simple 1 colored border */
     transition: border-color 0.3s ease; /* Smooth transition for border color */
     padding: 12px; /* Ensure padding is consistent */
-    background: #353941; /* Ensure background color matches input */
-    color: #FFFFFF; /* Ensure text color is white */
     font-family: 'Menlo', monospace; /* Ensure font consistency */
     font-size: 1em; /* Consistent font size */
 }
 
-/* Placeholder text color for modern browsers */
-#businessDays::placeholder {
-    color: #7D8C8D !important; /* Grey color for placeholder text */
+/* Placeholder text color for Business Days and Add Days fields */
+#businessDays::placeholder, #addDays::placeholder {
+    color: #65676C !important; /* Darker placeholder color to match input background */
 }
 
 /* Placeholder text color for WebKit browsers */
-#businessDays::-webkit-input-placeholder {
-    color: #7D8C8D !important; /* Grey color for placeholder text */
+#businessDays::-webkit-input-placeholder, #addDays::-webkit-input-placeholder {
+    color: #65676C !important; /* Darker placeholder color to match input background */
 }
 
 /* Placeholder text color for Mozilla Firefox */
-#businessDays::-moz-placeholder {
-    color: #7D8C8D !important; /* Grey color for placeholder text */
+#businessDays::-moz-placeholder, #addDays::-moz-placeholder {
+    color: #65676C !important; /* Darker placeholder color to match input background */
 }
 
 /* Placeholder text color for Internet Explorer and Edge */
-#businessDays:-ms-input-placeholder {
-    color: #7D8C8D !important; /* Grey color for placeholder text */
+#businessDays:-ms-input-placeholder, #addDays:-ms-input-placeholder {
+    color: #65676C !important; /* Darker placeholder color to match input background */
 }
 
-/* Border color on focus */
-#businessDays:focus {
+/* Border color on focus for Business Days and Add Days fields */
+#businessDays:focus, #addDays:focus {
     border-color: #76ABAE; /* Change border color on focus */
     outline: none; /* Remove default outline */
 }
