@@ -78,5 +78,5 @@ export async function calculateBusinessDate() {
     // Format and display results
     const formattedStart = formatDate(endDateStart);
     const formattedEnd = formatDate(endDateEnd);
-    document.getElementById('result').value = `Between ${formattedStart} and ${formattedEnd}`;
+    document.getElementById('result').value = `${formattedStart} and ${formattedEnd}`;
 }
