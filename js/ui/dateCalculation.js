@@ -10,7 +10,7 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
 
     // Adjust the start date based on the checkbox state
     if (past5pmCheckbox) {
-        currentDate.setDate(currentDate.getDate() + 1);
+        currentDate = getNextBusinessDay(currentDate, holidays);
     }
 
     while (businessDaysCount < numDays) {
@@ -32,6 +32,15 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
 // Function to calculate business days for other countries
 function calculateForOtherCountries(startDate, numDays, holidays) {
     return calculateBusinessDays(startDate, numDays, holidays);
+}
+
+// Function to get the next business day (common function)
+function getNextBusinessDay(date, holidays) {
+    let nextDay = new Date(date);
+    do {
+        nextDay.setDate(nextDay.getDate() + 1);
+    } while (isNonBusinessDay(nextDay, holidays));
+    return nextDay;
 }
 
 export async function calculateBusinessDate() {
