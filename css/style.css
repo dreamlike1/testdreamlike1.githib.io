@@ -101,7 +101,7 @@ input, select {
 }
 
 input::placeholder, select::placeholder {
-    color: #B0B0B0; /* Gray color for placeholder text */
+    color: #7D8C8D; /* Adjusted placeholder color to a grey that contrasts well with the new bg color */
 }
 
 input:not(:placeholder-shown), select:not(:placeholder-shown) {
@@ -263,7 +263,7 @@ button:hover {
 
 /* Style the placeholder text */
 .ui.dropdown .text {
-    color: #B0B0B0; /* Placeholder text color */
+    color: #7D8C8D; /* Placeholder text color */
 }
 
 /* Ensure consistent padding and border radius */
