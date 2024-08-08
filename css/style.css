@@ -8,7 +8,7 @@ html, body {
     justify-content: center;
     align-items: center;
     font-family: 'Menlo', monospace;
-    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%) fixed;
+    background: radial-gradient(circle at 24.1% 68.8%, rgba(38,40,43,1) 0%, rgba(3,3,4,1) 100%) fixed;
     font-size: 1em; /* Set base font size to 1em */
 }
 
