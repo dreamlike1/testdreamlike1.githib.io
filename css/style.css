@@ -47,21 +47,24 @@ html, body {
 /* =========================
    Switch Button Styling
    ========================= */
-.custom-switch-button {
-    background-color: #5F9EA0 !important; /* Custom background color */
-    color: #ffffff !important; /* Custom text color */
-    border: none !important; /* Remove border */
-    border-radius: 20px !important; /* Custom border radius */
-    padding: 12px !important; /* Custom padding */
-    font-weight: bold !important; /* Custom font weight */
-    position: fixed !important; /* Position fixed for switch button */
-    bottom: 20px !important; /* Position from bottom */
-    left: 50% !important; /* Center horizontally */
-    transform: translateX(-50%) !important; /* Center horizontally */
+.switch-button {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px;
+    background-color: #5F9EA0;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.custom-switch-button:hover {
-    background-color: #4F8C8A !important; /* Custom hover background color */
+.switch-button:hover {
+    background-color: #4F8C8A;
 }
 
 /* =========================
@@ -126,54 +129,199 @@ input:-ms-input-placeholder, select:-ms-input-placeholder {
     border: none; /* Remove border for cleaner look */
     padding: 12px; /* Ensure padding is consistent */
     font-family: 'Menlo', monospace; /* Ensure font consistency */
-    font-size: 1em; /* Set font size to 1em */
-    margin-top: 5px; /* Consistent margin */
+    font-size: 1em; /* Consistent font size */
+    transition: box-shadow 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Border color on focus for Business Days and Add Days fields */
+#businessDays:focus, #addDays:focus {
+    box-shadow: 0 0 0 2px #5F85DB; /* Add a 2px border with the specified color using box-shadow */
+    outline: none; /* Remove default outline */
+}
+
+/* Placeholder text color for Business Days and Add Days fields */
+#businessDays::placeholder, #addDays::placeholder {
+    color: #65676C !important; /* Darker placeholder color to match input background */
+}
+
+/* Placeholder text color for WebKit browsers */
+#businessDays::-webkit-input-placeholder, #addDays::-webkit-input-placeholder {
+    color: #65676C !important; /* Darker placeholder color to match input background */
+}
+
+/* Placeholder text color for Mozilla Firefox */
+#businessDays::-moz-placeholder, #addDays::-moz-placeholder {
+    color: #65676C !important; /* Darker placeholder color to match input background */
+}
+
+/* Placeholder text color for Internet Explorer and Edge */
+#businessDays:-ms-input-placeholder, #addDays:-ms-input-placeholder {
+    color: #65676C !important; /* Darker placeholder color to match input background */
+}
+
+/* =========================
+   Timezone Text Specific Styling
+   ========================= */
+#timezoneText {
+    font-size: 0.7em; /* Adjust font size to 0.7em */
+    margin-top: 5px;
+    margin-bottom: 7px; /* Add space below the timezone text */
+    padding: 0; /* Remove any padding if applicable */
+    color: #FFFFFF; /* Ensure text color is white */
 }
 
 /* =========================
    Button Styling
    ========================= */
-.custom-button {
-    background-color: #76ABAE !important; /* Custom background color */
-    color: #ffffff !important; /* Custom text color */
-    border-radius: 4px !important; /* Custom border radius */
-    padding: 12px !important; /* Custom padding */
-    font-weight: bold !important; /* Custom font weight */
-    margin-bottom: 25px !important; /* Custom margin below button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #76ABAE;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 25px !important; /* Explicitly set space below button */
 }
 
-.custom-button:hover {
-    background-color: #6b9f97 !important; /* Custom hover background color */
+button:hover {
+    background-color: #6b9f97;
 }
 
 /* =========================
    Result Field Styling
    ========================= */
 .result-field {
-    width: calc(100% - 24px);
-    margin: 10px 0;
+    background: #EEEEEE;
+    color: #31363F;
+    border: none;
     padding: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    background: #353941;
-    color: #FFFFFF;
-    font-family: 'Menlo', monospace;
-    font-size: 1em;
-    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
 }
 
 /* =========================
    Copy Message Styling
    ========================= */
 .copy-message {
-    display: none;
     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     background: #76ABAE;
-    color: #FFFFFF;
+    color: white;
     padding: 10px;
     border-radius: 4px;
-    font-size: 0.9em;
+    display: none;
+    z-index: 10;
+}
+
+/* =========================
+   Checkbox Styling
+   ========================= */
+.checkbox-wrapper-42 {
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 10px 0; /* Consistent margin for spacing */
+}
+
+.checkbox-wrapper-42 input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-wrapper-42 .cbx {
+    width: 17px; /* Increase width for better visibility */
+    height: 17px; /* Increase height for better visibility */
+    border: 1px solid #5F85DB; /* Update border color for checkbox */
+    border-radius: 3px;
+    background: #2A2E34;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.checkbox-wrapper-42 .cbx:after {
+    content: '';
+    position: absolute;
+    top: 2px; /* Adjusted for better centering */
+    left: 5px; /* Adjusted for better centering */
+    width: 5px; /* Increased width for better visibility */
+    height: 10px; /* Increased height for better visibility */
+    opacity: 0;
+    transform: rotate(45deg) scale(0);
+    border-right: 2px solid #FFFFFF; /* Ensure checkmark color is white */
+    border-bottom: 2px solid #FFFFFF; /* Ensure checkmark color is white */
+    transition: all 0.3s ease;
+}
+
+.checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
+    background: #5F85DB; /* Update background color for checked state */
+    border-color: #5F85DB; /* Update border color for checked state */
+}
+
+.checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx:after {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+}
+
+/* =========================
+   Specific Styling for Start Date Input
+   ========================= */
+
+/* Use a highly specific selector to ensure precedence */
+.container .field #startDate {
+    margin-bottom: 5px !important; /* Ensure this margin is applied */
+    padding: 12px !important; /* Override padding if needed */
+}
+
+/* =========================
+   Custom Dropdown Styling
+   ========================= */
+
+/* Apply styles to dropdown container */
+.ui.dropdown {
+    background-color: #353941 !important; /* Ensure background color */
+    color: #FFFFFF !important; /* Ensure text color is white */
+    border: none !important; /* Remove border */
+    border-radius: 4px; /* Consistent border radius */
+    padding: 0; /* Remove padding for a cleaner look */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
+}
+
+/* Style the dropdown menu */
+.ui.dropdown .menu {
+    background-color: #353941 !important; /* Ensure menu background color matches input background color */
+    border: none !important; /* Remove border */
+    border-radius: 4px; /* Match border radius */
+    padding: 0 !important; /* Remove padding */
+}
+
+/* Style the dropdown items */
+.ui.dropdown .menu .item {
+    background-color: #31363F !important; /* Darker background for items */
+    color: #FFFFFF !important; /* White text color for items */
+    padding: 10px 12px; /* Add padding for better spacing */
+    border-top: none !important; /* Remove the border-top */
+}
+
+/* Change the background color when an item is selected */
+.ui.dropdown .menu .item.active {
+    background-color: #5F85DB !important; /* Highlight color for selected item */
+    color: #FFFFFF !important; /* Ensure white text color for selected item */
+}
+
+/* Adjust the hover state for dropdown items */
+.ui.dropdown .menu .item:hover {
+    background-color: #2A2E34 !important; /* Darker background on hover */
+    color: #FFFFFF !important; /* White text color on hover */
+}
+
+/* Ensure that the dropdown icon matches input text color */
+.ui.dropdown .dropdown.icon {
+    color: #FFFFFF !important; /* White icon color */
+}
+
+/* Style the placeholder text */
+.ui.dropdown .text {
+    color: #FFFFFF !important; /* Ensure text color is white */
 }
