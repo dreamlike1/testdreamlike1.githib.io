@@ -226,34 +226,39 @@ button:hover {
    Custom Dropdown Styling
    ========================= */
 
-/* Style the dropdown background to be darker */
+/* Style the dropdown background to be consistent with other inputs */
 .ui.dropdown {
-    background-color: #1F2A35 !important; /* Darker background */
-    color: #FFFFFF !important; /* White text color */
-    border: 1px solid #76ABAE; /* Border color */
+    background-color: #2A2E34; /* Match the input background color */
+    color: #FFFFFF; /* White text color for dropdown */
+    border: 1px solid #2A2E34; /* Match border color with input */
+    border-radius: 4px; /* Consistent border radius */
+    padding: 12px; /* Match padding with input */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
 }
 
-/* Style the dropdown items */
+/* Style the dropdown items to match input styling */
 .ui.dropdown .menu .item {
-    background-color: #2A2E34; /* Darker background for items */
-    color: #FFFFFF !important; /* White text color for items */
+    background-color: #31363F; /* Darker background for items */
+    color: #FFFFFF; /* White text color for items */
+    padding: 10px 12px; /* Add padding for better spacing */
+    border-radius: 4px; /* Match border radius with input */
 }
 
 /* Change the background color when an item is selected */
 .ui.dropdown .menu .item.active {
     background-color: #76ABAE; /* Highlight color for selected item */
-    color: #FFFFFF !important; /* White text color for selected item */
+    color: #FFFFFF; /* White text color for selected item */
 }
 
 /* Adjust the hover state for dropdown items */
 .ui.dropdown .menu .item:hover {
-    background-color: #1F2A35; /* Darker background on hover */
-    color: #FFFFFF !important; /* White text color on hover */
+    background-color: #2A2E34; /* Darker background on hover to match input */
+    color: #FFFFFF; /* White text color on hover */
 }
 
-/* Ensure that the dropdown shows the custom background */
+/* Ensure that the dropdown icon matches input text color */
 .ui.dropdown .dropdown.icon {
-    color: #FFFFFF !important; /* White icon color */
+    color: #FFFFFF; /* White icon color */
 }
 
 /* Style the placeholder text */
@@ -263,9 +268,10 @@ button:hover {
 
 /* Ensure consistent padding and border radius */
 .ui.dropdown .menu {
-    padding: 10px;
-    border-radius: 4px;
+    padding: 0; /* Remove extra padding if present */
+    border-radius: 4px; /* Match border radius with input */
 }
+
 
 
 
