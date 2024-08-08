@@ -228,9 +228,7 @@ button:hover {
 
 /* Style the dropdown background to be darker */
 .ui.dropdown {
-    background-color: #1F2A35 !important; /* Darker background */
     color: #FFFFFF !important; /* White text color */
-    border: 1px solid #76ABAE; /* Border color */
 }
 
 /* Style the dropdown items */
