@@ -249,6 +249,7 @@ button:hover {
     background-color: #31363F !important; /* Darker background for items */
     color: #FFFFFF !important; /* White text color for items */
     padding: 10px 12px; /* Add padding for better spacing */
+    border-top: none !important; /* Remove the border-top */
 }
 
 /* Change the background color when an item is selected */
