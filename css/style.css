@@ -133,10 +133,10 @@ input:focus, select:focus {
     color: #EEEEEE !important; /* Ensure text color is light */
     background: #353941 !important; /* Darker shade for background */
     border: none; /* Remove border for cleaner look */
-    transition: border-color 0.3s ease; /* Smooth transition for border color */
     padding: 12px; /* Ensure padding is consistent */
     font-family: 'Menlo', monospace; /* Ensure font consistency */
     font-size: 1em; /* Consistent font size */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 
 /* Border color on focus for Business Days and Add Days fields */
