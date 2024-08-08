@@ -98,6 +98,7 @@ input, select {
     color: #FFFFFF !important; /* Ensure text color is white */
     font-family: 'Menlo', monospace;
     font-size: 1em; /* Set font size to 1em */
+    color-scheme: dark;
 }
 
 /* Placeholder text color for modern browsers */
@@ -324,30 +325,4 @@ button:hover {
 /* Style the placeholder text */
 .ui.dropdown .text {
     color: #FFFFFF !important; /* Ensure text color is white */
-}
-
-/* =========================
-   Start Date Input Styling
-   ========================= */
-#startDate {
-    position: relative;
-    padding-right: 35px; /* Add space for the calendar icon */
-    background: #353941; /* Background color */
-    color: #FFFFFF; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    font-family: 'Menlo', monospace; /* Consistent font */
-    font-size: 1em; /* Font size */
-}
-
-/* Adjust the calendar icon positioning for WebKit browsers */
-#startDate::-webkit-calendar-picker-indicator {
-    position: absolute;
-    right: 10px; /* Position the calendar icon to the right */
-    top: 50%; /* Center the icon vertically */
-    transform: translateY(-50%); /* Center icon vertically */
-    cursor: pointer; /* Pointer cursor */
-    background: none; /* Remove background */
-    color: inherit; /* Ensure icon color inherits from input */
-    border: none; /* Remove border if any */
 }
