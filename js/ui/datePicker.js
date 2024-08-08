@@ -1,6 +1,18 @@
+let startDateCalendar = null;
+let couponDateCalendar = null;
+
 export function initializeCalendars() {
     $(document).ready(function() {
-        $('.ui.calendar').calendar({
+        startDateCalendar = $('#startDate').calendar({
+            type: 'date',
+            endCalendar: null,
+            text: {
+                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            }
+        });
+
+        couponDateCalendar = $('#couponDate').calendar({
             type: 'date',
             endCalendar: null,
             text: {
@@ -10,3 +22,5 @@ export function initializeCalendars() {
         });
     });
 }
+
+export { startDateCalendar, couponDateCalendar };
