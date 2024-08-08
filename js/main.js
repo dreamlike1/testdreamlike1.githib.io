@@ -1,10 +1,7 @@
-// js/main.js
-
 import { populateCountries } from './ui/countryUtils.js'; // Import country population and holiday fetching functions
 import { setupEventListeners } from './eventHandlers/eventHandlers.js'; // Import the event handlers
 import { setupSwitchButton } from './switch/switch.js'; // Import the switch button setup function
 import { initializeTimezone } from './timezone/timezone.js'; // Import the timezone initialization function
-import { initializeCalendars, setupCalculator } from './dateUtils/dateUtils.js'; // Import date utilities from utils folder
 
 document.addEventListener('DOMContentLoaded', () => {
     const defaultServiceType = 'expressPaid'; // Default service type
@@ -20,6 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners(); // Setup event listeners for UI elements
     setupSwitchButton(); // Initialize the switch button functionality
     initializeTimezone(); // Initialize the timezone functionality
-    initializeCalendars(); // Initialize calendar inputs
-    setupCalculator(); // Setup calculator functionality
 });
