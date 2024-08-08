@@ -114,9 +114,14 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 #businessDays {
     border: 1px solid #353941; /* Simple 1 colored border */
     transition: border-color 0.3s ease; /* Smooth transition for border color */
+    padding: 12px; /* Ensure padding is consistent */
+    background: #353941; /* Ensure background color matches input */
+    color: #FFFFFF; /* Ensure text color is white */
+    font-family: 'Menlo', monospace; /* Ensure font consistency */
+    font-size: 1em; /* Consistent font size */
 }
 
-/* Placeholder text color */
+/* Placeholder text color for modern browsers */
 #businessDays::placeholder {
     color: #7D8C8D; /* Grey color for placeholder text */
 }
