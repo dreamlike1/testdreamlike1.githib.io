@@ -236,23 +236,24 @@ button:hover {
 }
 
 .checkbox-wrapper-42 .cbx {
-    width: 17px;
-    height: 17px;
+    width: 20px; /* Increase width for better visibility */
+    height: 20px; /* Increase height for better visibility */
     border: 2px solid #5F85DB; /* Update border color for checkbox */
     border-radius: 3px;
     background: #2A2E34;
     position: relative;
     cursor: pointer;
     margin-right: 10px;
+    box-sizing: border-box; /* Ensure border is included in box size */
 }
 
 .checkbox-wrapper-42 .cbx:after {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 6px; /* Adjusted for centering */
-    width: 5px;
-    height: 10px;
+    top: 3px; /* Adjusted for better centering */
+    left: 7px; /* Adjusted for better centering */
+    width: 6px; /* Increased width for better visibility */
+    height: 12px; /* Increased height for better visibility */
     opacity: 0;
     transform: rotate(45deg) scale(0);
     border-right: 2px solid #FFFFFF; /* Ensure checkmark color is white */
