@@ -120,12 +120,6 @@ input:-ms-input-placeholder, select:-ms-input-placeholder {
     color: #7D8C8D !important; /* Adjusted placeholder color */
 }
 
-/* Border color on focus for input and select fields */
-input:focus, select:focus {
-    border: 2px solid #5F85DB; /* Add a 2px border with the specified color */
-    outline: none; /* Remove default outline */
-}
-
 /* =========================
    Business Days Input Styling
    ========================= */
@@ -136,12 +130,12 @@ input:focus, select:focus {
     padding: 12px; /* Ensure padding is consistent */
     font-family: 'Menlo', monospace; /* Ensure font consistency */
     font-size: 1em; /* Consistent font size */
-    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    transition: box-shadow 0.3s ease; /* Smooth transition for border color */
 }
 
 /* Border color on focus for Business Days and Add Days fields */
 #businessDays:focus, #addDays:focus {
-    border: 2px solid #5F85DB; /* Add a 2px border with the specified color */
+    box-shadow: 0 0 0 2px #5F85DB; /* Add a 2px border with the specified color using box-shadow */
     outline: none; /* Remove default outline */
 }
 
