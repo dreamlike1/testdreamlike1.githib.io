@@ -105,7 +105,7 @@ input::placeholder, select::placeholder {
 }
 
 input:not(:placeholder-shown), select:not(:placeholder-shown) {
-    color: #FFFFFF !important; /* White color when input has a value */
+    color: #FFFFFF; /* White color when input has a value */
 }
 
 /* =========================
@@ -226,13 +226,13 @@ button:hover {
    Custom Dropdown Styling
    ========================= */
 
-/* Style the dropdown container */
+/* Apply styles to dropdown container */
 .ui.dropdown {
     background-color: #353941 !important; /* Ensure background color */
     color: #FFFFFF !important; /* Ensure text color */
     border: none !important; /* Remove border */
     border-radius: 4px; /* Consistent border radius */
-    padding: 0 !important; /* Remove padding for a cleaner look */
+    padding: 0; /* Remove padding for a cleaner look */
     box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
 }
 
@@ -241,15 +241,15 @@ button:hover {
     background-color: #353941 !important; /* Ensure menu background color */
     border: none !important; /* Remove border */
     border-radius: 4px; /* Match border radius */
-    padding: 0 !important; /* Remove padding */
+    padding: 0; /* Remove padding */
 }
 
 /* Style the dropdown items */
 .ui.dropdown .menu .item {
     background-color: #31363F !important; /* Darker background for items */
     color: #FFFFFF !important; /* White text color for items */
-    padding: 10px 12px !important; /* Add padding for better spacing */
-    border-radius: 4px !important; /* Match border radius */
+    padding: 10px 12px; /* Add padding for better spacing */
+    border-radius: 4px; /* Match border radius */
 }
 
 /* Change the background color when an item is selected */
