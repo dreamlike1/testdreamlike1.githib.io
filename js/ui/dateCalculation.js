@@ -1,5 +1,6 @@
 // dateCalculation.js
 import { formatDate } from '../dateUtils/dateUtils.js';
+import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js'; // Ensure this import is correct
 import { getHolidaysForCountry } from './countryUtils.js';
 
 // Helper function to adjust for India's 6-day work week
@@ -11,8 +12,8 @@ function adjustForIndianWorkWeek(startDate, numDays, holidays) {
         currentDate.setDate(currentDate.getDate() + 1);
         const dayOfWeek = currentDate.getDay();
         const formattedDate = formatDate(currentDate);
-        
-        // Check if it's a working day (Monday to Saturday)
+
+        // Check if it's a working day (Monday to Saturday) and not a holiday
         if (dayOfWeek !== 0 && dayOfWeek !== 6 && !holidays.includes(formattedDate)) {
             businessDaysCount++;
         }
@@ -29,6 +30,9 @@ export async function calculateBusinessDate() {
         alert('Please enter a valid start date, range of business days, and select a country.');
         return;
     }
+
+    // Log the selected country for debugging purposes
+    console.log(`Selected country: ${selectedCountry}`);
 
     let numDaysStart, numDaysEnd;
 
@@ -48,10 +52,14 @@ export async function calculateBusinessDate() {
     let endDateStart, endDateEnd;
 
     if (selectedCountry === 'India') {
+        console.log('Calculating business days for India');
         endDateStart = adjustForIndianWorkWeek(startDate, numDaysStart, holidays);
         endDateEnd = adjustForIndianWorkWeek(startDate, numDaysEnd, holidays);
     } else {
-        // Assuming calculateBusinessDays is adjusted or suitable for other countries
+        if (typeof calculateBusinessDays === 'undefined') {
+            console.error('calculateBusinessDays is not defined. Ensure it is imported correctly.');
+            return;
+        }
         endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays);
         endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays);
     }
