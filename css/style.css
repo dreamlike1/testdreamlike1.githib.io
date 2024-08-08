@@ -221,3 +221,49 @@ button:hover {
     margin-bottom: 5px !important; /* Ensure this margin is applied */
     padding: 12px !important; /* Override padding if needed */
 }
+
+/* =========================
+   Custom Dropdown Styling
+   ========================= */
+
+/* Style the dropdown background to be darker */
+.ui.dropdown {
+    background-color: #1F2A35 !important; /* Darker background */
+    color: #FFFFFF !important; /* White text color */
+    border: 1px solid #76ABAE; /* Border color */
+}
+
+/* Style the dropdown items */
+.ui.dropdown .menu .item {
+    background-color: #2A2E34; /* Darker background for items */
+    color: #FFFFFF !important; /* White text color for items */
+}
+
+/* Change the background color when an item is selected */
+.ui.dropdown .menu .item.active {
+    background-color: #76ABAE; /* Highlight color for selected item */
+    color: #FFFFFF !important; /* White text color for selected item */
+}
+
+/* Adjust the hover state for dropdown items */
+.ui.dropdown .menu .item:hover {
+    background-color: #1F2A35; /* Darker background on hover */
+    color: #FFFFFF !important; /* White text color on hover */
+}
+
+/* Ensure that the dropdown shows the custom background */
+.ui.dropdown .dropdown.icon {
+    color: #FFFFFF !important; /* White icon color */
+}
+
+/* Style the placeholder text */
+.ui.dropdown .text {
+    color: #B0B0B0; /* Placeholder text color */
+}
+
+/* Ensure consistent padding and border radius */
+.ui.dropdown .menu {
+    padding: 10px;
+    border-radius: 4px;
+}
+
