@@ -109,6 +109,25 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 }
 
 /* =========================
+   Business Days Input Styling
+   ========================= */
+#businessDays {
+    border: 1px solid #353941; /* Simple 1 colored border */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Placeholder text color */
+#businessDays::placeholder {
+    color: #7D8C8D; /* Grey color for placeholder text */
+}
+
+/* Border color on focus */
+#businessDays:focus {
+    border-color: #76ABAE; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* =========================
    Timezone Text Specific Styling
    ========================= */
 #timezoneText {
