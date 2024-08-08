@@ -17,7 +17,7 @@
             <h1 id="boxTitle">Business Date Calculator</h1>
             <div class="ui form">
                 <div class="field">
-                    <div class="ui selection dropdown">
+                    <div class="ui selection dropdown" id="serviceTypeDropdown">
                         <input type="hidden" id="serviceType" name="serviceType">
                         <i class="dropdown icon"></i>
                         <div class="default text">Select Service Type</div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="field">
-                    <div class="ui selection dropdown">
+                    <div class="ui selection dropdown" id="countrySelectDropdown">
                         <input type="hidden" id="countrySelect" name="country">
                         <i class="dropdown icon"></i>
                         <div class="default text">Select Country</div>
@@ -101,11 +101,5 @@
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui-calendar@2.8.8/dist/calendar.min.js"></script>
     <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
-    <script>
-        // Initialize the Fomantic Calendar
-        $('#standard_calendar').calendar({
-            type: 'date'
-        });
-    </script>
 </body>
 </html>
