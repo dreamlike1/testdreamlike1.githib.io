@@ -123,22 +123,22 @@ input:not(:placeholder-shown), select:not(:placeholder-shown) {
 
 /* Placeholder text color for modern browsers */
 #businessDays::placeholder {
-    color: #7D8C8D; /* Grey color for placeholder text */
+    color: #7D8C8D !important; /* Grey color for placeholder text */
 }
 
 /* Placeholder text color for WebKit browsers */
 #businessDays::-webkit-input-placeholder {
-    color: #7D8C8D; /* Grey color for placeholder text */
+    color: #7D8C8D !important; /* Grey color for placeholder text */
 }
 
 /* Placeholder text color for Mozilla Firefox */
 #businessDays::-moz-placeholder {
-    color: #7D8C8D; /* Grey color for placeholder text */
+    color: #7D8C8D !important; /* Grey color for placeholder text */
 }
 
 /* Placeholder text color for Internet Explorer and Edge */
 #businessDays:-ms-input-placeholder {
-    color: #7D8C8D; /* Grey color for placeholder text */
+    color: #7D8C8D !important; /* Grey color for placeholder text */
 }
 
 /* Border color on focus */
