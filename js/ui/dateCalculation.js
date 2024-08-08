@@ -24,6 +24,11 @@ function adjustForIndianWorkWeek(startDate, numDays, holidays) {
     return currentDate;
 }
 
+// Function to handle calculations for non-Indian countries
+function calculateForOtherCountries(startDate, numDays, holidays) {
+    return calculateBusinessDays(startDate, numDays, holidays);
+}
+
 export async function calculateBusinessDate() {
     let startDate = new Date(document.getElementById('startDate').value);
     const dateRangeInput = document.getElementById('businessDays').value;
@@ -34,7 +39,7 @@ export async function calculateBusinessDate() {
         return;
     }
 
-    // Log the selected country and input values for debugging
+    // Log selected country and input values for debugging
     console.log(`Selected country: ${selectedCountry}`);
     console.log(`Start date: ${startDate}`);
     console.log(`Date range input: ${dateRangeInput}`);
@@ -67,8 +72,8 @@ export async function calculateBusinessDate() {
             console.error('calculateBusinessDays is not defined. Ensure it is imported correctly.');
             return;
         }
-        endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays);
-        endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays);
+        endDateStart = calculateForOtherCountries(startDate, numDaysStart, holidays);
+        endDateEnd = calculateForOtherCountries(startDate, numDaysEnd, holidays);
     }
 
     const formattedStart = formatDate(endDateStart);
