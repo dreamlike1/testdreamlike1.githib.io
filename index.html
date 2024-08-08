@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
     <!-- Include your custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Include Fomantic UI Calendar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui-calendar@2.8.8/dist/calendar.min.css">
 </head>
 <body>
     <div class="container">
@@ -40,8 +42,11 @@
                     <p id="timezoneText" class="timezone-text"></p>
                 </div>
                 <div class="field">
-                    <div class="ui input">
-                        <input type="date" id="startDate" required>
+                    <div class="ui calendar" id="standard_calendar">
+                        <div class="ui fluid input left icon">
+                            <input type="text" id="startDate" required>
+                            <i class="calendar icon"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="field">
@@ -92,7 +97,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include Fomantic UI JS -->
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>
+    <!-- Include Fomantic UI Calendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui-calendar@2.8.8/dist/calendar.min.js"></script>
     <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
+    <script>
+        // Initialize the Fomantic Calendar
+        $('#standard_calendar').calendar({
+            type: 'date'
+        });
+    </script>
 </body>
 </html>
