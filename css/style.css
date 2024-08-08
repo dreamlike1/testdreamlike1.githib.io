@@ -28,7 +28,7 @@ html, body {
    Box Styling
    ========================= */
 .box {
-    padding: 20px;
+    //padding: 20px;
     background: #31363F;
     border-radius: 12px;
     box-shadow:
