@@ -6,8 +6,8 @@
     <title>Business Date Calculator</title>
     <!-- Include Fomantic UI CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
-    <!-- Include Fomantic UI Datepicker CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui-daterangepicker@2.0.0/dist/fomantic-ui-daterangepicker.min.css">
+    <!-- Include Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- Include your custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -33,12 +33,8 @@
                     <p id="timezoneText" class="timezone-text"></p>
                 </div>
                 <div class="field">
-                    <div class="ui calendar" id="startDate">
-                        <div class="ui input left icon">
-                            <input type="text" placeholder="Select Date">
-                            <i class="calendar icon"></i>
-                        </div>
-                    </div>
+                    <label for="startDate">Start Date</label>
+                    <input type="text" id="startDate" placeholder="Select Date">
                 </div>
                 <div class="field">
                     <div class="checkbox-wrapper-42">
@@ -62,12 +58,8 @@
             <h1 id="couponTitle">Coupon Expiry</h1>
             <div class="ui form">
                 <div class="field">
-                    <div class="ui calendar" id="couponDate">
-                        <div class="ui input left icon">
-                            <input type="text" placeholder="Select Date">
-                            <i class="calendar icon"></i>
-                        </div>
-                    </div>
+                    <label for="couponDate">Coupon Date</label>
+                    <input type="text" id="couponDate" placeholder="Select Date">
                 </div>
                 <div class="field">
                     <div class="ui input">
@@ -91,19 +83,29 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include Fomantic UI JS -->
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>
-    <!-- Include Fomantic UI Datepicker JS -->
-    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui-daterangepicker@2.0.0/dist/fomantic-ui-daterangepicker.min.js"></script>
+    <!-- Include Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
     <script>
         $(document).ready(function() {
-            $('.ui.calendar').calendar({
-                type: 'date',
-                endCalendar: null,
-                text: {
-                    days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-                }
+            // Initialize Flatpickr for date inputs
+            flatpickr('#startDate', {
+                dateFormat: 'Y-m-d'
+            });
+            flatpickr('#couponDate', {
+                dateFormat: 'Y-m-d'
+            });
+
+            // Example: Get selected date value
+            $('#calculateButton').on('click', function() {
+                var startDate = $('#startDate').val();
+                console.log('Selected start date:', startDate);
+            });
+
+            $('#couponCalculateButton').on('click', function() {
+                var couponDate = $('#couponDate').val();
+                console.log('Selected coupon date:', couponDate);
             });
         });
     </script>
