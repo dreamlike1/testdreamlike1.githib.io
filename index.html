@@ -95,5 +95,17 @@
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui-daterangepicker@2.0.0/dist/fomantic-ui-daterangepicker.min.js"></script>
     <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.ui.calendar').calendar({
+                type: 'date',
+                endCalendar: null,
+                text: {
+                    days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                }
+            });
+        });
+    </script>
 </body>
 </html>
