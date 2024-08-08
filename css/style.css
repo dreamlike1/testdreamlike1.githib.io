@@ -94,7 +94,7 @@ input, select {
     border: none; /* Remove border for cleaner look */
     border-radius: 4px;
     box-sizing: border-box;
-    background: #353941 !important; /* Ensure background color */
+    background: #353941 !important; /* Ensure background color matches dropdown */
     color: #FFFFFF !important; /* Ensure text color is white */
     font-family: 'Menlo', monospace;
     font-size: 1em; /* Set font size to 1em */
@@ -125,8 +125,8 @@ input:-ms-input-placeholder, select:-ms-input-placeholder {
    ========================= */
 #businessDays, #addDays {
     color: #EEEEEE !important; /* Ensure text color is light */
-    background: #2A2E34 !important; /* Darker shade for background */
-    border: 2px solid #353941; /* Simple 1 colored border */
+    background: #353941 !important; /* Darker shade for background */
+    border: none; /* Remove border for cleaner look */
     transition: border-color 0.3s ease; /* Smooth transition for border color */
     padding: 12px; /* Ensure padding is consistent */
     font-family: 'Menlo', monospace; /* Ensure font consistency */
