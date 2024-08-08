@@ -230,17 +230,18 @@ button:hover {
 .ui.dropdown {
     background-color: #353941 !important; /* Ensure background color */
     color: #FFFFFF !important; /* Ensure text color */
-    border: 1px solid #353941 !important; /* Match border color with background */
+    border: none !important; /* Remove border */
     border-radius: 4px; /* Consistent border radius */
-    padding: 12px; /* Match padding with input */
+    padding: 0; /* Remove padding for a cleaner look */
     box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
 }
 
 /* Style the dropdown menu */
 .ui.dropdown .menu {
     background-color: #353941 !important; /* Ensure menu background color */
-    border: 1px solid #353941 !important; /* Border color to match background */
+    border: none !important; /* Remove border */
     border-radius: 4px; /* Match border radius */
+    padding: 0; /* Remove padding */
 }
 
 /* Style the dropdown items */
