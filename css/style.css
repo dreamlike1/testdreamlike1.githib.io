@@ -28,7 +28,7 @@ html, body {
    Box Styling
    ========================= */
 .box {
-    //padding: 20px;
+    padding: 20px;
     background: #31363F;
     border-radius: 12px;
     box-shadow:
@@ -89,7 +89,7 @@ h1, #couponTitle {
    ========================= */
 input, select {
     width: 100%;
-    //padding: 12px;
+    padding: 12px;
     margin: 5px 0; /* Consistent margin for spacing */
     border: none; /* Remove border for cleaner look */
     border-radius: 4px;
