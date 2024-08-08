@@ -6,6 +6,8 @@
     <title>Business Date Calculator</title>
     <!-- Include Fomantic UI CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
+    <!-- Include Fomantic UI Datepicker CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui-daterangepicker@2.0.0/dist/fomantic-ui-daterangepicker.min.css">
     <!-- Include your custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -31,7 +33,12 @@
                     <p id="timezoneText" class="timezone-text"></p>
                 </div>
                 <div class="field">
-                    <input type="date" id="startDate" required>
+                    <div class="ui calendar" id="startDate">
+                        <div class="ui input left icon">
+                            <input type="text" placeholder="Select Date">
+                            <i class="calendar icon"></i>
+                        </div>
+                    </div>
                 </div>
                 <div class="field">
                     <div class="checkbox-wrapper-42">
@@ -45,17 +52,22 @@
                         <input type="text" id="businessDays" placeholder="Business Days (ex. 1-2 or 1,2)" required>
                     </div>
                 </div>
-                <button id="calculateButton" class="ui button custom-button">Calculate</button>
+                <button id="calculateButton" class="ui button">Calculate</button>
                 <input type="text" id="result" class="result-field" readonly>
                 <div id="copyMessageCalculator" class="copy-message">Copied!</div>
             </div>
         </div>
-        <button id="switchButton" class="ui button custom-switch-button">Switch to Coupon Expiry</button>
+        <button id="switchButton" class="switch-button ui button">Switch to Coupon Expiry</button>
         <div id="couponBox" class="box hidden">
             <h1 id="couponTitle">Coupon Expiry</h1>
             <div class="ui form">
                 <div class="field">
-                    <input type="date" id="couponDate" required>
+                    <div class="ui calendar" id="couponDate">
+                        <div class="ui input left icon">
+                            <input type="text" placeholder="Select Date">
+                            <i class="calendar icon"></i>
+                        </div>
+                    </div>
                 </div>
                 <div class="field">
                     <div class="ui input">
@@ -69,7 +81,7 @@
                         <label class="lbl" for="cbx-43" style="white-space: nowrap;">Remove extra day (for email ready)</label>
                     </div>
                 </div>
-                <button id="couponCalculateButton" class="ui button custom-button">Calculate</button>
+                <button id="couponCalculateButton" class="ui button">Calculate</button>
                 <input type="text" id="couponResult" class="result-field" readonly>
                 <div id="copyMessageCoupon" class="copy-message">Copied!</div>
             </div>
@@ -79,6 +91,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include Fomantic UI JS -->
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>
+    <!-- Include Fomantic UI Datepicker JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui-daterangepicker@2.0.0/dist/fomantic-ui-daterangepicker.min.js"></script>
     <!-- Include your custom JS -->
     <script type="module" src="js/main.js"></script>
 </body>
