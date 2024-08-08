@@ -229,7 +229,7 @@ button:hover {
 /* Apply styles to dropdown container */
 .ui.dropdown {
     background-color: #353941 !important; /* Ensure background color */
-    color: #FFFFFF !important; /* Ensure text color */
+    color: #FFFFFF !important; /* Ensure text color is white */
     border: none !important; /* Remove border */
     border-radius: 4px; /* Consistent border radius */
     padding: 0; /* Remove padding for a cleaner look */
@@ -241,7 +241,7 @@ button:hover {
     background-color: #353941 !important; /* Ensure menu background color matches input background color */
     border: none !important; /* Remove border */
     border-radius: 4px; /* Match border radius */
-    padding: 0; /* Remove padding */
+    padding: 0 !important; /* Remove padding */
 }
 
 /* Style the dropdown items */
@@ -271,5 +271,5 @@ button:hover {
 
 /* Style the placeholder text */
 .ui.dropdown .text {
-    color: #7D8C8D !important; /* Placeholder text color */
+    color: #FFFFFF !important; /* Ensure text color is white */
 }
