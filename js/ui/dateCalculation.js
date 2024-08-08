@@ -1,19 +1,19 @@
 // dateCalculation.js
 import { formatDate } from '../dateUtils/dateUtils.js';
-import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
 import { getHolidaysForCountry } from './countryUtils.js';
 
 // Helper function to adjust for India's 6-day work week
 function adjustForIndianWorkWeek(startDate, numDays, holidays) {
-    // Create a copy of the start date to avoid modifying the original
     let currentDate = new Date(startDate);
     let businessDaysCount = 0;
 
     while (businessDaysCount < numDays) {
         currentDate.setDate(currentDate.getDate() + 1);
         const dayOfWeek = currentDate.getDay();
-        // Assuming the Indian work week is Monday to Saturday (0-based index: 0=Sunday, 1=Monday, ..., 6=Saturday)
-        if (dayOfWeek !== 0 && dayOfWeek !== 6 && !holidays.includes(formatDate(currentDate))) {
+        const formattedDate = formatDate(currentDate);
+        
+        // Check if it's a working day (Monday to Saturday)
+        if (dayOfWeek !== 0 && dayOfWeek !== 6 && !holidays.includes(formattedDate)) {
             businessDaysCount++;
         }
     }
@@ -51,11 +51,12 @@ export async function calculateBusinessDate() {
         endDateStart = adjustForIndianWorkWeek(startDate, numDaysStart, holidays);
         endDateEnd = adjustForIndianWorkWeek(startDate, numDaysEnd, holidays);
     } else {
+        // Assuming calculateBusinessDays is adjusted or suitable for other countries
         endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays);
         endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays);
     }
 
     const formattedStart = formatDate(endDateStart);
     const formattedEnd = formatDate(endDateEnd);
-    document.getElementById('result').value = `${formattedStart} and ${formattedEnd}`;
+    document.getElementById('result').value = `Between ${formattedStart} and ${formattedEnd}`;
 }
