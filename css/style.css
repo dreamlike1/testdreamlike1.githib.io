@@ -141,7 +141,7 @@ input:focus, select:focus {
 
 /* Border color on focus for Business Days and Add Days fields */
 #businessDays:focus, #addDays:focus {
-    border: 2px solid #5F85DB; /* Change border color on focus */
+    border: 2px solid #5F85DB; /* Add a 2px border with the specified color */
     outline: none; /* Remove default outline */
 }
 
