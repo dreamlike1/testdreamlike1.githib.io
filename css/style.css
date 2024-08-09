@@ -194,13 +194,13 @@ button:hover {
    Result Field Styling
    ========================= */
 .result-field {
-    background: #5F85DB !important; /* Updated background color to match button color */
-    color: #ffffff !important; /* Font color should be white */
-    border: none !important;
-    padding: 12px !important;
+    background: #EEEEEE; /* Original background color */
+    color: #31363F; /* Original font color */
+    border: none;
+    padding: 12px;
     width: 100%;
-    text-align: center !important;
-    cursor: pointer !important;
+    text-align: center;
+    cursor: pointer;
 }
 
 /* =========================
