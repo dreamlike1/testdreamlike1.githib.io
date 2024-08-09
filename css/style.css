@@ -51,20 +51,20 @@ html, body {
     width: 80%;
     max-width: 300px;
     padding: 12px;
-    background-color: #5F85DB; /* Updated background color */
-    color: #ffffff; /* Font color should be white */
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    background-color: #5F85DB !important; /* Ensure button color */
+    color: #ffffff !important; /* Ensure font color is white */
+    border: none !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 .switch-button:hover {
-    background-color: #90B8F8; /* Updated hover color */
+    background-color: #90B8F8 !important; /* Ensure hover color */
 }
 
 /* =========================
@@ -91,8 +91,8 @@ input, select {
     width: 100%;
     padding: 12px;
     margin: 5px 0; /* Consistent margin for spacing */
-    border: none; /* Remove border for cleaner look */
-    border-radius: 4px;
+    border: none !important; /* Remove border for cleaner look */
+    border-radius: 4px !important;
     box-sizing: border-box;
     background: #353941 !important; /* Ensure background color matches dropdown */
     color: #FFFFFF !important; /* Ensure text color is white */
@@ -127,17 +127,17 @@ input:-ms-input-placeholder, select:-ms-input-placeholder {
 #businessDays, #addDays {
     color: #EEEEEE !important; /* Ensure text color is light */
     background: #353941 !important; /* Darker shade for background */
-    border: none; /* Remove border for cleaner look */
-    padding: 12px; /* Ensure padding is consistent */
-    font-family: 'Menlo', monospace; /* Ensure font consistency */
-    font-size: 1em; /* Consistent font size */
-    transition: box-shadow 0.3s ease; /* Smooth transition for border color */
+    border: none !important; /* Remove border for cleaner look */
+    padding: 12px !important; /* Ensure padding is consistent */
+    font-family: 'Menlo', monospace !important; /* Ensure font consistency */
+    font-size: 1em !important; /* Consistent font size */
+    transition: box-shadow 0.3s ease !important; /* Smooth transition for border color */
 }
 
 /* Border color on focus for Business Days and Add Days fields */
 #businessDays:focus, #addDays:focus {
-    box-shadow: 0 0 0 2px #5F85DB; /* Add a 2px border with the specified color using box-shadow */
-    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px #5F85DB !important; /* Add a 2px border with the specified color using box-shadow */
+    outline: none !important; /* Remove default outline */
 }
 
 /* Placeholder text color for Business Days and Add Days fields */
@@ -164,11 +164,11 @@ input:-ms-input-placeholder, select:-ms-input-placeholder {
    Timezone Text Specific Styling
    ========================= */
 #timezoneText {
-    font-size: 0.7em; /* Adjust font size to 0.7em */
-    margin-top: 5px;
-    margin-bottom: 7px; /* Add space below the timezone text */
-    padding: 0; /* Remove any padding if applicable */
-    color: #FFFFFF; /* Ensure text color is white */
+    font-size: 0.7em !important; /* Adjust font size to 0.7em */
+    margin-top: 5px !important;
+    margin-bottom: 7px !important; /* Add space below the timezone text */
+    padding: 0 !important; /* Remove any padding if applicable */
+    color: #FFFFFF !important; /* Ensure text color is white */
 }
 
 /* =========================
@@ -177,43 +177,43 @@ input:-ms-input-placeholder, select:-ms-input-placeholder {
 button {
     width: 100%;
     padding: 12px;
-    background-color: #5F85DB; /* Updated background color */
-    color: #ffffff; /* Font color should be white */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+    background-color: #5F85DB !important; /* Updated background color */
+    color: #ffffff !important; /* Font color should be white */
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
     margin-bottom: 25px !important; /* Explicitly set space below button */
 }
 
 button:hover {
-    background-color: #90B8F8; /* Updated hover color */
+    background-color: #90B8F8 !important; /* Updated hover color */
 }
 
 /* =========================
    Result Field Styling
    ========================= */
 .result-field {
-    background: #5F85DB; /* Updated background color to match button color */
-    color: #ffffff; /* Font color should be white */
-    border: none;
-    padding: 12px;
+    background: #5F85DB !important; /* Updated background color to match button color */
+    color: #ffffff !important; /* Font color should be white */
+    border: none !important;
+    padding: 12px !important;
     width: 100%;
-    text-align: center;
-    cursor: pointer;
+    text-align: center !important;
+    cursor: pointer !important;
 }
 
 /* =========================
    Copy Message Styling
    ========================= */
 .copy-message {
-    position: absolute;
-    background: #5F85DB; /* Updated background color to match button color */
-    color: #ffffff; /* Font color should be white */
-    padding: 10px;
-    border-radius: 4px;
-    display: none;
-    z-index: 10;
+    position: absolute !important;
+    background: #5F85DB !important; /* Updated background color to match button color */
+    color: #ffffff !important; /* Font color should be white */
+    padding: 10px !important;
+    border-radius: 4px !important;
+    display: none !important;
+    z-index: 10 !important;
 }
 
 /* =========================
@@ -222,47 +222,47 @@ button:hover {
 .checkbox-wrapper-42 {
     display: flex;
     align-items: center;
-    margin-top: 0px;
-    margin-bottom: 10px 0; /* Consistent margin for spacing */
+    margin-top: 0px !important;
+    margin-bottom: 10px 0 !important; /* Consistent margin for spacing */
 }
 
 .checkbox-wrapper-42 input[type="checkbox"] {
-    display: none;
+    display: none !important;
 }
 
 .checkbox-wrapper-42 .cbx {
-    width: 17px; /* Increase width for better visibility */
-    height: 17px; /* Increase height for better visibility */
-    border: 1px solid #5F85DB; /* Update border color for checkbox */
-    border-radius: 3px;
-    background: #2A2E34;
-    position: relative;
-    cursor: pointer;
-    margin-right: 10px;
+    width: 17px !important; /* Increase width for better visibility */
+    height: 17px !important; /* Increase height for better visibility */
+    border: 1px solid #5F85DB !important; /* Update border color for checkbox */
+    border-radius: 3px !important;
+    background: #2A2E34 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    margin-right: 10px !important;
 }
 
 .checkbox-wrapper-42 .cbx:after {
-    content: '';
-    position: absolute;
-    top: 2px; /* Adjusted for better centering */
-    left: 5px; /* Adjusted for better centering */
-    width: 5px; /* Increased width for better visibility */
-    height: 10px; /* Increased height for better visibility */
-    opacity: 0;
-    transform: rotate(45deg) scale(0);
-    border-right: 2px solid #FFFFFF; /* Ensure checkmark color is white */
-    border-bottom: 2px solid #FFFFFF; /* Ensure checkmark color is white */
-    transition: all 0.3s ease;
+    content: '' !important;
+    position: absolute !important;
+    top: 2px !important; /* Adjusted for better centering */
+    left: 5px !important; /* Adjusted for better centering */
+    width: 5px !important; /* Increased width for better visibility */
+    height: 10px !important; /* Increased height for better visibility */
+    opacity: 0 !important;
+    transform: rotate(45deg) scale(0) !important;
+    border-right: 2px solid #FFFFFF !important; /* Ensure checkmark color is white */
+    border-bottom: 2px solid #FFFFFF !important; /* Ensure checkmark color is white */
+    transition: all 0.3s ease !important;
 }
 
 .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
-    background: #5F85DB; /* Update background color for checked state */
-    border-color: #5F85DB; /* Update border color for checked state */
+    background: #5F85DB !important; /* Update background color for checked state */
+    border-color: #5F85DB !important; /* Update border color for checked state */
 }
 
 .checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx:after {
-    opacity: 1;
-    transform: rotate(45deg) scale(1);
+    opacity: 1 !important;
+    transform: rotate(45deg) scale(1) !important;
 }
 
 /* =========================
@@ -284,16 +284,16 @@ button:hover {
     background-color: #353941 !important; /* Ensure background color */
     color: #FFFFFF !important; /* Ensure text color is white */
     border: none !important; /* Remove border */
-    border-radius: 4px; /* Consistent border radius */
-    padding: 0; /* Remove padding for a cleaner look */
-    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
+    border-radius: 4px !important; /* Consistent border radius */
+    padding: 0 !important; /* Remove padding for a cleaner look */
+    box-sizing: border-box !important; /* Ensure padding and border are included in the total width and height */
 }
 
 /* Style the dropdown menu */
 .ui.dropdown .menu {
     background-color: #353941 !important; /* Ensure menu background color matches input background color */
     border: none !important; /* Remove border */
-    border-radius: 4px; /* Match border radius */
+    border-radius: 4px !important; /* Match border radius */
     padding: 0 !important; /* Remove padding */
 }
 
@@ -301,7 +301,7 @@ button:hover {
 .ui.dropdown .menu .item {
     background-color: #31363F !important; /* Darker background for items */
     color: #FFFFFF !important; /* White text color for items */
-    padding: 10px 12px; /* Add padding for better spacing */
+    padding: 10px 12px !important; /* Add padding for better spacing */
     border-top: none !important; /* Remove the border-top */
 }
 
