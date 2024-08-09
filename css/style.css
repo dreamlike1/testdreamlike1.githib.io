@@ -194,26 +194,26 @@ button:hover {
    Result Field Styling
    ========================= */
 .result-field {
-    background: #EEEEEE; /* Original background color */
-    color: #31363F; /* Original font color */
-    border: none;
-    padding: 12px;
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
+    background: #5F85DB !important; /* Blue background color */
+    color: #FFFFFF !important; /* White text color */
+    border: none !important;
+    padding: 12px !important;
+    width: 100% !important;
+    text-align: center !important;
+    cursor: pointer !important;
 }
 
 /* =========================
    Copy Message Styling
    ========================= */
 .copy-message {
-    position: absolute;
-    background: #76ABAE;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    display: none;
-    z-index: 10;
+    position: absolute !important;
+    background: #5F85DB !important; /* Blue background color */
+    color: #FFFFFF !important; /* White text color */
+    padding: 10px !important;
+    border-radius: 4px !important;
+    display: none !important;
+    z-index: 10 !important;
 }
 
 /* =========================
