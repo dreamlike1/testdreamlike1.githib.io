@@ -206,6 +206,7 @@ button:hover {
 
 /* Border color change on focus */
 .result-field:focus {
+    box-shadow: 0 0 0 2px #5F85DB !important; /* Add a 2px border with the specified color using box-shadow */
     border-color: #5F85DB !important; /* Blue border color on focus */
     outline: none; /* Remove default outline */
 }
