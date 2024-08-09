@@ -214,13 +214,13 @@ button:hover {
    Copy Message Styling
    ========================= */
 .copy-message {
-    position: absolute !important;
+    position: absolute;
     background: #5F85DB !important; /* Blue background color */
     color: #FFFFFF !important; /* White text color */
-    padding: 10px !important;
-    border-radius: 4px !important;
-    display: none !important;
-    z-index: 10 !important;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+    z-index: 10;
 }
 
 /* =========================
