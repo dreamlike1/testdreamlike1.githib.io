@@ -289,11 +289,25 @@ button:hover {
     box-sizing: border-box !important; /* Ensure padding and border are included in the total width and height */
 }
 
+/* =========================
+   Custom Dropdown Styling
+   ========================= */
+
+/* Apply styles to dropdown container */
+.ui.dropdown {
+    background-color: #353941 !important; /* Ensure background color */
+    color: #FFFFFF !important; /* Ensure text color is white */
+    border: none !important; /* Remove border */
+    border-radius: 4px; /* Consistent border radius */
+    padding: 0; /* Remove padding for a cleaner look */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
+}
+
 /* Style the dropdown menu */
 .ui.dropdown .menu {
     background-color: #353941 !important; /* Ensure menu background color matches input background color */
     border: none !important; /* Remove border */
-    border-radius: 4px !important; /* Match border radius */
+    border-radius: 4px; /* Match border radius */
     padding: 0 !important; /* Remove padding */
 }
 
@@ -301,7 +315,7 @@ button:hover {
 .ui.dropdown .menu .item {
     background-color: #31363F !important; /* Darker background for items */
     color: #FFFFFF !important; /* White text color for items */
-    padding: 10px 12px !important; /* Add padding for better spacing */
+    padding: 10px 12px; /* Add padding for better spacing */
     border-top: none !important; /* Remove the border-top */
 }
 
