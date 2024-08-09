@@ -278,7 +278,7 @@ button:hover {
 
 /* Use a highly specific selector to ensure precedence */
 .container .field #startDate {
-    margin-bottom: 5px !important; /* Ensure this margin is applied */
+    margin-bottom: 3px !important; /* Ensure this margin is applied */
     padding: 12px !important; /* Override padding if needed */
 }
 
