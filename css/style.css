@@ -51,8 +51,8 @@ html, body {
     width: 80%;
     max-width: 300px;
     padding: 12px;
-    background-color: #5F9EA0;
-    color: #ffffff;
+    background-color: #5F85DB; /* Updated background color */
+    color: #ffffff; /* Font color should be white */
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -64,7 +64,7 @@ html, body {
 }
 
 .switch-button:hover {
-    background-color: #4F8C8A;
+    background-color: #90B8F8; /* Updated hover color */
 }
 
 /* =========================
@@ -194,8 +194,8 @@ button:hover {
    Result Field Styling
    ========================= */
 .result-field {
-    background: #EEEEEE;
-    color: #31363F;
+    background: #5F85DB; /* Updated background color to match button color */
+    color: #ffffff; /* Font color should be white */
     border: none;
     padding: 12px;
     width: 100%;
@@ -208,8 +208,8 @@ button:hover {
    ========================= */
 .copy-message {
     position: absolute;
-    background: #76ABAE;
-    color: white;
+    background: #5F85DB; /* Updated background color to match button color */
+    color: #ffffff; /* Font color should be white */
     padding: 10px;
     border-radius: 4px;
     display: none;
