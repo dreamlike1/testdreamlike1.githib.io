@@ -19,10 +19,10 @@ export function initializeDateSelector() {
                 // to match the format used by native date input fields
                 const formattedDate = date.toISOString().split('T')[0];
                 // Set the value of the native date input field
-                document.getElementById('StartDate').value = formattedDate;
+                document.getElementById('startDate').value = formattedDate;
             } else {
                 // If no date is selected, clear the native date input field
-                document.getElementById('StartDate').value = '';
+                document.getElementById('startDate').value = '';
             }
         }
     });
