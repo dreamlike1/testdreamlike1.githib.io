@@ -1,7 +1,6 @@
 // js/ui/countryUtils.js
-// js/ui/countryUtils.js
 
-import { countryOptions } from '../api/countryData.js'; // Ensure path is correct
+import { countryOptions } from '../api/countryData.js';
 import { fetchHolidays } from '../api/holidays.js';
 
 let holidaysCache = {};  // Cache to store holidays data for all countries
@@ -14,18 +13,11 @@ export async function populateCountries(serviceType = 'expressPaid') {
     const countrySelectDropdown = $('#countrySelect');
     const countries = countryOptions[serviceType] || [];
     
-    // Debugging: log service type and available countries
-    console.log('Service Type:', serviceType);
-    console.log('Countries:', countries);
-    
     // Prepare dropdown options
     const options = countries.map(country => ({
         text: country,
         value: country
     }));
-
-    // Debugging: log dropdown options
-    console.log('Dropdown Options:', options);
 
     // Reinitialize dropdown
     await initializeDropdown(countrySelectDropdown, options);
@@ -61,7 +53,6 @@ async function initializeDropdown(dropdown, options) {
     // Reinitialize Semantic UI dropdown
     dropdown.dropdown({
         onChange: function(value) {
-            console.log('Dropdown value changed to:', value);
             // Manually hide the dropdown with a slight delay
             setTimeout(() => dropdown.dropdown('hide'), 100);
         },
@@ -83,11 +74,9 @@ async function fetchAndCacheHolidays(countries) {
     // Create an array of promises to fetch holidays for all countries
     const fetchHolidaysPromises = countries.map(async country => {
         try {
-            console.log('Fetching holidays for:', country);
             const currentYear = new Date().getFullYear();
             const holidays = await fetchHolidays(country, currentYear);
             holidaysCache[country] = holidays; // Store holidays in cache
-            console.log('Holidays fetched for:', country, holidays);
         } catch (error) {
             console.error(`Error fetching holidays for ${country}:`, error);
         }
@@ -95,8 +84,6 @@ async function fetchAndCacheHolidays(countries) {
 
     // Wait for all promises to resolve
     await Promise.all(fetchHolidaysPromises);
-
-    console.log('All holidays data fetched and cached');
 }
 
 /**
@@ -105,7 +92,5 @@ async function fetchAndCacheHolidays(countries) {
  * @returns {Array} - An array of holiday objects for the specified country.
  */
 export function getHolidaysForCountry(country) {
-    const holidays = holidaysCache[country] || [];
-    console.log(`Holidays for ${country}:`, holidays);
-    return holidays;
+    return holidaysCache[country] || [];
 }
