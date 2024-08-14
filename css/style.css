@@ -338,3 +338,40 @@ button:hover {
 /* =========================
    Calendar Input Styling
    ========================= */
+
+/* Ensure calendar input matches width of other inputs */
+.ui.calendar {
+    width: 100% !important; /* Ensure width is 100% to match other inputs */
+    background: #353941 !important; /* Background color to match other inputs */
+    color: #FFFFFF !important; /* White text color */
+}
+
+/* Style the calendar input field */
+.ui.calendar input[type="text"] {
+    color: #FFFFFF !important; /* White text color */
+    background: #353941 !important; /* Match background color */
+    border: none !important; /* Remove border for consistency */
+    padding: 12px !important; /* Ensure padding is consistent */
+    font-family: 'Menlo', monospace !important; /* Ensure font consistency */
+    font-size: 1em !important; /* Consistent font size */
+}
+
+/* Placeholder text color for the calendar input field */
+.ui.calendar input[type="text"]::placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for WebKit browsers */
+.ui.calendar input[type="text"]::-webkit-input-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for Mozilla Firefox */
+.ui.calendar input[type="text"]::-moz-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for Internet Explorer and Edge */
+.ui.calendar input[type="text"]:-ms-input-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
