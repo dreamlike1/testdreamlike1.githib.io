@@ -2,7 +2,7 @@ import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
 import { getHolidaysForCountry } from './countryUtils.js';
 
-// Helper function to adjust for India's 6-day work week
+// Helper function to calculate business days considering India's 6-day work week
 function calculateIndianBusinessDays(startDate, numDays, holidays) {
     let currentDate = new Date(startDate);
     let businessDaysCount = 0;
@@ -15,7 +15,6 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
 
     // Ensure the start date is a valid business day
     while (currentDate.getDay() === 0 || holidays.includes(formatDate(currentDate))) {
-        console.log(`Skipping non-business day: ${formatDate(currentDate)}`); // Debug log
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
@@ -25,20 +24,18 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
         const dayOfWeek = currentDate.getDay();
         const formattedDate = formatDate(currentDate);
 
-        console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}`); // Debug log
-
         // Check if it's a working day (Monday to Saturday) and not a holiday
         if (dayOfWeek !== 0 && !holidays.includes(formattedDate)) {
-            console.log(`Valid business day: ${formattedDate}`); // Debug log
             businessDaysCount++;
         }
     }
+
     return currentDate;
 }
 
-// Function to calculate business days for other countries
+// Function to calculate business days for countries other than India
 function calculateForOtherCountries(startDate, numDays, holidays) {
-    return calculateBusinessDays(startDate, numDays, holidays);
+    return utilsCalculateBusinessDays(startDate, numDays, holidays);
 }
 
 export async function calculateBusinessDate() {
@@ -60,24 +57,20 @@ export async function calculateBusinessDate() {
             ? dateRangeInput.split(',').map(Number)
             : [Number(dateRangeInput), Number(dateRangeInput)];
 
-    // Get holidays for the selected country
-    const holidays = getHolidaysForCountry(selectedCountry);
-    console.log(`Selected country: ${selectedCountry}`);
-    console.log(`Start date: ${startDate}`);
-    console.log(`Date range input: ${dateRangeInput}`);
-    console.log(`Holidays: ${holidays}`);
+    // Fetch holidays for the selected country
+    const holidays = await getHolidaysForCountry(selectedCountry);
+    
+    // Handle case where no holidays are returned
+    if (!holidays || holidays.length === 0) {
+        console.warn(`No holidays found for ${selectedCountry}`);
+    }
 
     let endDateStart, endDateEnd;
 
     if (selectedCountry === 'India') {
-        console.log('Calculating business days for India');
         endDateStart = calculateIndianBusinessDays(startDate, numDaysStart, holidays);
         endDateEnd = calculateIndianBusinessDays(startDate, numDaysEnd, holidays);
     } else {
-        if (typeof calculateBusinessDays === 'undefined') {
-            console.error('calculateBusinessDays is not defined. Ensure it is imported correctly.');
-            return;
-        }
         endDateStart = calculateForOtherCountries(startDate, numDaysStart, holidays);
         endDateEnd = calculateForOtherCountries(startDate, numDaysEnd, holidays);
     }
