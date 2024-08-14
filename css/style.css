@@ -349,7 +349,6 @@ button:hover {
 .ui.calendar input[type="text"] {
     color: #FFFFFF !important; /* White text color */
     background: #353941 !important; /* Match background color */
-    border: none !important; /* Remove border for consistency */
     padding: 12px !important; /* Ensure padding is consistent */
     font-family: 'Menlo', monospace !important; /* Ensure font consistency */
     font-size: 1em !important; /* Consistent font size */
