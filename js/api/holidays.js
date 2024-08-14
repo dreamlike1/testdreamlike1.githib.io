@@ -16,9 +16,9 @@ async function fetchHolidaysFromNager(countryCode, year) {
         const holidays = await response.json();
         console.log('API response:', holidays); // Debug log to view the raw API response
 
-        // Filter holidays, ensuring 'type' field exists and is 'Public'
+        // Ensure 'type' field exists and is 'Public'
         const filteredHolidays = holidays
-            .filter(holiday => holiday.type && typeof holiday.type === 'string' && holiday.type.toLowerCase() === 'public')
+            .filter(holiday => holiday.type && holiday.type.toLowerCase() === 'public')
             .map(holiday => ({
                 date: holiday.date,  // Use exact date format from API
                 localName: holiday.localName,
@@ -86,6 +86,7 @@ export async function isHoliday(date, country) {
         }
 
         const holidays = await getHolidays(countryCode, new Date(date).getFullYear());
+        // Ensure date format is consistent with API format
         return holidays.some(holiday => holiday.date === date);
     } catch (error) {
         console.error(`Error in isHoliday function for ${country}:`, error);
