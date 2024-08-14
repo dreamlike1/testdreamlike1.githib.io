@@ -15,13 +15,18 @@ async function fetchHolidaysFromNager(countryCode, year) {
         if (!response.ok) throw new Error(`Nager API request failed: ${response.statusText}`);
         const holidays = await response.json();
         console.log('API response:', holidays); // Debug log to view the raw API response
-        return holidays
-            .filter(holiday => holiday.type && typeof holiday.type === 'string' && holiday.type.toLowerCase() === 'public') // Check for existence and type of 'type'
+
+        // Filter holidays, ensuring 'type' field exists and is 'Public'
+        const filteredHolidays = holidays
+            .filter(holiday => holiday.type && typeof holiday.type === 'string' && holiday.type.toLowerCase() === 'public')
             .map(holiday => ({
                 date: holiday.date,  // Use exact date format from API
                 localName: holiday.localName,
                 countryCode: countryCode
             }));
+        
+        console.log(`Filtered holidays for ${countryCode} in ${year}:`, filteredHolidays);
+        return filteredHolidays;
     } catch (error) {
         console.error(`Error fetching holidays from Nager for ${countryCode}:`, error);
         return [];
