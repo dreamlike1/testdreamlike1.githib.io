@@ -11,12 +11,16 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
     // If past 5 pm is checked, move to the next day
     if (past5pmCheckbox) {
         currentDate.setDate(currentDate.getDate() + 1);
+        console.log(`Past 5pm checkbox is checked. Moved start date to the next day: ${formatDate(currentDate)}`);
     }
 
     // Ensure the start date is a valid business day
     while (currentDate.getDay() === 0 || holidays.includes(formatDate(currentDate))) {
+        console.log(`Start date ${formatDate(currentDate)} is either Sunday or a holiday. Moving to the next day.`);
         currentDate.setDate(currentDate.getDate() + 1);
     }
+
+    console.log(`Starting business day calculation from: ${formatDate(currentDate)}`);
 
     // Start counting business days from the currentDate
     while (businessDaysCount < numDays) {
@@ -25,13 +29,18 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
         const formattedDate = formatDate(currentDate);
 
         // Log current date and its status for debugging
-        console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}, Holidays: ${holidays}`);
+        console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}`);
 
         // Check if it's a working day (Monday to Saturday) and not a holiday
         if (dayOfWeek !== 0 && !holidays.includes(formattedDate)) {
             businessDaysCount++;
+            console.log(`Added ${formattedDate} as business day. Total business days counted: ${businessDaysCount}`);
+        } else {
+            console.log(`${formattedDate} is either a Sunday or a holiday. Skipping.`);
         }
     }
+
+    console.log(`Calculation completed. End date: ${formatDate(currentDate)}`);
     return currentDate;
 }
 
@@ -68,6 +77,7 @@ export async function calculateBusinessDate() {
 
     // Extract holiday dates
     const holidayDates = holidays.map(h => h.date);
+    console.log(`Formatted holiday dates: ${holidayDates}`);
 
     let endDateStart, endDateEnd;
 
@@ -87,5 +97,6 @@ export async function calculateBusinessDate() {
     // Format and display results
     const formattedStart = formatDate(endDateStart);
     const formattedEnd = formatDate(endDateEnd);
+    console.log(`Business date range: ${formattedStart} to ${formattedEnd}`);
     document.getElementById('result').value = `${formattedStart} and ${formattedEnd}`;
 }
