@@ -14,8 +14,9 @@ async function fetchHolidaysFromNager(countryCode, year) {
         const response = await fetch(`https://date.nager.at/api/v3/publicholidays/${year}/${countryCode}`);
         if (!response.ok) throw new Error(`Nager API request failed: ${response.statusText}`);
         const holidays = await response.json();
+        console.log('API response:', holidays); // Debug log to view the raw API response
         return holidays
-            .filter(holiday => holiday.type.toLowerCase() === 'public')  // Ensure type comparison is case-insensitive
+            .filter(holiday => holiday.type && typeof holiday.type === 'string' && holiday.type.toLowerCase() === 'public') // Check for existence and type of 'type'
             .map(holiday => ({
                 date: holiday.date,  // Use exact date format from API
                 localName: holiday.localName,
