@@ -15,6 +15,7 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
 
     // Ensure the start date is a valid business day
     while (currentDate.getDay() === 0 || holidays.includes(formatDate(currentDate))) {
+        console.log(`Skipping non-business day: ${formatDate(currentDate)}`); // Debug log
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
@@ -24,10 +25,11 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
         const dayOfWeek = currentDate.getDay();
         const formattedDate = formatDate(currentDate);
 
-        console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}`);
+        console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}`); // Debug log
 
         // Check if it's a working day (Monday to Saturday) and not a holiday
         if (dayOfWeek !== 0 && !holidays.includes(formattedDate)) {
+            console.log(`Valid business day: ${formattedDate}`); // Debug log
             businessDaysCount++;
         }
     }
