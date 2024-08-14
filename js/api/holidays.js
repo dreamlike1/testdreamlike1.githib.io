@@ -1,18 +1,19 @@
-// js/api/holidays.js
-
 import { countryCodeMapping } from './countryData.js';
 
 // Cache for storing holidays data
 const holidayCache = new Map();
 
-// Fetch holidays from Nager.Date API
+/**
+ * Fetch holidays from the Nager.Date API.
+ * @param {string} countryCode - The country code to fetch holidays for.
+ * @param {number} year - The year to fetch holidays for.
+ * @returns {Promise<Array>} - A promise that resolves to an array of holidays.
+ */
 async function fetchHolidaysFromNager(countryCode, year) {
     try {
         const response = await fetch(`https://date.nager.at/api/v3/publicholidays/${year}/${countryCode}`);
         if (!response.ok) throw new Error(`Nager API request failed: ${response.statusText}`);
-        const text = await response.text();
-        if (!text) return [];
-        const holidays = JSON.parse(text);
+        const holidays = await response.json();
         return holidays.filter(holiday => holiday.type === 'Public');
     } catch (error) {
         console.error(`Error fetching holidays from Nager for ${countryCode}:`, error);
@@ -20,47 +21,32 @@ async function fetchHolidaysFromNager(countryCode, year) {
     }
 }
 
-// Fetch holidays from Calenderific API
-async function fetchHolidaysFromCalenderific(countryCode, year) {
-    const API_KEY = 'EMIgkIkPLekUkjdA3ZhxFxFg7fM7E1qi';
-    try {
-        const response = await fetch(`https://calendarific.com/api/v2/holidays?&api_key=${API_KEY}&country=${countryCode}&year=${year}`);
-        if (!response.ok) throw new Error(`Calenderific API request failed: ${response.statusText}`);
-        const text = await response.text();
-        if (!text) return [];
-        const data = JSON.parse(text);
-        return data.response.holidays
-            .filter(holiday => holiday.type === 'Public')
-            .map(holiday => ({
-                date: holiday.date.iso,
-                localName: holiday.name,
-                countryCode: countryCode
-            }));
-    } catch (error) {
-        console.error(`Error fetching holidays from Calenderific for ${countryCode}:`, error);
-        return [];
-    }
-}
-
-// Get holidays for a country and year, using caching
+/**
+ * Get holidays for a specific country and year, using caching.
+ * @param {string} countryCode - The country code to fetch holidays for.
+ * @param {number} year - The year to fetch holidays for.
+ * @returns {Promise<Array>} - A promise that resolves to an array of holidays.
+ */
 async function getHolidays(countryCode, year) {
     const cacheKey = `${countryCode}-${year}`;
     if (holidayCache.has(cacheKey)) {
         return holidayCache.get(cacheKey);
     }
 
-    let holidays = await fetchHolidaysFromNager(countryCode, year);
-    if (holidays.length > 0) {
-        holidayCache.set(cacheKey, holidays);
-        return holidays;
+    const holidays = await fetchHolidaysFromNager(countryCode, year);
+    if (holidays.length === 0) {
+        console.warn(`No holidays found for ${countryCode} in ${year}`);
     }
-
-    holidays = await fetchHolidaysFromCalenderific(countryCode, year);
     holidayCache.set(cacheKey, holidays);
     return holidays;
 }
 
-// Export function to fetch holidays
+/**
+ * Fetch holidays for a given country and year.
+ * @param {string} country - The country name to fetch holidays for.
+ * @param {number} year - The year to fetch holidays for.
+ * @returns {Promise<Array>} - A promise that resolves to an array of holidays.
+ */
 export async function fetchHolidays(country, year) {
     const countryCode = countryCodeMapping[country];
     if (!countryCode) {
@@ -70,7 +56,12 @@ export async function fetchHolidays(country, year) {
     return await getHolidays(countryCode, year);
 }
 
-// Export function to check if a date is a holiday
+/**
+ * Check if a specific date is a holiday in the given country.
+ * @param {string} date - The date to check (in ISO format, e.g., '2024-08-15').
+ * @param {string} country - The country name to check holidays for.
+ * @returns {Promise<boolean>} - A promise that resolves to true if the date is a holiday, false otherwise.
+ */
 export async function isHoliday(date, country) {
     try {
         const countryCode = countryCodeMapping[country];
