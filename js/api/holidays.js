@@ -2,10 +2,10 @@
 
 import { countryCodeMapping } from './countryData.js';
 
-// Cache for storing holidays
+// Cache for storing holidays data
 const holidayCache = new Map();
 
-// Function to fetch holidays from Nager.Date API
+// Fetch holidays from Nager.Date API
 async function fetchHolidaysFromNager(countryCode, year) {
     try {
         const response = await fetch(`https://date.nager.at/api/v3/publicholidays/${year}/${countryCode}`);
@@ -20,7 +20,7 @@ async function fetchHolidaysFromNager(countryCode, year) {
     }
 }
 
-// Function to fetch holidays from Calenderific API as a fallback
+// Fetch holidays from Calenderific API
 async function fetchHolidaysFromCalenderific(countryCode, year) {
     const API_KEY = 'EMIgkIkPLekUkjdA3ZhxFxFg7fM7E1qi';
     try {
@@ -42,7 +42,7 @@ async function fetchHolidaysFromCalenderific(countryCode, year) {
     }
 }
 
-// Function to get holidays for a country and year, using caching
+// Get holidays for a country and year, using caching
 async function getHolidays(countryCode, year) {
     const cacheKey = `${countryCode}-${year}`;
     if (holidayCache.has(cacheKey)) {
@@ -68,4 +68,22 @@ export async function fetchHolidays(country, year) {
         return [];
     }
     return await getHolidays(countryCode, year);
+}
+
+// Export function to check if a date is a holiday
+export async function isHoliday(date, country) {
+    try {
+        const countryCode = countryCodeMapping[country];
+        if (!countryCode) {
+            console.error(`Invalid country name: ${country}`);
+            return false;
+        }
+
+        const year = new Date(date).getFullYear();
+        const holidays = await getHolidays(countryCode, year);
+        return holidays.some(holiday => holiday.date === date);
+    } catch (error) {
+        console.error(`Error in isHoliday function for ${country}:`, error);
+        return false;
+    }
 }
