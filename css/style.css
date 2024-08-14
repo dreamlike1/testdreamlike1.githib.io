@@ -386,5 +386,29 @@ button:hover {
     padding-right: 30px !important; /* Add padding to the right to make space for the icon */
 }
 
+/* Style the input field container to position the icon on the right */
+.ui.calendar .ui.input {
+    position: relative; /* Position the container relatively */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items vertically */
+}
+
+/* Style the input field */
+.ui.calendar input[type="text"] {
+    padding-right: 40px; /* Ensure there's space for the icon */
+    width: 100%; /* Make the input take the full width */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Style the calendar icon */
+.ui.calendar .ui.input i.calendar.icon {
+    position: absolute; /* Position the icon absolutely within the container */
+    right: 10px; /* Space from the right edge of the container */
+    top: 50%; /* Vertically center the icon */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    color: #FFFFFF !important; /* Ensure the icon color is white */
+    pointer-events: none; /* Prevent clicks on the icon from affecting the input */
+}
+
 
 
