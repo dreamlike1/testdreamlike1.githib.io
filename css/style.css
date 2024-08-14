@@ -336,19 +336,15 @@ button:hover {
 }
 
 /* =========================
-   Calendar Input Styling
+   Calendar Input Field Styling
    ========================= */
 
-/* Ensure calendar input matches width of other inputs */
-.ui.calendar {
-    background: #353941 !important; /* Background color to match other inputs */
-    color: #FFFFFF !important; /* White text color */
-}
-
-/* Style the calendar input field */
+/* Style the calendar input field to match other inputs */
 .ui.calendar input[type="text"] {
+    width: 100% !important; /* Ensure width matches other inputs */
     color: #FFFFFF !important; /* White text color */
-    background: #353941 !important; /* Match background color */
+    background: #353941 !important; /* Background color to match other inputs */
+    border: none !important; /* Remove border for consistency */
     padding: 12px !important; /* Ensure padding is consistent */
     font-family: 'Menlo', monospace !important; /* Ensure font consistency */
     font-size: 1em !important; /* Consistent font size */
