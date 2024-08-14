@@ -25,7 +25,7 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
         const formattedDate = formatDate(currentDate);
 
         // Log current date and its status for debugging
-        console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}`);
+        console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}, Holidays: ${holidays}`);
 
         // Check if it's a working day (Monday to Saturday) and not a holiday
         if (dayOfWeek !== 0 && !holidays.includes(formattedDate)) {
@@ -60,7 +60,7 @@ export async function calculateBusinessDate() {
             : [Number(dateRangeInput), Number(dateRangeInput)];
 
     // Fetch holidays for the selected country
-    const holidays = getHolidaysForCountry(selectedCountry);
+    const holidays = await getHolidaysForCountry(selectedCountry);
     console.log(`Selected country: ${selectedCountry}`);
     console.log(`Start date: ${startDate}`);
     console.log(`Date range input: ${dateRangeInput}`);
