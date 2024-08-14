@@ -24,7 +24,6 @@ function calculateIndianBusinessDays(startDate, numDays, holidays) {
         const dayOfWeek = currentDate.getDay();
         const formattedDate = formatDate(currentDate);
 
-        // Log current date and its status for debugging
         console.log(`Checking date: ${formattedDate}, Day of week: ${dayOfWeek}`);
 
         // Check if it's a working day (Monday to Saturday) and not a holiday
