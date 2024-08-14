@@ -341,7 +341,6 @@ button:hover {
 
 /* Ensure calendar input matches width of other inputs */
 .ui.calendar {
-    width: 100% !important; /* Ensure width is 100% to match other inputs */
     background: #353941 !important; /* Background color to match other inputs */
     color: #FFFFFF !important; /* White text color */
 }
