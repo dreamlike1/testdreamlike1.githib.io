@@ -1,9 +1,9 @@
 import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
-import { fetchHolidays } from '../api/holidays.js'; // Adjust the path if needed
+import { getHolidaysForCountry } from './countryUtils.js';
 
 // Helper function to adjust for India's 6-day work week
-async function calculateIndianBusinessDays(startDate, numDays, holidays) {
+function calculateIndianBusinessDays(startDate, numDays, holidays) {
     let currentDate = new Date(startDate);
     let businessDaysCount = 0;
     const past5pmCheckbox = document.getElementById('cbx-42')?.checked;
@@ -36,7 +36,7 @@ async function calculateIndianBusinessDays(startDate, numDays, holidays) {
 }
 
 // Function to calculate business days for other countries
-async function calculateForOtherCountries(startDate, numDays, holidays) {
+function calculateForOtherCountries(startDate, numDays, holidays) {
     return calculateBusinessDays(startDate, numDays, holidays);
 }
 
@@ -59,32 +59,29 @@ export async function calculateBusinessDate() {
             ? dateRangeInput.split(',').map(Number)
             : [Number(dateRangeInput), Number(dateRangeInput)];
 
-    // Get holidays for the selected country
-    let holidays;
-    try {
-        holidays = await fetchHolidays(selectedCountry, startDate.getFullYear());
-    } catch (error) {
-        console.error(`Error fetching holidays for ${selectedCountry}:`, error);
-        return;
-    }
+    // Fetch holidays for the selected country
+    const holidays = getHolidaysForCountry(selectedCountry);
     console.log(`Selected country: ${selectedCountry}`);
     console.log(`Start date: ${startDate}`);
     console.log(`Date range input: ${dateRangeInput}`);
-    console.log(`Holidays: ${holidays}`);
+    console.log(`Holidays: ${holidays.map(h => h.date)}`);
+
+    // Extract holiday dates
+    const holidayDates = holidays.map(h => h.date);
 
     let endDateStart, endDateEnd;
 
     if (selectedCountry === 'India') {
         console.log('Calculating business days for India');
-        endDateStart = await calculateIndianBusinessDays(startDate, numDaysStart, holidays.map(h => h.date));
-        endDateEnd = await calculateIndianBusinessDays(startDate, numDaysEnd, holidays.map(h => h.date));
+        endDateStart = calculateIndianBusinessDays(startDate, numDaysStart, holidayDates);
+        endDateEnd = calculateIndianBusinessDays(startDate, numDaysEnd, holidayDates);
     } else {
         if (typeof calculateBusinessDays === 'undefined') {
             console.error('calculateBusinessDays is not defined. Ensure it is imported correctly.');
             return;
         }
-        endDateStart = await calculateForOtherCountries(startDate, numDaysStart, holidays.map(h => h.date));
-        endDateEnd = await calculateForOtherCountries(startDate, numDaysEnd, holidays.map(h => h.date));
+        endDateStart = calculateForOtherCountries(startDate, numDaysStart, holidayDates);
+        endDateEnd = calculateForOtherCountries(startDate, numDaysEnd, holidayDates);
     }
 
     // Format and display results
