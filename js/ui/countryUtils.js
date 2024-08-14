@@ -75,7 +75,11 @@ async function fetchAndCacheHolidays(countries) {
     const fetchHolidaysPromises = countries.map(async country => {
         try {
             const currentYear = new Date().getFullYear();
+            console.log(`Fetching holidays for ${country} in ${currentYear}`); // Debug log
             const holidays = await fetchHolidays(country, currentYear);
+            if (holidays.length === 0) {
+                console.warn(`No holidays found for ${country}`);
+            }
             holidaysCache[country] = holidays; // Store holidays in cache
         } catch (error) {
             console.error(`Error fetching holidays for ${country}:`, error);
@@ -92,5 +96,7 @@ async function fetchAndCacheHolidays(countries) {
  * @returns {Array} - An array of holiday objects for the specified country.
  */
 export function getHolidaysForCountry(country) {
-    return holidaysCache[country] || [];
+    const holidays = holidaysCache[country] || [];
+    console.log(`Retrieved holidays for ${country}:`, holidays); // Debug log
+    return holidays;
 }
