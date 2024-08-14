@@ -395,4 +395,5 @@ button:hover {
     transform: translateY(-50%); /* Adjust for vertical centering */
     color: #FFFFFF !important; /* Ensure the icon color is white */
     pointer-events: none; /* Prevent clicks on the icon from affecting the input */
+    font-size: 1.2em; /* Adjust the size of the icon if needed */
 }
