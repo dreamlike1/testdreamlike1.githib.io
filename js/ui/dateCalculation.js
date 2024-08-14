@@ -2,40 +2,50 @@ import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDays as utilsCalculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
 import { getHolidaysForCountry } from './countryUtils.js';
 
-// Helper function to calculate business days considering India's 6-day work week
-function calculateIndianBusinessDays(startDate, numDays, holidays) {
+// Helper function to handle fetching and logging of holidays
+async function fetchHolidays(selectedCountry) {
+    try {
+        const holidays = await getHolidaysForCountry(selectedCountry);
+        if (!holidays || holidays.length === 0) {
+            console.warn(`No holidays found for ${selectedCountry}`);
+            return [];
+        }
+        return holidays;
+    } catch (error) {
+        console.error(`Error fetching holidays for ${selectedCountry}:`, error);
+        return [];
+    }
+}
+
+// Unified function to calculate business days considering holidays
+function calculateBusinessDays(startDate, numDays, holidays, isIndian) {
     let currentDate = new Date(startDate);
     let businessDaysCount = 0;
-    const past5pmCheckbox = document.getElementById('cbx-42')?.checked;
+    const isPast5pmChecked = document.getElementById('cbx-42')?.checked;
 
-    // If past 5 pm is checked, move to the next day
-    if (past5pmCheckbox) {
+    if (isPast5pmChecked) {
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    // Ensure the start date is a valid business day
-    while (currentDate.getDay() === 0 || holidays.includes(formatDate(currentDate))) {
+    // Skip to the next business day if the start date is a weekend or holiday
+    while ((isIndian ? currentDate.getDay() === 0 : false) || holidays.includes(formatDate(currentDate))) {
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    // Start counting business days from the currentDate
     while (businessDaysCount < numDays) {
         currentDate.setDate(currentDate.getDate() + 1);
         const dayOfWeek = currentDate.getDay();
         const formattedDate = formatDate(currentDate);
 
-        // Check if it's a working day (Monday to Saturday) and not a holiday
-        if (dayOfWeek !== 0 && !holidays.includes(formattedDate)) {
-            businessDaysCount++;
+        // For India, consider Monday to Saturday as work days
+        if (isIndian ? dayOfWeek !== 0 && dayOfWeek !== 7 : dayOfWeek !== 0) {
+            if (!holidays.includes(formattedDate)) {
+                businessDaysCount++;
+            }
         }
     }
 
     return currentDate;
-}
-
-// Function to calculate business days for countries other than India
-function calculateForOtherCountries(startDate, numDays, holidays) {
-    return utilsCalculateBusinessDays(startDate, numDays, holidays);
 }
 
 export async function calculateBusinessDate() {
@@ -57,22 +67,17 @@ export async function calculateBusinessDate() {
             ? dateRangeInput.split(',').map(Number)
             : [Number(dateRangeInput), Number(dateRangeInput)];
 
-    // Fetch holidays for the selected country
-    const holidays = await getHolidaysForCountry(selectedCountry);
-    
-    // Handle case where no holidays are returned
-    if (!holidays || holidays.length === 0) {
-        console.warn(`No holidays found for ${selectedCountry}`);
-    }
+    // Fetch holidays
+    const holidays = await fetchHolidays(selectedCountry);
 
     let endDateStart, endDateEnd;
 
     if (selectedCountry === 'India') {
-        endDateStart = calculateIndianBusinessDays(startDate, numDaysStart, holidays);
-        endDateEnd = calculateIndianBusinessDays(startDate, numDaysEnd, holidays);
+        endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays, true);
+        endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays, true);
     } else {
-        endDateStart = calculateForOtherCountries(startDate, numDaysStart, holidays);
-        endDateEnd = calculateForOtherCountries(startDate, numDaysEnd, holidays);
+        endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays, false);
+        endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays, false);
     }
 
     // Format and display results
