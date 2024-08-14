@@ -390,8 +390,6 @@ button:hover {
 /* Style the calendar icon */
 .ui.calendar .ui.input i.calendar.icon {
     position: absolute; /* Position the icon absolutely within the container */
-    right: 10px; /* Space from the right edge of the container */
-    top: 50%; /* Vertically center the icon */
     transform: translateY(-50%); /* Adjust for vertical centering */
     color: #FFFFFF !important; /* Ensure the icon color is white */
     pointer-events: none; /* Prevent clicks on the icon from affecting the input */
