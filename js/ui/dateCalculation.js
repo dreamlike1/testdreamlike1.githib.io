@@ -15,6 +15,7 @@ export async function calculateBusinessDate() {
 
     let numDaysStart, numDaysEnd;
 
+    // Handle different range formats
     if (dateRangeInput.includes('-')) {
         const ranges = dateRangeInput.split('-').map(Number);
         numDaysStart = ranges[0];
@@ -27,10 +28,14 @@ export async function calculateBusinessDate() {
         numDaysStart = numDaysEnd = Number(dateRangeInput);
     }
 
-    const holidays = getHolidaysForCountry();
+    // Fetch holidays for the selected country
+    const holidays = await getHolidaysForCountry(selectedCountry, startDate.getFullYear());
+    
+    // Calculate the end dates considering holidays and weekends
     const endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays);
     const endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays);
 
+    // Format and display results
     const formattedStart = formatDate(endDateStart);
     const formattedEnd = formatDate(endDateEnd);
     document.getElementById('result').value = `${formattedStart} and ${formattedEnd}`;
