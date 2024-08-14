@@ -73,7 +73,7 @@ export async function calculateBusinessDate() {
     console.log(`Selected country: ${selectedCountry}`);
     console.log(`Start date: ${startDate}`);
     console.log(`Date range input: ${dateRangeInput}`);
-    console.log(`Holidays: ${holidays}`);
+    console.log(`Holidays (raw): ${JSON.stringify(holidays)}`);
 
     // Log formatted holiday dates for verification
     const formattedHolidays = holidays.map(date => formatDate(new Date(date)));
