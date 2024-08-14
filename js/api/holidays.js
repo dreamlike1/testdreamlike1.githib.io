@@ -14,7 +14,11 @@ async function fetchHolidaysFromNager(countryCode, year) {
         const response = await fetch(`https://date.nager.at/api/v3/publicholidays/${year}/${countryCode}`);
         if (!response.ok) throw new Error(`Nager API request failed: ${response.statusText}`);
         const holidays = await response.json();
-        return holidays.filter(holiday => holiday.type === 'Public');
+        return holidays.filter(holiday => holiday.type === 'Public').map(holiday => ({
+            date: holiday.date,  // Use exact date format from API
+            localName: holiday.localName,
+            countryCode: countryCode
+        }));
     } catch (error) {
         console.error(`Error fetching holidays from Nager for ${countryCode}:`, error);
         return [];
@@ -70,8 +74,7 @@ export async function isHoliday(date, country) {
             return false;
         }
 
-        const year = new Date(date).getFullYear();
-        const holidays = await getHolidays(countryCode, year);
+        const holidays = await getHolidays(countryCode, new Date(date).getFullYear());
         return holidays.some(holiday => holiday.date === date);
     } catch (error) {
         console.error(`Error in isHoliday function for ${country}:`, error);
