@@ -1,5 +1,5 @@
 import { formatDate } from '../dateUtils/dateUtils.js';
-import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
+import { calculateBusinessDays as utilsCalculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
 import { getHolidaysForCountry } from './countryUtils.js';
 
 // Helper function to calculate business days considering India's 6-day work week
