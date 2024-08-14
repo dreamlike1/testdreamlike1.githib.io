@@ -101,6 +101,6 @@ async function fetchAndCacheHolidays(countries) {
  * @param {string} country - The country name to get holidays for.
  * @returns {Array} - Array of holiday objects for the country.
  */
-export function getCachedHolidays(country) {
+export function getHolidaysForCountry(country) {
     return holidaysCache[country] || [];
 }
