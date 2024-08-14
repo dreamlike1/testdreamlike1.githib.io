@@ -14,11 +14,13 @@ async function fetchHolidaysFromNager(countryCode, year) {
         const response = await fetch(`https://date.nager.at/api/v3/publicholidays/${year}/${countryCode}`);
         if (!response.ok) throw new Error(`Nager API request failed: ${response.statusText}`);
         const holidays = await response.json();
-        return holidays.filter(holiday => holiday.type === 'Public').map(holiday => ({
-            date: holiday.date,  // Use exact date format from API
-            localName: holiday.localName,
-            countryCode: countryCode
-        }));
+        return holidays
+            .filter(holiday => holiday.type.toLowerCase() === 'public')  // Ensure type comparison is case-insensitive
+            .map(holiday => ({
+                date: holiday.date,  // Use exact date format from API
+                localName: holiday.localName,
+                countryCode: countryCode
+            }));
     } catch (error) {
         console.error(`Error fetching holidays from Nager for ${countryCode}:`, error);
         return [];
@@ -34,10 +36,12 @@ async function fetchHolidaysFromNager(countryCode, year) {
 async function getHolidays(countryCode, year) {
     const cacheKey = `${countryCode}-${year}`;
     if (holidayCache.has(cacheKey)) {
+        console.log(`Cache hit for ${cacheKey}`);
         return holidayCache.get(cacheKey);
     }
 
     const holidays = await fetchHolidaysFromNager(countryCode, year);
+    console.log(`Fetched holidays for ${countryCode} in ${year}:`, holidays);
     if (holidays.length === 0) {
         console.warn(`No holidays found for ${countryCode} in ${year}`);
     }
@@ -53,6 +57,7 @@ async function getHolidays(countryCode, year) {
  */
 export async function fetchHolidays(country, year) {
     const countryCode = countryCodeMapping[country];
+    console.log(`Country code for ${country}:`, countryCode);
     if (!countryCode) {
         console.error(`No country code found for ${country}`);
         return [];
