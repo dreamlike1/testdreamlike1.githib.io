@@ -1,7 +1,17 @@
-// dateCalculation.js
 import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
-import { getHolidaysForCountry } from './countryUtils.js';
+import { fetchHolidays } from '../api/holidays.js'; // Import fetchHolidays
+import { countryCodeMapping } from '../api/countryData.js'; // Import countryCodeMapping
+
+// Fetch holidays based on selected country and year
+async function getHolidaysForCountry(country, year) {
+    const countryCode = countryCodeMapping[country];
+    if (!countryCode) {
+        console.error(`Invalid country name: ${country}`);
+        return [];
+    }
+    return await fetchHolidays(countryCode, year);
+}
 
 export async function calculateBusinessDate() {
     let startDate = new Date(document.getElementById('startDate').value);
@@ -30,10 +40,10 @@ export async function calculateBusinessDate() {
 
     // Fetch holidays for the selected country
     const holidays = await getHolidaysForCountry(selectedCountry, startDate.getFullYear());
-    
+
     // Calculate the end dates considering holidays and weekends
-    const endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays);
-    const endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays);
+    const endDateStart = await calculateBusinessDays(startDate, numDaysStart, selectedCountry);
+    const endDateEnd = await calculateBusinessDays(startDate, numDaysEnd, selectedCountry);
 
     // Format and display results
     const formattedStart = formatDate(endDateStart);
