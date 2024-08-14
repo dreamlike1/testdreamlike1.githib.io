@@ -339,6 +339,34 @@ button:hover {
    Calendar Input Field Styling
    ========================= */
 
+/* Style the input field container to position the icon on the right */
+.ui.calendar .ui.input {
+    position: relative; /* Position the container relatively */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items vertically */
+}
+
+/* Style the input field */
+.ui.calendar input[type="text"] {
+    padding-right: 40px; /* Ensure there's space for the icon */
+    width: 100%; /* Make the input take the full width */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    background: #353941 !important; /* Ensure background color is consistent */
+    color: #EEEEEE !important; /* Ensure text color is light */
+    border: none; /* Remove border for cleaner look */
+    border-radius: 4px; /* Ensure consistent border radius */
+    font-family: 'Menlo', monospace; /* Ensure font consistency */
+    font-size: 1em; /* Consistent font size */
+    padding: 12px; /* Ensure padding is consistent */
+    transition: box-shadow 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Border color on focus for the calendar input field */
+.ui.calendar input[type="text"]:focus {
+    box-shadow: 0 0 0 2px #5F85DB; /* Add a 2px border with the specified color using box-shadow */
+    outline: none; /* Remove default outline */
+}
+
 /* Placeholder text color for the calendar input field */
 .ui.calendar input[type="text"]::placeholder {
     color: #65676C !important; /* Match the placeholder color of other inputs */
@@ -359,47 +387,6 @@ button:hover {
     color: #65676C !important; /* Match the placeholder color of other inputs */
 }
 
-#startDate{
-    color: #EEEEEE !important; /* Ensure text color is light */
-    background: #353941 !important; /* Darker shade for background */
-    border: none; /* Remove border for cleaner look */
-    padding: 12px; /* Ensure padding is consistent */
-    font-family: 'Menlo', monospace; /* Ensure font consistency */
-    font-size: 1em; /* Consistent font size */
-    transition: box-shadow 0.3s ease; /* Smooth transition for border color */
-}
-
-/* Target the calendar icon container */
-.ui.calendar .ui.input.left.icon {
-    display: flex !important; /* Use flexbox to align items */
-    justify-content: flex-end !important; /* Align items to the end of the container (right) */
-}
-
-/* Target the calendar icon itself */
-.ui.calendar .ui.input.left.icon i.calendar.icon {
-    margin-left: auto !important; /* Push the icon to the right */
-    margin-right: 0 !important; /* Remove any default margin on the right */
-}
-
-/* Optional: Ensure the input field remains styled correctly */
-.ui.calendar input[type="text"] {
-    padding-right: 30px !important; /* Add padding to the right to make space for the icon */
-}
-
-/* Style the input field container to position the icon on the right */
-.ui.calendar .ui.input {
-    position: relative; /* Position the container relatively */
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Align items vertically */
-}
-
-/* Style the input field */
-.ui.calendar input[type="text"] {
-    padding-right: 40px; /* Ensure there's space for the icon */
-    width: 100%; /* Make the input take the full width */
-    box-sizing: border-box; /* Include padding in the width calculation */
-}
-
 /* Style the calendar icon */
 .ui.calendar .ui.input i.calendar.icon {
     position: absolute; /* Position the icon absolutely within the container */
@@ -409,6 +396,3 @@ button:hover {
     color: #FFFFFF !important; /* Ensure the icon color is white */
     pointer-events: none; /* Prevent clicks on the icon from affecting the input */
 }
-
-
-
