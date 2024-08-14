@@ -338,25 +338,3 @@ button:hover {
 /* =========================
    Calendar Input Styling
    ========================= */
-
-/* Highlight selected item */
-#startDate .ui.dropdown .menu .item.active {
-    background: #5F85DB; /* Highlight color for selected item */
-    color: #FFFFFF; /* White text color */
-}
-
-/* Adjust hover state for items */
-#startDate .ui.dropdown .menu .item:hover {
-    background: #2A2E34; /* Darker background on hover */
-    color: #FFFFFF; /* White text color */
-}
-
-/* Ensure dropdown icon matches text color */
-#startDate .ui.dropdown .dropdown.icon {
-    color: #FFFFFF; /* White icon color */
-}
-
-/* Style placeholder text */
-#startDate .ui.dropdown .text {
-    color: #FFFFFF; /* White text color */
-}
