@@ -7,7 +7,7 @@ const holidayCache = new Map();
 const noHolidayCountriesFromNager = [];
 
 // Fetch API key from environment variables (client-side)
-const CALENDERIFIC_API_KEY = 'EMIgkIkPLekUkjdA3ZhxFxFg7fM7E1qi';
+const CALENDERIFIC_API_KEY = 'EMIgkIkPLekUkjdA3ZhxFxFg7fM7E1qi'; // Ensure this is set correctly
 
 if (!CALENDERIFIC_API_KEY) {
   console.error('Calenderific API key is not defined in environment variables.');
@@ -18,7 +18,7 @@ async function fetchHolidaysFromNager(countryCode, year) {
   try {
     const response = await fetch(`https://date.nager.at/api/v3/publicholidays/${year}/${countryCode}`);
     if (!response.ok) throw new Error(`Nager API request failed: ${response.statusText}`);
-    
+
     const text = await response.text();
     if (!text) {
       console.warn(`Empty response body for ${countryCode} from Nager.Date API`);
@@ -86,6 +86,7 @@ async function getHolidays(countryCode, year) {
   
   // Check if holidays are already cached
   if (holidayCache.has(cacheKey)) {
+    console.log(`Cache hit for ${cacheKey}`);
     return holidayCache.get(cacheKey);
   }
 
@@ -112,7 +113,7 @@ export async function fetchHolidays(country, year) {
   const countryCode = countryCodeMapping[country];
   if (!countryCode) {
     console.error(`No country code found for ${country}`);
-    return null;
+    return [];
   }
 
   // Return cached data if available
@@ -122,7 +123,7 @@ export async function fetchHolidays(country, year) {
     return holidays;
   } else {
     console.warn(`No holiday data available for ${country} for year ${year}`);
-    return null;
+    return [];
   }
 }
 
