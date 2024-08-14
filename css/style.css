@@ -369,4 +369,22 @@ button:hover {
     transition: box-shadow 0.3s ease; /* Smooth transition for border color */
 }
 
+/* Target the calendar icon container */
+.ui.calendar .ui.input.left.icon {
+    display: flex; /* Use flexbox to align items */
+    justify-content: flex-end; /* Align items to the end of the container (right) */
+}
+
+/* Target the calendar icon itself */
+.ui.calendar .ui.input.left.icon i.calendar.icon {
+    margin-left: auto; /* Push the icon to the right */
+    margin-right: 0; /* Remove any default margin on the right */
+}
+
+/* Optional: Ensure the input field remains styled correctly */
+.ui.calendar input[type="text"] {
+    padding-right: 30px; /* Add padding to the right to make space for the icon */
+}
+
+
 
