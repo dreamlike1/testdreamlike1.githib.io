@@ -55,6 +55,7 @@ async function getHolidays(countryCode, year) {
         return holidays;
     }
 
+    // If no holidays from Nager.Date, fetch from Calenderific
     holidays = await fetchHolidaysFromCalenderific(countryCode, year);
     holidayCache.set(cacheKey, holidays);
     return holidays;
