@@ -1,4 +1,5 @@
-import { countryOptions } from '../api/countryData.js';
+// js/ui/countryUtils.js
+
 import { fetchHolidays } from '../api/holidays.js';
 
 let holidaysCache = {};  // Cache to store holidays data for all countries
@@ -84,7 +85,7 @@ async function fetchAndCacheHolidays(countries) {
             const currentYear = new Date().getFullYear();
             const holidays = await fetchHolidays(country, currentYear);
             holidaysCache[country] = holidays; // Store holidays in cache
-            console.log('Holidays fetched and cached for:', country, holidaysCache[country]);
+            console.log('Holidays fetched for:', country, holidays);
         } catch (error) {
             console.error(`Error fetching holidays for ${country}:`, error);
         }
@@ -98,9 +99,11 @@ async function fetchAndCacheHolidays(countries) {
 
 /**
  * Retrieve holidays for a specific country from the cache.
- * @param {string} country - The country name to get holidays for.
- * @returns {Array} - Array of holiday objects for the country.
+ * @param {string} country - The country for which to retrieve holidays.
+ * @returns {Array} - An array of holiday objects for the specified country.
  */
 export function getHolidaysForCountry(country) {
-    return holidaysCache[country] || [];
+    const holidays = holidaysCache[country] || [];
+    console.log(`Holidays for ${country}:`, holidays);
+    return holidays;
 }
