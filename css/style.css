@@ -334,3 +334,29 @@ button:hover {
 .ui.dropdown .text {
     color: #FFFFFF !important; /* Ensure text color is white */
 }
+
+/* =========================
+   Calendar Input Field Styling
+   ========================= */
+
+/* Placeholder text color for the calendar input field */
+.ui.calendar input[type="text"]::placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for WebKit browsers */
+.ui.calendar input[type="text"]::-webkit-input-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for Mozilla Firefox */
+.ui.calendar input[type="text"]::-moz-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for Internet Explorer and Edge */
+.ui.calendar input[type="text"]:-ms-input-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+
