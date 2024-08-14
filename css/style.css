@@ -359,4 +359,14 @@ button:hover {
     color: #65676C !important; /* Match the placeholder color of other inputs */
 }
 
+#startDate{
+    color: #EEEEEE !important; /* Ensure text color is light */
+    background: #353941 !important; /* Darker shade for background */
+    border: none; /* Remove border for cleaner look */
+    padding: 12px; /* Ensure padding is consistent */
+    font-family: 'Menlo', monospace; /* Ensure font consistency */
+    font-size: 1em; /* Consistent font size */
+    transition: box-shadow 0.3s ease; /* Smooth transition for border color */
+}
+
 
