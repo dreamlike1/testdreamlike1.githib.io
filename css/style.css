@@ -339,76 +339,24 @@ button:hover {
    Calendar Input Styling
    ========================= */
 
-/* Target the calendar container */
-#startDate {
-    background-color: #353941 !important; /* Ensure background color matches input */
-    color: #FFFFFF !important; /* Ensure text color is white */
-    border: none !important; /* Remove any border */
-    border-radius: 4px; /* Match the border radius */
-    padding: 12px !important; /* Override padding if needed */
-    box-shadow: none !important; /* Remove default shadow */
-    display: flex; /* Use flexbox for layout if needed */
-    align-items: center; /* Center align items if applicable */
-}
-
-/* Style the calendar input inside */
-#startDate .ui.input.left.icon {
-    background-color: #353941 !important; /* Ensure background color matches */
-    color: #FFFFFF !important; /* Ensure text color is white */
-    border: none !important; /* Remove border */
-    border-radius: 4px; /* Consistent border radius */
-    padding: 12px !important; /* Override padding if needed */
-}
-
-/* Style calendar icon inside the input */
-#startDate .ui.input.left.icon .icon {
-    color: #FFFFFF !important; /* Ensure icon color is white */
-}
-
-/* Override any dropdown styles inside calendar */
-#startDate .ui.dropdown {
-    background-color: #353941 !important; /* Ensure dropdown background matches */
-    color: #FFFFFF !important; /* Ensure text color is white */
-    border: none !important; /* Remove border */
-    border-radius: 4px; /* Consistent border radius */
-    padding: 0 !important; /* Remove padding */
-}
-
-/* Style the dropdown menu inside the calendar */
-#startDate .ui.dropdown .menu {
-    background-color: #353941 !important; /* Ensure menu background color matches */
-    border: none !important; /* Remove border */
-    border-radius: 4px; /* Match border radius */
-    padding: 0 !important; /* Remove padding */
-}
-
-/* Style dropdown items inside calendar */
-#startDate .ui.dropdown .menu .item {
-    background-color: #31363F !important; /* Darker background for items */
-    color: #FFFFFF !important; /* White text color for items */
-    padding: 10px 12px; /* Padding for better spacing */
-    border-top: none !important; /* Remove border-top */
-}
-
-/* Change background color of selected item inside calendar dropdown */
+/* Highlight selected item */
 #startDate .ui.dropdown .menu .item.active {
-    background-color: #5F85DB !important; /* Highlight color for selected item */
-    color: #FFFFFF !important; /* Ensure white text color */
+    background: #5F85DB; /* Highlight color for selected item */
+    color: #FFFFFF; /* White text color */
 }
 
-/* Adjust hover state of dropdown items inside calendar */
+/* Adjust hover state for items */
 #startDate .ui.dropdown .menu .item:hover {
-    background-color: #2A2E34 !important; /* Darker background on hover */
-    color: #FFFFFF !important; /* White text color on hover */
+    background: #2A2E34; /* Darker background on hover */
+    color: #FFFFFF; /* White text color */
 }
 
-/* Ensure that the calendar dropdown icon matches text color */
+/* Ensure dropdown icon matches text color */
 #startDate .ui.dropdown .dropdown.icon {
-    color: #FFFFFF !important; /* White icon color */
+    color: #FFFFFF; /* White icon color */
 }
 
-/* Style placeholder text for dropdowns */
+/* Style placeholder text */
 #startDate .ui.dropdown .text {
-    color: #FFFFFF !important; /* Ensure text color is white */
+    color: #FFFFFF; /* White text color */
 }
-
