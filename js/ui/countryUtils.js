@@ -1,6 +1,5 @@
-//js/ui/countryUtils.js
-import { countryOptions, countryCodeMapping } from '../api/countryData.js';
-import { fetchHolidays } from '../api/holidays.js';
+import { countryOptions } from '../api/countryData.js';
+import { fetchHolidays, listNoHolidayCountries } from '../api/holidays.js';
 
 let holidaysCache = {};  // Cache to store holidays data for all countries
 
@@ -33,6 +32,9 @@ export async function populateCountries(serviceType = 'expressPaid') {
 
     // Fetch and cache holidays
     await fetchAndCacheHolidays(countries);
+
+    // List countries with no holidays found
+    listNoHolidayCountries();
 }
 
 /**
@@ -82,15 +84,10 @@ async function fetchAndCacheHolidays(countries) {
     // Create an array of promises to fetch holidays for all countries
     const fetchHolidaysPromises = countries.map(async country => {
         try {
-            const countryCode = countryCodeMapping[country];
-            if (!countryCode) {
-                console.warn(`No country code found for ${country}`);
-                return;
-            }
             console.log('Fetching holidays for:', country);
             const currentYear = new Date().getFullYear();
-            const holidays = await fetchHolidays(countryCode, currentYear);
-            holidaysCache[countryCode] = holidays; // Store holidays in cache
+            const holidays = await fetchHolidays(country, currentYear);
+            holidaysCache[country] = holidays; // Store holidays in cache
             console.log('Holidays fetched for:', country, holidays);
         } catch (error) {
             console.error(`Error fetching holidays for ${country}:`, error);
@@ -110,12 +107,5 @@ async function fetchAndCacheHolidays(countries) {
  * @returns {Array} - An array of holiday objects for the specified country.
  */
 export function getHolidaysForCountry(country) {
-    const countryCode = countryCodeMapping[country];
-    if (!countryCode) {
-        console.warn(`No country code found for ${country}`);
-        return [];
-
-        
-    }
-    return holidaysCache[countryCode] || [];
+    return holidaysCache[country] || [];
 }
