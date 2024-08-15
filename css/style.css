@@ -396,9 +396,3 @@ button:hover {
     pointer-events: none; /* Prevent clicks on the icon from affecting the input */
     font-size: 1.2em; /* Adjust the size of the icon if needed */
 }
-
-.ui.calendar .day[data-day-of-week="0"], /* Sunday */
-.ui.calendar .day[data-day-of-week="6"]  /* Saturday */
-{
-    background-color: #d0d0d0; /* Light gray color */
-}
