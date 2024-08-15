@@ -72,3 +72,50 @@ async function initializeDropdown(dropdown, options) {
         dropdown.dropdown('set selected', options[0].value);
     }
 }
+
+/**
+ * Fetch holidays for each country and cache the results.
+ * @param {Array} countries - Array of country names to fetch holidays for.
+ */
+async function fetchAndCacheHolidays(countries) {
+    console.log('Fetching holidays for countries:', countries);
+    // Create an array of promises to fetch holidays for all countries
+    const fetchHolidaysPromises = countries.map(async country => {
+        try {
+            const countryCode = countryCodeMapping[country];
+            if (!countryCode) {
+                console.warn(`No country code found for ${country}`);
+                return;
+            }
+            console.log('Fetching holidays for:', country);
+            const currentYear = new Date().getFullYear();
+            const holidays = await fetchHolidays(countryCode, currentYear);
+            holidaysCache[countryCode] = holidays; // Store holidays in cache
+            console.log('Holidays fetched for:', country, holidays);
+        } catch (error) {
+            console.error(`Error fetching holidays for ${country}:`, error);
+        }
+    });
+
+    // Wait for all promises to resolve
+    await Promise.all(fetchHolidaysPromises);
+
+    console.log('All holidays data fetched and cached');
+    console.log('Holidays Cache:', holidaysCache);
+}
+
+/**
+ * Retrieve holidays for a specific country from the cache.
+ * @param {string} country - The country for which to retrieve holidays.
+ * @returns {Array} - An array of holiday objects for the specified country.
+ */
+export function getHolidaysForCountry(country) {
+    const countryCode = countryCodeMapping[country];
+    if (!countryCode) {
+        console.warn(`No country code found for ${country}`);
+        return [];
+
+        
+    }
+    return holidaysCache[countryCode] || [];
+}
