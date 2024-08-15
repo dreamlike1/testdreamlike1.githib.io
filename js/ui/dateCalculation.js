@@ -1,4 +1,3 @@
-// js/ui/dateCalculation.js
 import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
 import { getHolidaysForCountry } from './countryUtils.js';
@@ -30,6 +29,9 @@ export async function calculateBusinessDate() {
         return;
     }
 
+    // Log fetched holidays
+    console.log(`Holidays for ${selectedCountry}:`, holidays);
+
     // Parse the date range input
     let numDaysStart, numDaysEnd;
 
@@ -46,15 +48,29 @@ export async function calculateBusinessDate() {
         numDaysStart = numDaysEnd = Number(dateRangeInput);
     }
 
+    // Log the parsed range
+    console.log('Parsed date range:', numDaysStart, numDaysEnd);
+
     try {
         // Calculate the end dates considering holidays and weekends
+        console.log('Calculating end dates...');
         const endDateStart = calculateBusinessDays(startDate, numDaysStart, holidays);
         const endDateEnd = calculateBusinessDays(startDate, numDaysEnd, holidays);
+
+        // Log the intermediate results
+        console.log('Intermediate results:');
+        console.log(`End Date for ${numDaysStart} business days: ${endDateStart}`);
+        console.log(`End Date for ${numDaysEnd} business days: ${endDateEnd}`);
 
         // Format and display results
         const formattedStart = formatDate(endDateStart);
         const formattedEnd = formatDate(endDateEnd);
         document.getElementById('result').value = `${formattedStart} and ${formattedEnd}`;
+        
+        // Log the final results
+        console.log('Formatted results:');
+        console.log(`Start Date End: ${formattedStart}`);
+        console.log(`End Date End: ${formattedEnd}`);
     } catch (error) {
         console.error('Error calculating business dates:', error);
         alert('Error calculating business dates. Please check the input and try again.');
