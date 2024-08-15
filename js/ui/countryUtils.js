@@ -8,6 +8,7 @@ let holidaysCache = {};  // Cache to store holidays data for all countries
  * Populate the country dropdown with options based on the selected service type.
  * @param {string} serviceType - The service type to filter countries.
  */
+/**
 export async function populateCountries(serviceType = 'expressPaid') {
     const countrySelectDropdown = $('#countrySelect');
     const countries = countryOptions[serviceType] || [];
@@ -40,6 +41,7 @@ export async function populateCountries(serviceType = 'expressPaid') {
  * @param {jQuery} dropdown - The jQuery object of the dropdown element.
  * @param {Array} options - Array of options to populate the dropdown.
  */
+/**
 async function initializeDropdown(dropdown, options) {
     // Clear existing options
     dropdown.empty();
@@ -77,6 +79,7 @@ async function initializeDropdown(dropdown, options) {
  * Fetch holidays for each country and cache the results.
  * @param {Array} countries - Array of country names to fetch holidays for.
  */
+/**
 async function fetchAndCacheHolidays(countries) {
     console.log('Fetching holidays for countries:', countries);
     // Create an array of promises to fetch holidays for all countries
@@ -109,6 +112,7 @@ async function fetchAndCacheHolidays(countries) {
  * @param {string} country - The country for which to retrieve holidays.
  * @returns {Array} - An array of holiday objects for the specified country.
  */
+/**
 export function getHolidaysForCountry(country) {
     const countryCode = countryCodeMapping[country];
     if (!countryCode) {
