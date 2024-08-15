@@ -2,13 +2,13 @@
 
 // Function to get the selected country
 function getSelectedCountry() {
-    const countrySelect = document.getElementById('countrySelect'); // Updated ID
+    const countrySelect = document.getElementById('countrySelect'); // Correct ID
     if (countrySelect) {
         const selectedValue = countrySelect.value;
         console.log(`Selected Country Value: ${selectedValue}`); // Log the selected value
         return selectedValue || 'Unknown';
     } else {
-        console.warn('Dropdown with ID "countrySelect" not found.'); // Updated ID
+        console.warn('Dropdown with ID "countrySelect" not found.');
         return 'Unknown';
     }
 }
@@ -17,10 +17,17 @@ function getSelectedCountry() {
 export function isNonBusinessDay(date, holidays) {
     const country = getSelectedCountry(); // Get the selected country
     console.log(`Selected Country: ${country}`); // Log the selected country to the console
-    
+
     const dayOfWeek = date.getDay();
+    let isWeekend;
+
     // For India, only Sunday is considered a non-business day
-    const isWeekend = country === 'India' && dayOfWeek === 0; // Sunday
+    if (country === 'India') {
+        isWeekend = dayOfWeek === 0; // Sunday
+    } else {
+        // For other countries, Saturday (6) and Sunday (0) are weekends
+        isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    }
 
     // Ensure holidays is an array before calling .some
     const isHoliday = Array.isArray(holidays) && holidays.some(holiday => {
