@@ -89,16 +89,15 @@ export async function isHoliday(date, countryName) {
   }
 }
 
-// Log countries with no holidays found from Nager.Date API
-function logNoHolidayCountries() {
+// Function to list countries with no holidays found
+export function listNoHolidayCountries() {
   if (noHolidayCountriesFromNager.length > 0) {
     console.log(`Countries with no holidays found from Nager.Date API:`);
     noHolidayCountriesFromNager.forEach(({ countryName, year }) => {
       console.log(`- ${countryName} (Year: ${year})`);
     });
     console.log(`Total: ${noHolidayCountriesFromNager.length}`);
+  } else {
+    console.log('All countries have holidays available from Nager.Date API.');
   }
 }
-
-// Call this function to log countries with no holidays found
-logNoHolidayCountries();
