@@ -32,7 +32,7 @@ export function isNonBusinessDay(date, holidays) {
     // Ensure holidays is an array before calling .some
     const isHoliday = Array.isArray(holidays) && holidays.some(holiday => {
         const holidayDate = new Date(holiday.date);
-        return date.getTime() === holidayDate.getTime();
+        return date.toDateString() === holidayDate.toDateString(); // Compare only dates, ignoring time
     });
 
     return isWeekend || isHoliday;
