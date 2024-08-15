@@ -2,9 +2,15 @@
 
 // Function to get the selected country
 function getSelectedCountry() {
-    // Assuming the country is selected via a dropdown with ID 'country-select'
-    const countrySelect = document.getElementById('country-select');
-    return countrySelect ? countrySelect.value : 'Unknown';
+    const countrySelect = document.getElementById('countrySelect'); // Updated ID
+    if (countrySelect) {
+        const selectedValue = countrySelect.value;
+        console.log(`Selected Country Value: ${selectedValue}`); // Log the selected value
+        return selectedValue || 'Unknown';
+    } else {
+        console.warn('Dropdown with ID "countrySelect" not found.'); // Updated ID
+        return 'Unknown';
+    }
 }
 
 // Function to check if a date is a non-business day based on the selected country
