@@ -78,6 +78,7 @@ async function initializeDropdown(dropdown, options) {
  * @param {Array} countries - Array of country names to fetch holidays for.
  */
 async function fetchAndCacheHolidays(countries) {
+    console.log('Fetching holidays for countries:', countries);
     // Create an array of promises to fetch holidays for all countries
     const fetchHolidaysPromises = countries.map(async country => {
         try {
@@ -100,6 +101,7 @@ async function fetchAndCacheHolidays(countries) {
     await Promise.all(fetchHolidaysPromises);
 
     console.log('All holidays data fetched and cached');
+    console.log('Holidays Cache:', holidaysCache);
 }
 
 /**
