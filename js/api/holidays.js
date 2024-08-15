@@ -69,6 +69,7 @@ async function getHolidays(countryName, year) {
 
 // Function to fetch holidays using country name
 export async function fetchHolidays(countryName, year) {
+  console.log(`Fetching holidays for ${countryName} in ${year}`); // Debug log
   const holidays = await getHolidays(countryName, year);
   
   if (holidays) {
