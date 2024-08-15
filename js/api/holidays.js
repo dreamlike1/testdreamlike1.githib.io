@@ -26,7 +26,9 @@ async function fetchHolidaysFromNager(countryCode, year) {
     }
 
     try {
-      return JSON.parse(text);
+      const holidays = JSON.parse(text);
+      // Filter holidays to include only those marked with "global": true
+      return holidays.filter(holiday => holiday.global);
     } catch (error) {
       console.error(`Error parsing JSON from Nager.Date API response for ${countryCode}:`, error);
       return [];
