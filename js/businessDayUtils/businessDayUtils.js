@@ -5,7 +5,7 @@ function getSelectedCountry() {
     const countrySelect = document.getElementById('countrySelect'); // Correct ID
     if (countrySelect) {
         const selectedValue = countrySelect.value;
-        console.log(`Selected Country Value: ${selectedValue}`); // Log the selected value
+        console.log(`1. Selected Country: ${selectedValue}`); // Log the selected value
         return selectedValue || 'Unknown';
     } else {
         console.warn('Dropdown with ID "countrySelect" not found.');
@@ -16,31 +16,13 @@ function getSelectedCountry() {
 // Function to check if a date is a non-business day based on the selected country
 export function isNonBusinessDay(date, holidays) {
     const country = getSelectedCountry(); // Get the selected country
-    console.log(`Selected Country: ${country}`); // Log the selected country to the console
 
     const dayOfWeek = date.getDay();
-    let isWeekend;
+    const isWeekend = (country === 'India' ? dayOfWeek === 0 : dayOfWeek === 0 || dayOfWeek === 6);
+    const isHoliday = Array.isArray(holidays) && holidays.some(holiday => date.toDateString() === new Date(holiday.date).toDateString());
 
-    // For India, only Sunday is considered a non-business day
-    if (country === 'India') {
-        isWeekend = dayOfWeek === 0; // Sunday
-    } else {
-        // For other countries, Saturday (6) and Sunday (0) are weekends
-        isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
-    }
-
-    // Ensure holidays is an array before calling .some
-    const isHoliday = Array.isArray(holidays) && holidays.some(holiday => {
-        const holidayDate = new Date(holiday.date);
-        return date.toDateString() === holidayDate.toDateString(); // Compare only dates, ignoring time
-    });
-
-    // Log non-business day determination
-    if (isWeekend) {
-        console.log(`Date ${date.toDateString()} is a weekend.`);
-    }
-    if (isHoliday) {
-        console.log(`Date ${date.toDateString()} is a holiday.`);
+    if (isWeekend || isHoliday) {
+        console.log(`Date ${date.toDateString()} is ${isWeekend ? 'a weekend' : ''}${isWeekend && isHoliday ? ' and ' : ''}${isHoliday ? 'a holiday' : ''}.`);
     }
 
     return isWeekend || isHoliday;
@@ -56,37 +38,35 @@ export function calculateBusinessDays(startDate, numDays, holidays) {
     let daysAdded = 0;
     const past5pmCheckbox = document.getElementById('cbx-42')?.checked;
 
-    // Log the initial state
-    console.log(`Starting calculation from: ${currentDate.toDateString()}`);
-    console.log(`Number of business days to add: ${numDays}`);
-    console.log(`Past 5 PM checkbox checked: ${past5pmCheckbox}`);
+    console.log('2. Starting calculation');
+    console.log(`   - Initial Start Date: ${currentDate.toDateString()}`);
+    console.log(`   - Business Days to Add: ${numDays}`);
+    console.log(`   - Past 5 PM Checkbox Checked: ${past5pmCheckbox}`);
 
     // If past 5 pm is checked, move to the next day
     if (past5pmCheckbox) {
         currentDate.setDate(currentDate.getDate() + 1);
-        console.log(`Moved start date to the next day due to past 5 PM checkbox: ${currentDate.toDateString()}`);
+        console.log(`   - Adjusted Start Date for Past 5 PM: ${currentDate.toDateString()}`);
     }
 
     // Ensure the start date is a valid business day
     while (isNonBusinessDay(currentDate, holidays)) {
-        console.log(`Start date ${currentDate.toDateString()} is a non-business day, moving to the next day.`);
         currentDate.setDate(currentDate.getDate() + 1);
+        console.log(`   - Skipping Non-Business Day: ${currentDate.toDateString()}`);
     }
 
     // Start counting business days from the currentDate
     while (daysAdded < numDays) {
         currentDate.setDate(currentDate.getDate() + 1);
 
-        // Check if the current date is a non-business day
         if (!isNonBusinessDay(currentDate, holidays)) {
             daysAdded++;
-            console.log(`Added ${daysAdded} business days. Current date: ${currentDate.toDateString()}`);
+            console.log(`   - Added Day ${daysAdded}: ${currentDate.toDateString()}`);
         } else {
-            console.log(`Skipped non-business day: ${currentDate.toDateString()}`);
+            console.log(`   - Skipped Non-Business Day: ${currentDate.toDateString()}`);
         }
     }
 
-    // Log the final result
-    console.log(`End date calculated: ${currentDate.toDateString()}`);
+    console.log(`3. Final Result: ${currentDate.toDateString()}`);
     return currentDate;
 }
