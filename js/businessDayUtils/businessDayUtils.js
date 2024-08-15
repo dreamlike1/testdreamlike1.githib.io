@@ -1,8 +1,9 @@
 // js/businessDayUtils/businessDayUtils.js
 
-export function isNonBusinessDay(date, holidays) {
+export function isNonBusinessDay(date, holidays, country) {
     const dayOfWeek = date.getDay();
-    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
+    // For India, only Sunday is considered a non-business day
+    const isWeekend = country === 'India' && dayOfWeek === 0; // Sunday
 
     // Ensure holidays is an array before calling .some
     const isHoliday = Array.isArray(holidays) && holidays.some(holiday => {
@@ -13,7 +14,7 @@ export function isNonBusinessDay(date, holidays) {
     return isWeekend || isHoliday;
 }
 
-export function calculateBusinessDays(startDate, numDays, holidays) {
+export function calculateBusinessDays(startDate, numDays, holidays, country) {
     if (!startDate || !(startDate instanceof Date) || isNaN(startDate.getTime())) {
         throw new Error('Invalid start date');
     }
@@ -28,7 +29,7 @@ export function calculateBusinessDays(startDate, numDays, holidays) {
     }
 
     // Ensure the start date is a valid business day
-    while (currentDate.getDay() === 0 || isNonBusinessDay(currentDate, holidays)) {
+    while (isNonBusinessDay(currentDate, holidays, country)) {
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
@@ -37,7 +38,7 @@ export function calculateBusinessDays(startDate, numDays, holidays) {
         currentDate.setDate(currentDate.getDate() + 1);
 
         // Check if the current date is a non-business day
-        if (!isNonBusinessDay(currentDate, holidays)) {
+        if (!isNonBusinessDay(currentDate, holidays, country)) {
             daysAdded++;
         }
     }
