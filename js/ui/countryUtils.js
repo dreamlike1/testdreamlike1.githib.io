@@ -1,4 +1,4 @@
-// js/ui/countryUtils.js
+/** js/ui/countryUtils.js
 import { countryOptions, countryCodeMapping } from '../api/countryData.js';
 import { fetchHolidays } from '../api/holidays.js';
 
@@ -114,6 +114,9 @@ export function getHolidaysForCountry(country) {
     if (!countryCode) {
         console.warn(`No country code found for ${country}`);
         return [];
+
+        
     }
     return holidaysCache[countryCode] || [];
 }
+*/
