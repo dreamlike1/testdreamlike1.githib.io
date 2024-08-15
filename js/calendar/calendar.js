@@ -24,11 +24,6 @@ export function initializeDateSelector() {
                 // If no date is selected, clear the native date input field
                 document.getElementById('startDate').value = '';
             }
-        },
-        onRenderDay: function(day) {
-            // Add data attribute for the day of the week
-            const dayOfWeek = day.getDay(); // 0 = Sunday, 6 = Saturday
-            $(day).attr('data-day-of-week', dayOfWeek);
         }
     });
 }
