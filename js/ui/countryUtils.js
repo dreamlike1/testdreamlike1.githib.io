@@ -1,5 +1,6 @@
+import { fetchHolidays } from '../api/holidays.js';
+import { listNoHolidayCountries } from '../api/holidays.js'; // Make sure this import is correct
 import { countryOptions } from '../api/countryData.js';
-import { fetchHolidays, listNoHolidayCountries } from '../api/holidays.js';
 
 let holidaysCache = {};  // Cache to store holidays data for all countries
 
@@ -33,8 +34,8 @@ export async function populateCountries(serviceType = 'expressPaid') {
     // Fetch and cache holidays
     await fetchAndCacheHolidays(countries);
 
-    // List countries with no holidays found
-    listNoHolidayCountries();
+    // Log countries with no holidays found
+    listNoHolidayCountries(); // Ensure this function is correctly called
 }
 
 /**
