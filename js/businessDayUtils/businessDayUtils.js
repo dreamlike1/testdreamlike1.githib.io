@@ -1,8 +1,6 @@
-import { fetchHolidays } from '../api/holidays.js'; // Import the fetchHolidays function
-import { countryCodeMapping } from '../api/countryData.js'; // Import countryCodeMapping
+// js/businessDayUtils/businessDayUtils.js
 
-// Check if a date is a non-business day
-export async function isNonBusinessDay(date, holidays) {
+export function isNonBusinessDay(date, holidays) {
     const dayOfWeek = date.getDay();
     const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
 
@@ -15,8 +13,11 @@ export async function isNonBusinessDay(date, holidays) {
     return isWeekend || isHoliday;
 }
 
-// Calculate business days including holidays
-export async function calculateBusinessDays(startDate, numDays, country) {
+export function calculateBusinessDays(startDate, numDays, holidays) {
+    if (!startDate || !(startDate instanceof Date) || isNaN(startDate.getTime())) {
+        throw new Error('Invalid start date');
+    }
+
     let currentDate = new Date(startDate);
     let daysAdded = 0;
     const past5pmCheckbox = document.getElementById('cbx-42')?.checked;
@@ -26,19 +27,8 @@ export async function calculateBusinessDays(startDate, numDays, country) {
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    // Get the country code
-    const countryCode = countryCodeMapping[country];
-    if (!countryCode) {
-        console.error(`Invalid country name: ${country}`);
-        return null; // Or handle this case as needed
-    }
-
-    // Fetch holidays for the current year
-    const year = currentDate.getFullYear();
-    const holidays = await fetchHolidays(countryCode, year);
-
     // Ensure the start date is a valid business day
-    while (currentDate.getDay() === 0 || await isNonBusinessDay(currentDate, holidays)) {
+    while (currentDate.getDay() === 0 || isNonBusinessDay(currentDate, holidays)) {
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
@@ -47,7 +37,7 @@ export async function calculateBusinessDays(startDate, numDays, country) {
         currentDate.setDate(currentDate.getDate() + 1);
 
         // Check if the current date is a non-business day
-        if (!await isNonBusinessDay(currentDate, holidays)) {
+        if (!isNonBusinessDay(currentDate, holidays)) {
             daysAdded++;
         }
     }
