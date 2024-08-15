@@ -30,6 +30,7 @@ export async function calculateBusinessDate() {
         return;
     }
 
+    // Parse the date range input
     let numDaysStart, numDaysEnd;
 
     // Handle different range formats
