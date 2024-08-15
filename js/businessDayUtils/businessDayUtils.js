@@ -1,6 +1,17 @@
 // js/businessDayUtils/businessDayUtils.js
 
-export function isNonBusinessDay(date, holidays, country) {
+// Function to get the selected country
+function getSelectedCountry() {
+    // Assuming the country is selected via a dropdown with ID 'country-select'
+    const countrySelect = document.getElementById('country-select');
+    return countrySelect ? countrySelect.value : 'Unknown';
+}
+
+// Function to check if a date is a non-business day based on the selected country
+export function isNonBusinessDay(date, holidays) {
+    const country = getSelectedCountry(); // Get the selected country
+    console.log(`Selected Country: ${country}`); // Log the selected country to the console
+    
     const dayOfWeek = date.getDay();
     // For India, only Sunday is considered a non-business day
     const isWeekend = country === 'India' && dayOfWeek === 0; // Sunday
@@ -14,7 +25,8 @@ export function isNonBusinessDay(date, holidays, country) {
     return isWeekend || isHoliday;
 }
 
-export function calculateBusinessDays(startDate, numDays, holidays, country) {
+// Function to calculate business days considering the selected country
+export function calculateBusinessDays(startDate, numDays, holidays) {
     if (!startDate || !(startDate instanceof Date) || isNaN(startDate.getTime())) {
         throw new Error('Invalid start date');
     }
@@ -29,7 +41,7 @@ export function calculateBusinessDays(startDate, numDays, holidays, country) {
     }
 
     // Ensure the start date is a valid business day
-    while (isNonBusinessDay(currentDate, holidays, country)) {
+    while (isNonBusinessDay(currentDate, holidays)) {
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
@@ -38,7 +50,7 @@ export function calculateBusinessDays(startDate, numDays, holidays, country) {
         currentDate.setDate(currentDate.getDate() + 1);
 
         // Check if the current date is a non-business day
-        if (!isNonBusinessDay(currentDate, holidays, country)) {
+        if (!isNonBusinessDay(currentDate, holidays)) {
             daysAdded++;
         }
     }
