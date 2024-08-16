@@ -260,61 +260,190 @@ button:hover {
     transform: rotate(45deg) scale(0);
     border-right: 2px solid #FFFFFF; /* Ensure checkmark color is white */
     border-bottom: 2px solid #FFFFFF; /* Ensure checkmark color is white */
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease;
 }
 
-.checkbox-wrapper-42 input[type="checkbox"]:checked + .cbx:after {
+.checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx {
+    background: #5F85DB; /* Update background color for checked state */
+    border-color: #5F85DB; /* Update border color for checked state */
+}
+
+.checkbox-wrapper-42 input[type="checkbox"]:checked ~ .cbx:after {
     opacity: 1;
     transform: rotate(45deg) scale(1);
 }
 
 /* =========================
-   Calendar Styling
+   Specific Styling for Start Date Input
    ========================= */
-.ui.calendar {
-    border: 1px solid #5F85DB; /* Border color */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden;
-    background-color: #1E1E1E; /* Dark background for the calendar */
-    color: #FFFFFF; /* White text for readability */
+
+/* Use a highly specific selector to ensure precedence */
+.container .field #startDate {
+    margin-bottom: 3px !important; /* Ensure this margin is applied */
+    padding: 12px !important; /* Override padding if needed */
 }
 
-.ui.calendar .day {
-    padding: 8px;
-    text-align: center;
-    cursor: pointer;
+/* =========================
+   Custom Dropdown Styling
+   ========================= */
+
+/* Apply styles to dropdown container */
+.ui.dropdown {
+    background-color: #353941 !important; /* Ensure background color */
+    color: #FFFFFF !important; /* Ensure text color is white */
+    border: none !important; /* Remove border */
+    border-radius: 4px; /* Consistent border radius */
+    padding: 0; /* Remove padding for a cleaner look */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
 }
 
-.ui.calendar .day:hover {
-    background-color: #333; /* Darker background on hover */
+/* Style the dropdown menu */
+.ui.dropdown .menu {
+    background-color: #353941 !important; /* Ensure menu background color matches input background color */
+    border: none !important; /* Remove border */
+    border-radius: 4px; /* Match border radius */
+    padding: 0 !important; /* Remove padding */
 }
+
+/* Style the dropdown items */
+.ui.dropdown .menu .item {
+    background-color: #31363F !important; /* Darker background for items */
+    color: #FFFFFF !important; /* White text color for items */
+    padding: 10px 12px; /* Add padding for better spacing */
+    border-top: none !important; /* Remove the border-top */
+}
+
+/* Change the background color when an item is selected */
+.ui.dropdown .menu .item.active {
+    background-color: #5F85DB !important; /* Highlight color for selected item */
+    color: #FFFFFF !important; /* Ensure white text color for selected item */
+}
+
+/* Adjust the hover state for dropdown items */
+.ui.dropdown .menu .item:hover {
+    background-color: #2A2E34 !important; /* Darker background on hover */
+    color: #FFFFFF !important; /* White text color on hover */
+}
+
+/* Ensure that the dropdown icon matches input text color */
+.ui.dropdown .dropdown.icon {
+    color: #FFFFFF !important; /* White icon color */
+}
+
+/* Style the placeholder text */
+.ui.dropdown .text {
+    color: #FFFFFF !important; /* Ensure text color is white */
+}
+
+/* =========================
+   Calendar Input Field Styling
+   ========================= */
+
+/* Style the input field container to position the icon on the right */
+.ui.calendar .ui.input {
+    position: relative; /* Position the container relatively */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items vertically */
+}
+
+/* Style the input field */
+.ui.calendar input[type="text"] {
+    padding-right: 40px; /* Ensure there's space for the icon */
+    width: 100%; /* Make the input take the full width */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    background: #353941 !important; /* Ensure background color is consistent */
+    color: #EEEEEE !important; /* Ensure text color is light */
+    border: none; /* Remove border for cleaner look */
+    border-radius: 4px; /* Ensure consistent border radius */
+    font-family: 'Menlo', monospace; /* Ensure font consistency */
+    font-size: 1em; /* Consistent font size */
+    padding: 12px; /* Ensure padding is consistent */
+    transition: box-shadow 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Border color on focus for the calendar input field */
+.ui.calendar input[type="text"]:focus {
+    box-shadow: 0 0 0 2px #5F85DB; /* Add a 2px border with the specified color using box-shadow */
+    outline: none; /* Remove default outline */
+}
+
+/* Placeholder text color for the calendar input field */
+.ui.calendar input[type="text"]::placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for WebKit browsers */
+.ui.calendar input[type="text"]::-webkit-input-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for Mozilla Firefox */
+.ui.calendar input[type="text"]::-moz-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Placeholder text color for Internet Explorer and Edge */
+.ui.calendar input[type="text"]:-ms-input-placeholder {
+    color: #65676C !important; /* Match the placeholder color of other inputs */
+}
+
+/* Style the calendar icon */
+.ui.calendar .ui.input i.calendar.icon {
+    position: absolute; /* Position the icon absolutely within the container */
+    top: 50%; /* Vertically center the icon */
+    transform: translateY(-54%); /* Adjust for vertical centering */
+    color: #FFFFFF !important; /* Ensure the icon color is white */
+    pointer-events: none; /* Prevent clicks on the icon from affecting the input */
+    font-size: 1.2em; /* Adjust the size of the icon if needed */
+}
+/* =========================
+   warning message
+   ========================= */
+
+/* Style for the warning message that will display when a country with no holidays is selected */
+.warning-message {
+    color: red;
+    font-weight: bold;
+    font-size: .8em; /* Set font size to 0.7em */
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* =========================
+   Calendar Cell Styling
+   ========================= */
 
 /* Style for calendar cells with holiday class */
 .ui.calendar .holiday-cell {
     background-color: lightcoral; /* Background color for holiday cells */
     color: white; /* Text color for holiday cells */
-    border-radius: 4px; /* Rounded corners for holiday cells */
+    /* Add border or other styling if needed */
 }
 
-/* Style for holiday tooltips */
+/* =========================
+   Tooltip Styling
+   ========================= */
+
+/* General tooltip styling */
 .ui.popup {
     background-color: #333; /* Default background color */
     color: #fff; /* Default text color */
     border-radius: 4px; /* Border radius for tooltips */
     padding: 10px; /* Padding for tooltips */
     font-size: 0.9em; /* Font size for better readability */
-    max-width: 200px; /* Maximum width for tooltips */
-    text-align: center;
-    z-index: 1000; /* Ensure tooltips are on top */
-    position: absolute; /* Ensure proper positioning */
 }
 
+/* Tooltip styling for holidays */
 .ui.popup.variation.holiday {
     background-color: lightcoral; /* Background color for holiday tooltips */
     color: white; /* Text color for holiday tooltips */
     border: 1px solid darkred; /* Optional border color for contrast */
 }
 
+/* Example tooltip variations */
 .ui.popup.variation.purple {
     background-color: #D5A6F2; /* Light purple for tooltips */
     color: #000; /* Text color for purple tooltips */
@@ -326,3 +455,11 @@ button:hover {
     color: #000; /* Text color for green tooltips */
     border: 1px solid #66BB6A; /* Border color for green tooltips */
 }
+
+/* Ensure tooltips have proper z-index and positioning */
+.ui.popup {
+    z-index: 1000; /* Ensure tooltips are on top */
+    position: absolute; /* Ensure proper positioning */
+}
+
+
