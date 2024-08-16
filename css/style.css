@@ -430,8 +430,9 @@ button:hover {
     margin-top: 20px !important; /* or padding-top: 20px; if preferred */
 }
 
-#resultText {
-    margin-bottom: 5px !important; /* Adjust as needed */
+#resultText1,
+#resultText2 {
+    margin-bottom: 4px !important; /* Adjust as needed */
 }
 
 
