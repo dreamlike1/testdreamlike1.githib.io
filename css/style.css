@@ -407,7 +407,6 @@ button:hover {
     font-size: 0.7em; /* Set font size to 0.7em */
     margin-top: 10px;
     white-space: nowrap; /* Ensure the message stays on a single line */
-    display: none; /* Initially hidden */
 }
 
 .hidden {
