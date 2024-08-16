@@ -4,7 +4,7 @@ export function getBusinessDays(serviceType, country) {
         expressFree: '2-3',
         standard: {
             'New Zealand': '7-10',
-            'United States': ['5-8', '6-7'],
+            'United States': ' ',
             default: '5-8'
         },
         economy: {
