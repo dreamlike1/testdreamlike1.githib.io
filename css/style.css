@@ -404,7 +404,7 @@ button:hover {
 
 /* Style for the warning message that will display when a country with no holidays is selected */
 .warning-message {
-    color: red;
+    color: #f08080 !important;
     font-weight: bold;
     font-size: .8em; /* Set font size to 0.7em */
     margin-top: 10px;
