@@ -417,3 +417,7 @@ button:hover {
     background-color: lightcoral; /* Example color */
     color: white; /* Example text color */
 }
+
+.holiday-message {
+    color: lightcoral; /* Match this with the messageColor used in JavaScript */
+}
