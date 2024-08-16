@@ -9,22 +9,20 @@ function handleVisibilityChange() {
     const serviceType = $('#serviceType').val();
     const country = $('#countrySelect').val();
 
-    let resultText = '';
+    // Default to hiding all text fields
+    $('#resultText1').addClass('hidden');
+    $('#resultText2').addClass('hidden');
+    $('#standardResultField').addClass('hidden');
 
-    // Adjust conditions and result text as needed
     if (serviceType === 'standard') {
         if (country === 'United States') {
-            resultText = 'Result for 5-8 Business Days';
+            $('#resultTextMessage1').text('Result for 5-8 Business Days');
+            $('#resultText1').removeClass('hidden');
+            $('#result1').removeClass('hidden');
         } else {
-            resultText = 'Result for 6-7 Business Days';
+            $('#resultTextMessage2').text('Result for 6-7 Business Days');
+            $('#resultText2').removeClass('hidden');
+            $('#result2').removeClass('hidden');
         }
-        $('#standardResultField').removeClass('hidden');
-        $('#resultText').removeClass('hidden');
-    } else {
-        $('#standardResultField').addClass('hidden');
-        $('#resultText').addClass('hidden');
     }
-
-    // Set the text content based on the resultText variable
-    $('#resultTextMessage').text(resultText);
 }
