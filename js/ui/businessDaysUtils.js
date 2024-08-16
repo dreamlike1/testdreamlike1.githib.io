@@ -4,7 +4,7 @@ export function getBusinessDays(serviceType, country) {
         expressFree: '2-3',
         standard: {
             'New Zealand': '7-10',
-            'United States': '',
+            'United States': ['6-7', '5-8'],
             default: '5-8'
         },
         economy: {
@@ -25,7 +25,11 @@ export function getBusinessDays(serviceType, country) {
 
     if (businessDays[serviceType]) {
         if (typeof businessDays[serviceType] === 'object') {
-            return businessDays[serviceType][country] || businessDays[serviceType].default;
+            const result = businessDays[serviceType][country];
+            if (Array.isArray(result)) {
+                return result.join(' & ');  // Join ranges with ' & ' if multiple ranges are provided
+            }
+            return result || businessDays[serviceType].default;
         }
         return businessDays[serviceType];
     }
