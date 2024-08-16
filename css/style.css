@@ -425,5 +425,10 @@ button:hover {
     color: white !important; /* Text color for tooltip */
 }
 
+/* Add margin or padding to create space above the result field */
+#standardResultField {
+    margin-top: 20px !important; /* or padding-top: 20px; if preferred */
+}
+
 
 
