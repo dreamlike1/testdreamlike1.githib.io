@@ -1,3 +1,5 @@
+import { getHolidaysForCountry } from '../ui/countryUtils.js'; // Adjust the path as needed
+
 /**
  * Initializes the Fomantic UI Calendar as a date selector
  */
