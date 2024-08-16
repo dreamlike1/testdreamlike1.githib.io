@@ -404,7 +404,7 @@ button:hover {
 .warning-message {
     color: red;
     font-weight: bold;
-    font-size: 1em; /* Set font size to 0.7em */
+    font-size: .8em; /* Set font size to 0.7em */
     margin-top: 10px;
 }
 
