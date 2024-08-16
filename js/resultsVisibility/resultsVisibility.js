@@ -9,7 +9,7 @@ function handleVisibilityChange() {
     const serviceType = $('#serviceType').val();
     const country = $('#countrySelect').val();
 
-    if (serviceType === 'standard' && country === 'unitedStates') {
+    if (serviceType === 'Standard' && country === 'United States') {
         $('#standardResultField').removeClass('hidden');
     } else {
         $('#standardResultField').addClass('hidden');
