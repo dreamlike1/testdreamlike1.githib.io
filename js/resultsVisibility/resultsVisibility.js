@@ -9,23 +9,23 @@ function handleVisibilityChange() {
     const serviceType = $('#serviceType').val();
     const country = $('#countrySelect').val();
 
-    // Always show #resultText1 but hide its text
-    $('#resultText1').removeClass('hidden');
-    $('#resultText1').text(''); // Hide text by setting it to empty
+    // Always show #result but hide its text
+    $('#result').removeClass('hidden');
+    $('#result').val(''); // Hide text by setting it to empty
 
-    // Default to hiding all other result fields
+    // Default to hiding #resultText1 and #resultText2
+    $('#resultText1').addClass('hidden');
     $('#resultText2').addClass('hidden');
     $('#standardResultField').addClass('hidden');
-    $('#result').addClass('hidden');
     $('#standardResult').addClass('hidden');
 
     // Show additional fields if the conditions are met
     if (serviceType === 'standard' && country === 'United States') {
         $('#resultText1').text('Result for 5-8 Business Days'); // Set text for #resultText1
-        $('#result').removeClass('hidden');
+        $('#resultText1').removeClass('hidden'); // Show #resultText1
 
         $('#resultText2').text('Result for 6-7 Business Days');
-        $('#resultText2').removeClass('hidden');
+        $('#resultText2').removeClass('hidden'); // Show #resultText2
 
         $('#standardResultField').removeClass('hidden');
         $('#standardResult').removeClass('hidden');
