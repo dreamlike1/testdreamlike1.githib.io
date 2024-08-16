@@ -1,3 +1,4 @@
+
 /* =========================
    General Styling
    ========================= */
@@ -412,54 +413,15 @@ button:hover {
     display: none;
 }
 
-/* =========================
-   Calendar Cell Styling
-   ========================= */
-
-/* Style for calendar cells with holiday class */
-.ui.calendar .holiday-cell {
-    background-color: lightcoral; /* Background color for holiday cells */
-    color: white; /* Text color for holiday cells */
-    /* Add border or other styling if needed */
+/* Example CSS for holiday styling */
+.holiday {
+    background-color: lightcoral; /* Example color */
+    color: white; /* Example text color */
 }
 
-/* =========================
-   Tooltip Styling
-   ========================= */
-
-/* General tooltip styling */
-.ui.popup {
-    background-color: #333; /* Default background color */
-    color: #fff; /* Default text color */
-    border-radius: 4px; /* Border radius for tooltips */
-    padding: 10px; /* Padding for tooltips */
-    font-size: 0.9em; /* Font size for better readability */
-}
-
-/* Tooltip styling for holidays */
-.ui.popup.variation.holiday {
-    background-color: lightcoral; /* Background color for holiday tooltips */
-    color: white; /* Text color for holiday tooltips */
-    border: 1px solid darkred; /* Optional border color for contrast */
-}
-
-/* Example tooltip variations */
-.ui.popup.variation.purple {
-    background-color: #D5A6F2; /* Light purple for tooltips */
-    color: #000; /* Text color for purple tooltips */
-    border: 1px solid #D28DFF; /* Border color for purple tooltips */
-}
-
-.ui.popup.variation.green {
-    background-color: #A5D6A7; /* Green for tooltips */
-    color: #000; /* Text color for green tooltips */
-    border: 1px solid #66BB6A; /* Border color for green tooltips */
-}
-
-/* Ensure tooltips have proper z-index and positioning */
-.ui.popup {
-    z-index: 1000; /* Ensure tooltips are on top */
-    position: absolute; /* Ensure proper positioning */
+.holiday-tooltip {
+    background-color: lightcoral; /* Example color */
+    color: white; /* Example text color */
 }
 
 
