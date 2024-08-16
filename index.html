@@ -52,13 +52,19 @@
                     </div>
                 </div>
                 <button id="calculateButton" class="ui button">Calculate</button>
-                <div id="resultText" class="hidden">
-                    <p id="resultTextMessage"></p>
+
+                <!-- Text label for the first result -->
+                <div id="resultText1" class="hidden">
+                    <p id="resultTextMessage1"></p>
                 </div>
-                <input type="text" id="result" class="result-field" readonly>
-                <div id="standardResultField" class="hidden">
-                    <input type="text" id="standardResult" class="result-field" readonly>
+                <input type="text" id="result1" class="result-field" readonly>
+
+                <!-- Text label for the second result -->
+                <div id="resultText2" class="hidden">
+                    <p id="resultTextMessage2"></p>
                 </div>
+                <input type="text" id="result2" class="result-field" readonly>
+
                 <div id="warningMessage" class="warning-message hidden">
                     The selected country's holidays are not updated, resulting in inaccurate information.
                     <div>Click <a href="https://www.timeanddate.com/date/weekdayadd.html" target="_blank">here</a> for an alternative.</div>
