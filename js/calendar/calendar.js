@@ -18,8 +18,8 @@ export function initializeDateSelector(holidays = []) {
         eventDates: holidays.map(holiday => ({
             date: new Date(holiday.date),
             message: holiday.name,
-            class: 'holiday-cell', // Use a CSS class for cell styling
-            variation: holiday.color || 'holiday' // Tooltip variation
+            class: 'holiday', // Use a CSS class for styling
+            variation: 'holiday' // Tooltip variation
         }))
     });
 }
