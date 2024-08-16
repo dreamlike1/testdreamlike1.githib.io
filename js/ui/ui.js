@@ -1,4 +1,3 @@
-// ui.js
 import { populateCountries } from './countryUtils.js';
 import { getBusinessDays } from './businessDaysUtils.js';
 import { calculateBusinessDate } from './dateCalculation.js';
@@ -16,12 +15,11 @@ export function setupEventListeners() {
         populateCountries();
         populateBusinessDays();
     });
-    document
-        .getElementById('countrySelect')
-        .addEventListener('change', populateBusinessDays);
-    document
-        .getElementById('calculateButton')
-        .addEventListener('click', calculateBusinessDate);
+
+    document.getElementById('countrySelect').addEventListener('change', populateBusinessDays);
+    document.getElementById('calculateButton').addEventListener('click', calculateBusinessDate);
+
+    // Event listener for the result field
     document.getElementById('result').addEventListener('click', () => {
         const resultField = document.getElementById('result');
         navigator.clipboard.writeText(resultField.value).then(() => {
@@ -29,6 +27,18 @@ export function setupEventListeners() {
             copyMessageCalculator.style.display = 'block';
             setTimeout(() => {
                 copyMessageCalculator.style.display = 'none';
+            }, 2000);
+        });
+    });
+
+    // Event listener for the standardResult field
+    document.getElementById('standardResult').addEventListener('click', () => {
+        const standardResultField = document.getElementById('standardResult');
+        navigator.clipboard.writeText(standardResultField.value).then(() => {
+            const copyMessageStandardResult = document.getElementById('copyMessageStandardResult');
+            copyMessageStandardResult.style.display = 'block';
+            setTimeout(() => {
+                copyMessageStandardResult.style.display = 'none';
             }, 2000);
         });
     });
