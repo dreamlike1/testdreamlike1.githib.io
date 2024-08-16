@@ -417,7 +417,3 @@ button:hover {
     background-color: lightcoral; /* Example color */
     color: white; /* Example text color */
 }
-
-.ui.calendar .holiday {
-    border: 2px solid red; /* Border to highlight holiday cells */
-}
