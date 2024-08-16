@@ -28,18 +28,22 @@ export function setupEventListeners() {
             setTimeout(() => {
                 copyMessageCalculator.style.display = 'none';
             }, 2000);
-        });
+        }).catch(err => console.error('Failed to copy text: ', err));
     });
 
     // Event listener for the standardResult field
     document.getElementById('standardResult').addEventListener('click', () => {
         const standardResultField = document.getElementById('standardResult');
-        navigator.clipboard.writeText(standardResultField.value).then(() => {
-            const copyMessageStandardResult = document.getElementById('copyMessageStandardResult');
-            copyMessageStandardResult.style.display = 'block';
-            setTimeout(() => {
-                copyMessageStandardResult.style.display = 'none';
-            }, 2000);
-        });
+        if (standardResultField.value) {
+            navigator.clipboard.writeText(standardResultField.value).then(() => {
+                const copyMessageStandardResult = document.getElementById('copyMessageStandardResult');
+                copyMessageStandardResult.style.display = 'block';
+                setTimeout(() => {
+                    copyMessageStandardResult.style.display = 'none';
+                }, 2000);
+            }).catch(err => console.error('Failed to copy text: ', err));
+        } else {
+            console.error('No value to copy');
+        }
     });
 }
