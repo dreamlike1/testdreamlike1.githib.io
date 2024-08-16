@@ -19,7 +19,7 @@ export function initializeDateSelector(holidays = []) {
             date: new Date(holiday.date),
             message: holiday.name,
             class: 'holiday', // Use a CSS class for styling
-            variation: 'holiday-tooltip' // Tooltip variation
+            variation: 'holiday' // Tooltip variation
         }))
     });
 }
