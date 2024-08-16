@@ -1,9 +1,10 @@
-import { populateCountries } from '../ui/countryUtils.js'; // Adjusted path
-import { getBusinessDays } from '../ui/businessDaysUtils.js'; // Adjusted path
-import { formatDate } from '../dateUtils/dateUtils.js'; // Correct path to dateUtils.js
+import { populateCountries } from '../ui/countryUtils.js';
+import { getBusinessDays } from '../ui/businessDaysUtils.js';
+import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDate } from '../ui/dateCalculation.js';
 import { populateBusinessDays } from '../ui/ui.js';
 import { fetchHolidays } from '../api/holidays.js';
+import { initializeDateSelector } from '../calendar/calendar.js';
 
 export function setupEventListeners() {
     const serviceTypeElement = document.getElementById('serviceType');
@@ -11,7 +12,7 @@ export function setupEventListeners() {
     const calculateButtonElement = document.getElementById('calculateButton');
     const resultFieldElement = document.getElementById('result');
     const copyMessageCalculatorElement = document.getElementById('copyMessageCalculator');
-    const warningMessageElement = document.getElementById('warningMessage'); // Add reference to warning message element
+    const warningMessageElement = document.getElementById('warningMessage'); 
 
     // Event listener for serviceType change
     serviceTypeElement.addEventListener('change', async () => {
@@ -36,9 +37,13 @@ export function setupEventListeners() {
             } else {
                 warningMessageElement.classList.add('hidden');
             }
+
+            // Update the calendar with holidays
+            initializeDateSelector(holidays); // Pass holidays data to calendar
+
+            // Ensure business days are updated when country changes
+            populateBusinessDays();
         }
-        
-        populateBusinessDays(); // Ensure business days are updated when country changes
     });
 
     // Event listener for calculateButton click
