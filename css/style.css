@@ -202,6 +202,7 @@ button:hover {
     width: 100%;
     text-align: center;
     cursor: pointer;
+    margin-bottom: 4px !important;
     transition: border-color 0.3s ease; /* Smooth transition for border color change */
 }
 
