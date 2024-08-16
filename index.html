@@ -31,14 +31,13 @@
                     <p id="timezoneText" class="timezone-text"></p>
                 </div>
                 <div class="field">
-                    <!-- <input type="date" id="StartDate" required> -->
+                    <!--<input type="date" id="StartDate" required>-->
                     <div class="ui calendar">
                         <div class="ui input right icon">
                             <input type="text" placeholder="Date" id="startDate">
                             <i class="calendar icon"></i>
                         </div>
                     </div>
-                </div>
                 <div class="field">
                     <div class="checkbox-wrapper-42">
                         <input id="cbx-42" type="checkbox" />
@@ -46,28 +45,25 @@
                         <label class="lbl" for="cbx-42">Order is past 5pm</label>
                     </div>
                 </div>
+                </div>
                 <div class="field">
                     <div class="ui input">
                         <input type="text" id="businessDays" placeholder="Business Days (ex. 1-2 or 1,2)" required>
                     </div>
                 </div>
                 <button id="calculateButton" class="ui button">Calculate</button>
-
-                <!-- Text label for the first result -->
-                <div id="resultText1" class="hidden">
-                    <p id="resultTextMessage1"></p>
+                <div id="resultText" class="hidden">
+                <p id="resultTextMessage"></p>
                 </div>
-                <input type="text" id="result1" class="result-field" readonly>
-
-                <!-- Text label for the second result -->
-                <div id="resultText2" class="hidden">
-                    <p id="resultTextMessage2"></p>
+                <input type="text" id="result" class="result-field" readonly>
+                <div id="resultText" class="hidden">
+                <p id="resultTextMessage"></p>
                 </div>
-                <input type="text" id="result2" class="result-field" readonly>
-
-                <div id="warningMessage" class="warning-message hidden">
-                    The selected country's holidays are not updated, resulting in inaccurate information.
-                    <div>Click <a href="https://www.timeanddate.com/date/weekdayadd.html" target="_blank">here</a> for an alternative.</div>
+                <div id="standardResultField" class="hidden">
+                <input type="text" id="standardResult" class="result-field" readonly>
+                </div>
+                <div id="warningMessage" class="warning-message hidden">The selected country's holidays are not updated, resulting in inaccurate information.
+                <div>Click <a href="https://www.timeanddate.com/date/weekdayadd.html" target="_blank">here</a> for an alternative.</div>
                 </div>
                 <div id="copyMessageCalculator" class="copy-message">Copied!</div>
             </div>
@@ -83,7 +79,7 @@
                             <i class="calendar icon"></i>
                         </div>
                     </div>
-                    <!-- <input type="date" id="couponDate" required> -->
+                    <!--<input type="date" id="couponDate" required>-->
                 </div>
                 <div class="field">
                     <div class="ui input">
