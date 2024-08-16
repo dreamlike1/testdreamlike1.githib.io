@@ -11,15 +11,19 @@ export function populateBusinessDays() {
 }
 
 export function setupEventListeners() {
+    // Event listener for serviceType change
     document.getElementById('serviceType').addEventListener('change', () => {
         populateCountries();
         populateBusinessDays();
     });
 
+    // Event listener for countrySelect change
     document.getElementById('countrySelect').addEventListener('change', populateBusinessDays);
+
+    // Event listener for calculateButton click
     document.getElementById('calculateButton').addEventListener('click', calculateBusinessDate);
 
-    // Event listener for the result field
+    // Event listener for result field click
     document.getElementById('result').addEventListener('click', () => {
         const resultField = document.getElementById('result');
         navigator.clipboard.writeText(resultField.value).then(() => {
@@ -31,19 +35,15 @@ export function setupEventListeners() {
         }).catch(err => console.error('Failed to copy text: ', err));
     });
 
-    // Event listener for the standardResult field
+    // Event listener for standardResult field click
     document.getElementById('standardResult').addEventListener('click', () => {
         const standardResultField = document.getElementById('standardResult');
-        if (standardResultField.value) {
-            navigator.clipboard.writeText(standardResultField.value).then(() => {
-                const copyMessageStandardResult = document.getElementById('copyMessageStandardResult');
-                copyMessageStandardResult.style.display = 'block';
-                setTimeout(() => {
-                    copyMessageStandardResult.style.display = 'none';
-                }, 2000);
-            }).catch(err => console.error('Failed to copy text: ', err));
-        } else {
-            console.error('No value to copy');
-        }
+        navigator.clipboard.writeText(standardResultField.value).then(() => {
+            const copyMessageStandardResult = document.getElementById('copyMessageStandardResult');
+            copyMessageStandardResult.style.display = 'block';
+            setTimeout(() => {
+                copyMessageStandardResult.style.display = 'none';
+            }, 2000);
+        }).catch(err => console.error('Failed to copy text: ', err));
     });
 }
