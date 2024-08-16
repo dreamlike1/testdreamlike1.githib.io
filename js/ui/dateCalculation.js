@@ -1,4 +1,3 @@
-// js/ui/dateCalculation.js
 import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDays } from '../businessDayUtils/businessDayUtils.js';
 import { getHolidaysForCountry } from './countryUtils.js';
@@ -23,7 +22,7 @@ export async function calculateBusinessDate() {
 
     // Fetch holidays for the selected country
     const holidays = await getHolidaysForCountry(selectedCountry);
-    
+
     // Check if holidays were successfully fetched
     if (!Array.isArray(holidays)) {
         console.error('No holidays data found or error fetching holidays.');
@@ -72,6 +71,26 @@ export async function calculateBusinessDate() {
         console.log('Formatted results:');
         console.log(`Start Date End: ${formattedStart}`);
         console.log(`End Date End: ${formattedEnd}`);
+
+        // Special condition for United States
+        if (selectedCountry === 'United States') {
+            // Handle the special case for the second range '6-7'
+            const specialRangeStart = 6;
+            const specialRangeEnd = 7;
+            const specialEndDateStart = calculateBusinessDays(startDate, specialRangeStart, holidays);
+            const specialEndDateEnd = calculateBusinessDays(startDate, specialRangeEnd, holidays);
+            
+            // Format and display special results in the second input
+            const specialFormattedStart = formatDate(specialEndDateStart);
+            const specialFormattedEnd = formatDate(specialEndDateEnd);
+            document.getElementById('standardResult').value = `${specialFormattedStart} and ${specialFormattedEnd}`;
+
+            // Log the special case results
+            console.log('Special case results:');
+            console.log(`Special Start Date End: ${specialFormattedStart}`);
+            console.log(`Special End Date End: ${specialFormattedEnd}`);
+        }
+
     } catch (error) {
         console.error('Error calculating business dates:', error);
         alert('Error calculating business dates. Please check the input and try again.');
