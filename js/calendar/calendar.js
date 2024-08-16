@@ -14,12 +14,11 @@ export function initializeDateSelector(holidays = []) {
                 document.getElementById('startDate').value = '';
             }
         },
-        // Highlight holidays
         eventDates: holidays.map(holiday => ({
             date: new Date(holiday.date),
-            message: holiday.name,
-            class: 'holiday', // Use a CSS class for styling
-            variation: 'holiday' // Tooltip variation
+            message: `<span class="holiday-message ${holiday.class || ''}">${holiday.name}</span>`, // Use the holiday class for styling
+            class: 'holiday', // You can use a default class for the cell
+            variation: holiday.variation || 'holiday' // Tooltip variation
         }))
     });
 }
