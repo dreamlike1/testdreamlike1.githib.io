@@ -413,15 +413,27 @@ button:hover {
     display: none;
 }
 
-/* Example CSS for holiday styling */
-.holiday {
-    background-color: lightcoral; /* Example color */
-    color: white; /* Example text color */
+/* Style for holiday dates */
+.ui.calendar .holiday {
+    background-color: lightcoral; /* Light coral background for holidays */
+    color: white; /* White text color */
+    border: none; /* Remove the border */
+    border-radius: 50%; /* Make the date circular */
+    font-weight: bold; /* Make the text bold */
 }
 
-.holiday-tooltip {
-    background-color: lightcoral; /* Example color */
-    color: white; /* Example text color */
+/* Optional: Add hover effect */
+.ui.calendar .holiday:hover {
+    background-color: darkred; /* Darker shade of coral on hover */
+    color: white; /* Keep text color white on hover */
 }
+
+/* Optional: Add tooltip styling for holiday dates */
+.ui.calendar .holiday.tooltip {
+    background-color: lightcoral; /* Background for tooltip */
+    color: white; /* Text color for tooltip */
+    border: none; /* Remove border for tooltip */
+}
+
 
 
