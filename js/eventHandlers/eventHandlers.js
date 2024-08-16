@@ -1,6 +1,5 @@
 import { populateCountries } from '../ui/countryUtils.js';
 import { getBusinessDays } from '../ui/businessDaysUtils.js';
-import { formatDate } from '../dateUtils/dateUtils.js';
 import { calculateBusinessDate } from '../ui/dateCalculation.js';
 import { populateBusinessDays } from '../ui/ui.js';
 import { fetchHolidays } from '../api/holidays.js';
@@ -11,7 +10,9 @@ export function setupEventListeners() {
     const countrySelectElement = document.getElementById('countrySelect');
     const calculateButtonElement = document.getElementById('calculateButton');
     const resultFieldElement = document.getElementById('result');
+    const standardResultFieldElement = document.getElementById('standardResult'); // Added for standard result
     const copyMessageCalculatorElement = document.getElementById('copyMessageCalculator');
+    const copyMessageStandardResultElement = document.getElementById('copyMessageStandardResult'); // Added for standard result
     const warningMessageElement = document.getElementById('warningMessage'); 
 
     // Event listener for serviceType change
@@ -56,6 +57,16 @@ export function setupEventListeners() {
             setTimeout(() => {
                 copyMessageCalculatorElement.style.display = 'none';
             }, 2000);
-        });
+        }).catch(err => console.error('Failed to copy text: ', err));
+    });
+
+    // Event listener for standardResult field click
+    standardResultFieldElement.addEventListener('click', () => {
+        navigator.clipboard.writeText(standardResultFieldElement.value).then(() => {
+            copyMessageStandardResultElement.style.display = 'block';
+            setTimeout(() => {
+                copyMessageStandardResultElement.style.display = 'none';
+            }, 2000);
+        }).catch(err => console.error('Failed to copy text: ', err));
     });
 }
