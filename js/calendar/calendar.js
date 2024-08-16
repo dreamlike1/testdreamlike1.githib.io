@@ -1,7 +1,4 @@
 export function initializeDateSelector(holidays = []) {
-    // Define a color for the messages that matches the date color
-    const messageColor = '#FF5733'; // Example color, adjust as needed
-
     // Initialize the calendar with type 'date'
     $('.ui.calendar').calendar({
         type: 'date',
@@ -17,12 +14,12 @@ export function initializeDateSelector(holidays = []) {
                 document.getElementById('startDate').value = '';
             }
         },
-        // Highlight holidays with a consistent color for the message
+        // Highlight holidays
         eventDates: holidays.map(holiday => ({
             date: new Date(holiday.date),
-            message: `<span style="color: ${messageColor};">${holiday.name}</span>`,
-            class: 'holiday',
-            variation: 'holiday'
+            message: holiday.name,
+            class: 'holiday', // Use a CSS class for styling
+            variation: 'holiday' // Tooltip variation
         }))
     });
 }
