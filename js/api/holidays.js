@@ -1,3 +1,4 @@
+// js/api/holidays.js
 // Import country code mapping from an external file
 import { countryCodeMapping } from './countryData.js';
 
@@ -27,8 +28,6 @@ async function fetchHolidaysFromNager(countryCode, year) {
 
     try {
       const holidays = JSON.parse(text);
-      // Log the fetched holidays to verify content
-      console.log(`Holidays fetched for ${countryCode} in ${year}:`, holidays);
       // Filter holidays to include only those marked with "global": true
       return holidays.filter(holiday => holiday.global);
     } catch (error) {
@@ -69,40 +68,6 @@ async function getHolidays(countryName, year) {
 
   holidayCache.set(cacheKey, []); // Cache the empty result for future requests
   return [];
-}
-
-// Function to fetch holidays for the current year and up to 4 future years dynamically
-async function fetchAndCacheHolidays(countries) {
-  const currentYear = new Date().getFullYear();
-  const years = [currentYear, currentYear + 1, currentYear + 2, currentYear + 3, currentYear + 4];
-
-  for (const country of countries) {
-    console.log(`Fetching holidays for ${country} for years: ${years.join(', ')}`);
-    // Create an array of promises to fetch holidays for all years
-    const fetchHolidaysPromises = years.map(async year => {
-      try {
-        console.log(`Fetching holidays for ${country} in ${year}`);
-        const holidays = await fetchHolidaysFromNager(countryCodeMapping[country], year);
-        if (holidays.length > 0) {
-          holidayCache.set(`${country}-${year}`, holidays); // Cache holidays for each year
-          console.log(`Holidays fetched for ${country} in ${year}:`, holidays);
-        } else {
-          console.warn(`No holidays found for ${country} in ${year}`);
-          noHolidayCountriesFromNager.push({ countryName: country, year });
-          holidayCache.set(`${country}-${year}`, []); // Cache empty result
-        }
-      } catch (error) {
-        console.error(`Error fetching holidays for ${country} in ${year}:`, error);
-        holidayCache.set(`${country}-${year}`, []); // Cache empty result in case of error
-      }
-    });
-
-    // Wait for all promises to resolve
-    await Promise.all(fetchHolidaysPromises);
-  }
-
-  console.log('All holidays data fetched and cached');
-  console.log('Holidays Cache:', holidayCache);
 }
 
 // Function to fetch holidays using country name
