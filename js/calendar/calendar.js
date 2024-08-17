@@ -1,9 +1,5 @@
 export function initializeDateSelector(holidays = []) {
-    // Log the holidays data
-    console.log('Holidays provided:', holidays);
-
-    // Initialize the calendar
-    console.log('Initializing calendar...');
+    // Initialize the calendar with type 'date'
     $('.ui.calendar').calendar({
         type: 'date',
         text: {
@@ -18,27 +14,12 @@ export function initializeDateSelector(holidays = []) {
                 document.getElementById('startDate').value = '';
             }
         },
-        eventDates: holidays.map(holiday => {
-            const holidayDate = new Date(holiday.date);
-            console.log('Processing holiday:', holiday.name, 'Date:', holidayDate);
-            return {
-                date: holidayDate,
-                message: holiday.name,
-                class: 'holiday', // Use a CSS class for styling
-                variation: 'holiday' // Tooltip variation
-            };
-        })
+        // Highlight holidays
+        eventDates: holidays.map(holiday => ({
+            date: new Date(holiday.date),
+            message: holiday.name,
+            class: 'holiday', // Use a CSS class for styling
+            variation: 'holiday' // Tooltip variation
+        }))
     });
-
-    // Check calendar initialization
-    setTimeout(() => {
-        const calendarInstance = $('.ui.calendar').data('calendar');
-        if (calendarInstance) {
-            console.log('Calendar instance found.');
-            // Log eventDates directly from the settings if accessible
-            console.log('Event Dates:', calendarInstance.settings.eventDates);
-        } else {
-            console.error('Calendar instance not found.');
-        }
-    }, 1000); // Delay to ensure calendar is fully initialized
 }
