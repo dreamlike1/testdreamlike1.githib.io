@@ -12,18 +12,11 @@ export async function populateCountries(serviceType = 'expressPaid') {
     const countrySelectDropdown = $('#countrySelect');
     const countries = countryOptions[serviceType] || [];
     
-    // Debugging: log service type and available countries
-    console.log('Service Type:', serviceType);
-    console.log('Countries:', countries);
-    
     // Prepare dropdown options
     const options = countries.map(country => ({
         text: country,
         value: country
     }));
-
-    // Debugging: log dropdown options
-    console.log('Dropdown Options:', options);
 
     // Reinitialize dropdown
     await initializeDropdown(countrySelectDropdown, options);
@@ -79,19 +72,20 @@ async function initializeDropdown(dropdown, options) {
 /**
  * Fetch holidays for each country and cache the results.
  * @param {Array} countries - Array of country names to fetch holidays for.
+ * @param {number} [year] - Optional year to fetch holidays for. Defaults to current year.
  */
-async function fetchAndCacheHolidays(countries) {
-    console.log('Fetching holidays for countries:', countries);
+async function fetchAndCacheHolidays(countries, year = new Date().getFullYear()) {
+    console.log('Fetching holidays for countries:', countries, 'Year:', year);
+
     // Create an array of promises to fetch holidays for all countries
     const fetchHolidaysPromises = countries.map(async country => {
         try {
-            console.log('Fetching holidays for:', country);
-            const currentYear = new Date().getFullYear();
-            const holidays = await fetchHolidays(country, currentYear);
-            holidaysCache[country] = holidays; // Store holidays in cache
-            console.log('Holidays fetched for:', country, holidays);
+            console.log('Fetching holidays for:', country, 'Year:', year);
+            const holidays = await fetchHolidays(country, year);
+            holidaysCache[`${country}_${year}`] = holidays; // Cache with year-specific key
+            console.log('Holidays fetched for:', country, 'Year:', year, holidays);
         } catch (error) {
-            console.error(`Error fetching holidays for ${country}:`, error);
+            console.error(`Error fetching holidays for ${country} in year ${year}:`, error);
         }
     });
 
@@ -110,3 +104,24 @@ async function fetchAndCacheHolidays(countries) {
 export function getHolidaysForCountry(country) {
     return holidaysCache[country] || [];
 }
+
+/**
+ * Extract year from a date string.
+ * @param {string} dateStr - The date string in YYYY-MM-DD format.
+ * @returns {number} - The extracted year.
+ */
+function extractYearFromDate(dateStr) {
+    return new Date(dateStr).getFullYear();
+}
+
+// Example of using the date picker
+$('#startDate').on('change', async function() {
+    const selectedDate = $(this).val();
+    const year = extractYearFromDate(selectedDate);
+
+    console.log('Selected year:', year);
+    // Ensure countries are populated first
+    await populateCountries();
+    // Fetch holidays for the selected year
+    await fetchAndCacheHolidays(Object.keys(countryOptions['expressPaid']), year);
+});
