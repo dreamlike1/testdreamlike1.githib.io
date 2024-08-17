@@ -87,15 +87,31 @@ async function fetchAndCacheHolidays(countries) {
         try {
             console.log('Fetching holidays for:', country);
             const currentYear = new Date().getFullYear();
-            const holidays = await fetchHolidays(country, currentYear);
-            holidaysCache[country] = holidays; // Store holidays in cache
-            console.log('Holidays fetched for:', country, holidays);
+            // Fetch holidays for current year and up to 4 future years
+            const fetchYearsPromises = [currentYear, currentYear + 1, currentYear + 2, currentYear + 3, currentYear + 4].map(async year => {
+                try {
+                    console.log('Fetching holidays for:', country, 'Year:', year);
+                    const holidays = await fetchHolidays(country, year);
+                    if (holidays) {
+                        if (!holidaysCache[country]) {
+                            holidaysCache[country] = {};
+                        }
+                        holidaysCache[country][year] = holidays; // Store holidays in cache
+                        console.log('Holidays fetched for:', country, 'Year:', year, holidays);
+                    }
+                } catch (error) {
+                    console.error(`Error fetching holidays for ${country} in ${year}:`, error);
+                }
+            });
+
+            // Wait for all year promises to resolve
+            await Promise.all(fetchYearsPromises);
         } catch (error) {
             console.error(`Error fetching holidays for ${country}:`, error);
         }
     });
 
-    // Wait for all promises to resolve
+    // Wait for all country promises to resolve
     await Promise.all(fetchHolidaysPromises);
 
     console.log('All holidays data fetched and cached');
@@ -105,8 +121,9 @@ async function fetchAndCacheHolidays(countries) {
 /**
  * Retrieve holidays for a specific country from the cache.
  * @param {string} country - The country for which to retrieve holidays.
- * @returns {Array} - An array of holiday objects for the specified country.
+ * @param {number} [year] - The year for which to retrieve holidays (optional).
+ * @returns {Array} - An array of holiday objects for the specified country and year.
  */
-export function getHolidaysForCountry(country) {
-    return holidaysCache[country] || [];
+export function getHolidaysForCountry(country, year) {
+    return holidaysCache[country]?.[year] || [];
 }
