@@ -15,11 +15,16 @@ export function initializeDateSelector(holidays = []) {
             }
         },
         // Highlight holidays
-        eventDates: holidays.map(holiday => ({
-            date: new Date(holiday.date),
-            message: holiday.name,
-            class: 'holiday', // Use a CSS class for styling
-            variation: 'holiday' // Tooltip variation
-        }))
+        eventDates: holidays.map(holiday => {
+            const date = new Date(holiday.date);
+            // Debugging: log each holiday date
+            console.log('Holiday Date:', date);
+            return {
+                date: date,
+                message: holiday.name,
+                class: 'holiday', // Use a CSS class for styling
+                variation: 'holiday' // Tooltip variation
+            };
+        })
     });
 }
