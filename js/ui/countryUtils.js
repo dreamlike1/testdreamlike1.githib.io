@@ -2,8 +2,7 @@ import { fetchHolidays } from '../api/holidays.js';
 import { listNoHolidayCountries } from '../api/holidays.js'; // Ensure this import is correct
 import { countryOptions } from '../api/countryData.js';
 
-// Cache to store holidays data for all countries
-let holidaysCache = {};  
+let holidaysCache = {};  // Cache to store holidays data for all countries
 
 /**
  * Populate the country dropdown with options based on the selected service type.
@@ -12,11 +11,11 @@ let holidaysCache = {};
 export async function populateCountries(serviceType = 'expressPaid') {
     const countrySelectDropdown = $('#countrySelect');
     const countries = countryOptions[serviceType] || [];
-
+    
     // Debugging: log service type and available countries
     console.log('Service Type:', serviceType);
     console.log('Countries:', countries);
-
+    
     // Prepare dropdown options
     const options = countries.map(country => ({
         text: country,
