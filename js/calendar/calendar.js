@@ -1,4 +1,7 @@
 export function initializeDateSelector(holidays = []) {
+    // Log the input holidays array
+    console.log('Holidays provided:', holidays);
+
     // Initialize the calendar with type 'date'
     $('.ui.calendar').calendar({
         type: 'date',
@@ -15,11 +18,18 @@ export function initializeDateSelector(holidays = []) {
             }
         },
         // Highlight holidays
-        eventDates: holidays.map(holiday => ({
-            date: new Date(holiday.date),
-            message: holiday.name,
-            class: 'holiday', // Use a CSS class for styling
-            variation: 'holiday' // Tooltip variation
-        }))
+        eventDates: holidays.map(holiday => {
+            const holidayDate = new Date(holiday.date);
+            console.log('Processing holiday:', holiday.name, 'Date:', holidayDate);
+            return {
+                date: holidayDate,
+                message: holiday.name,
+                class: 'holiday', // Use a CSS class for styling
+                variation: 'holiday' // Tooltip variation
+            };
+        })
     });
+
+    // Log the processed eventDates for verification
+    console.log('Processed eventDates:', $('.ui.calendar').data('calendar').settings.eventDates);
 }
