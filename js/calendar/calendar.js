@@ -23,15 +23,3 @@ export function initializeDateSelector(holidays = []) {
         }))
     });
 }
-
-// Example testing data
-document.addEventListener('DOMContentLoaded', () => {
-    // Example holidays for testing
-    const testHolidays = [
-        { date: '2025-01-01', name: 'New Year\'s Day' },
-        { date: '2025-12-25', name: 'Christmas Day' }
-    ];
-
-    // Initialize date selector with test holidays
-    initializeDateSelector(testHolidays);
-});
