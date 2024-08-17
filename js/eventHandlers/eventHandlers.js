@@ -8,6 +8,7 @@ import { initializeDateSelector } from '../calendar/calendar.js';
 export function setupEventListeners() {
     const serviceTypeElement = document.getElementById('serviceType');
     const countrySelectElement = document.getElementById('countrySelect');
+    const yearSelectElement = document.getElementById('yearSelect'); // Added for year selection
     const calculateButtonElement = document.getElementById('calculateButton');
     const resultFieldElement = document.getElementById('result');
     const standardResultFieldElement = document.getElementById('standardResult'); // Added for standard result
@@ -22,15 +23,42 @@ export function setupEventListeners() {
         populateBusinessDays(); // Update business days after fetching holidays
     });
 
+    // Event listener for yearSelect change
+    yearSelectElement.addEventListener('change', async () => {
+        const selectedYear = parseInt(yearSelectElement.value, 10);
+        if (isNaN(selectedYear)) return;
+
+        const selectedCountry = countrySelectElement.value;
+        if (selectedCountry) {
+            const countryName = countrySelectElement.options[countrySelectElement.selectedIndex].text;
+
+            // Fetch holidays for the selected year
+            const holidays = await fetchHolidays(countryName, selectedYear);
+
+            // Show or hide warning message based on holidays availability
+            if (!holidays || holidays.length === 0) {
+                warningMessageElement.classList.remove('hidden');
+            } else {
+                warningMessageElement.classList.add('hidden');
+            }
+
+            // Update the calendar with holidays
+            initializeDateSelector(holidays); // Pass holidays data to calendar
+
+            // Ensure business days are updated when year changes
+            populateBusinessDays();
+        }
+    });
+
     // Event listener for countrySelect change
     countrySelectElement.addEventListener('change', async (event) => {
         const selectedCountry = event.target.value;
         if (selectedCountry) {
+            const selectedYear = parseInt(yearSelectElement.value, 10) || new Date().getFullYear();
             const countryName = event.target.options[event.target.selectedIndex].text;
-            const year = new Date().getFullYear(); // Use current year or a specific one
 
             // Fetch holidays to determine if the country has holidays
-            const holidays = await fetchHolidays(countryName, year);
+            const holidays = await fetchHolidays(countryName, selectedYear);
 
             // Show or hide warning message based on holidays availability
             if (!holidays || holidays.length === 0) {
