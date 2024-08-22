@@ -20,8 +20,8 @@ export function setupEventListeners() {
 
         // Use a short delay to ensure the dropdown is populated
         setTimeout(() => {
-            const selectedCountry = countrySelectElement.val(); // Use .val() for jQuery dropdown
-            const countryName = countrySelectElement.find('option:selected').text(); // jQuery method for selected text
+            const selectedCountry = countrySelectElement.value; // Use native DOM method
+            const countryName = countrySelectElement.options[countrySelectElement.selectedIndex]?.text; // Native method
 
             console.log('Selected Country after service type change:', selectedCountry);
             console.log('Country Name after service type change:', countryName);
