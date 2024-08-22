@@ -1,5 +1,5 @@
+
 export function initializeDateSelector(holidays = []) {
-    // Initialize the calendar for startDate with holidays
     $('.ui.calendar').calendar({
         type: 'date',
         text: {
@@ -9,9 +9,9 @@ export function initializeDateSelector(holidays = []) {
         onChange: function(date, text, mode) {
             if (date) {
                 const formattedDate = date.toISOString().split('T')[0];
-                document.getElementById('startDate').querySelector('input').value = formattedDate;
+                document.getElementById('startDate').value = formattedDate;
             } else {
-                document.getElementById('startDate').querySelector('input').value = '';
+                document.getElementById('startDate').value = '';
             }
         },
         eventDates: holidays.map(holiday => ({
@@ -34,9 +34,6 @@ export function initializeDateSelector(holidays = []) {
             if (!isNaN(date.getTime())) {
                 $('.ui.calendar').calendar('set date', date);
             }
-        } else {
-            // Optionally handle invalid input
-            $('.ui.calendar').calendar('clear');
         }
     });
 }
