@@ -8,9 +8,9 @@ export function initializeDateSelector(holidays = []) {
         onChange: function(date, text, mode) {
             if (date) {
                 const formattedDate = date.toISOString().split('T')[0];
-                document.getElementById('startDate').value = formattedDate;
+                document.getElementById('startDate').querySelector('input').value = formattedDate;
             } else {
-                document.getElementById('startDate').value = '';
+                document.getElementById('startDate').querySelector('input').value = '';
             }
         },
         eventDates: holidays.map(holiday => ({
@@ -24,6 +24,18 @@ export function initializeDateSelector(holidays = []) {
     // Handle MMDDYYYY input format
     $('#startDate input').on('change', function() {
         const inputValue = $(this).val();
+        parseAndSetDate(inputValue);
+    });
+
+    // Handle Enter key press
+    $('#startDate input').on('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const inputValue = $(this).val();
+            parseAndSetDate(inputValue);
+        }
+    });
+
+    function parseAndSetDate(inputValue) {
         const regex = /^(\d{2})(\d{2})(\d{4})$/;
         const match = inputValue.match(regex);
 
@@ -32,7 +44,13 @@ export function initializeDateSelector(holidays = []) {
             const date = new Date(`${year}-${month}-${day}`);
             if (!isNaN(date.getTime())) {
                 $('.ui.calendar').calendar('set date', date);
+            } else {
+                // Optionally, you can handle invalid dates here
+                console.error('Invalid date');
             }
+        } else {
+            // Optionally, you can handle format errors here
+            console.error('Invalid format');
         }
-    });
+    }
 }
