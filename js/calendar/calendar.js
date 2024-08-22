@@ -10,8 +10,8 @@ export function initializeDateSelector(holidays = []) {
             months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         },
         onChange: function(date, text, mode) {
-            // Only update the input field if a date is selected from the calendar
-            if ($input.is(':focus') && date) {
+            // Update the input field only if the calendar was interacted with
+            if ($input.is(':focus')) {
                 const formattedDate = date.toISOString().split('T')[0];
                 $input.val(formattedDate);
             }
@@ -24,19 +24,23 @@ export function initializeDateSelector(holidays = []) {
         }))
     });
 
-    // Handle manual input changes
+    // Handle input changes manually
     $input.on('input', function() {
-        // Do not update the calendar on input change
-    });
-
-    $input.on('blur', function() {
+        // Allow manual input and update the calendar if necessary
         const inputValue = $input.val();
         const parsedDate = parseDate(inputValue);
 
         if (parsedDate) {
-            // Update the calendar date based on valid input
             $calendar.calendar('set date', parsedDate);
-        } else {
+        }
+    });
+
+    $input.on('blur', function() {
+        // Validate the date when input loses focus
+        const inputValue = $input.val();
+        const parsedDate = parseDate(inputValue);
+
+        if (!parsedDate) {
             // Clear the calendar date if input is invalid
             $calendar.calendar('clear');
         }
