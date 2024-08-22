@@ -1,4 +1,4 @@
-export function initializeDateSelectors(startDateHolidays = [], couponDateHolidays = []) {
+export function initializeDateSelector(startDateHolidays = [], couponDateHolidays = []) {
     // Initialize startDate calendar with its specific event dates
     $('#startDate .ui.calendar').calendar({
         type: 'date',
