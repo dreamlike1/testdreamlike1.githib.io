@@ -15,18 +15,24 @@ export function setupEventListeners() {
     const warningMessageElement = document.getElementById('warningMessage');
 
     async function updateCountryDropdown() {
-        const selectedCountry = countrySelectElement.value; // Get the current selected value
-        await populateCountries(serviceTypeElement.value); // Update the dropdown based on service type
+        await populateCountries(serviceTypeElement.value);
 
+        // Use a short delay to ensure the dropdown is populated
         setTimeout(() => {
-            if (selectedCountry) {
-                countrySelectElement.value = selectedCountry; // Restore previous selection
+            let selectedCountry = countrySelectElement.value;
+
+            if (!selectedCountry) {
+                // Default to the first available country
+                if (countrySelectElement.options.length > 0) {
+                    selectedCountry = countrySelectElement.options[0].value;
+                    countrySelectElement.value = selectedCountry;
+                }
             }
 
-            console.log('Selected Country after service type change:', countrySelectElement.value);
-            console.log('Country Name after service type change:', countrySelectElement.options[countrySelectElement.selectedIndex]?.text);
-            
             const countryName = countrySelectElement.options[countrySelectElement.selectedIndex]?.text;
+
+            console.log('Selected Country after service type change:', selectedCountry);
+            console.log('Country Name after service type change:', countryName);
 
             if (selectedCountry) {
                 const currentYear = new Date().getFullYear();
