@@ -1,13 +1,6 @@
 export function initializeDateSelector(holidays = []) {
     // Initialize the calendar for startDate with holidays
-    initializeCalendar('#startDate', holidays);
-
-    // Initialize the calendar for couponDate without holidays
-    initializeCalendar('#couponDate', []);
-}
-
-function initializeCalendar(selector, holidays = []) {
-    $(selector).calendar({
+    $('.ui.calendar').calendar({
         type: 'date',
         text: {
             days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -16,9 +9,9 @@ function initializeCalendar(selector, holidays = []) {
         onChange: function(date, text, mode) {
             if (date) {
                 const formattedDate = date.toISOString().split('T')[0];
-                $(selector + ' input').val(formattedDate); // Update input value
+                document.getElementById('startDate').querySelector('input').value = formattedDate;
             } else {
-                $(selector + ' input').val('');
+                document.getElementById('startDate').querySelector('input').value = '';
             }
         },
         eventDates: holidays.map(holiday => ({
@@ -30,7 +23,7 @@ function initializeCalendar(selector, holidays = []) {
     });
 
     // Handle MMDDYYYY input format
-    $(selector + ' input').on('change', function() {
+    $('#startDate input').on('change', function() {
         const inputValue = $(this).val();
         const regex = /^(\d{2})(\d{2})(\d{4})$/;
         const match = inputValue.match(regex);
@@ -39,12 +32,11 @@ function initializeCalendar(selector, holidays = []) {
             const [_, month, day, year] = match;
             const date = new Date(`${year}-${month}-${day}`);
             if (!isNaN(date.getTime())) {
-                $(selector).calendar('set date', date);
-            } else {
-                $(selector).calendar('clear'); // Clear calendar if the date is invalid
+                $('.ui.calendar').calendar('set date', date);
             }
         } else {
-            $(selector).calendar('clear'); // Clear calendar if input does not match format
+            // Optionally handle invalid input
+            $('.ui.calendar').calendar('clear');
         }
     });
 }
