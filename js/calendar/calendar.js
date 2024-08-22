@@ -1,5 +1,5 @@
-
 export function initializeDateSelector(holidays = []) {
+    // Initialize main calendar
     $('.ui.calendar').calendar({
         type: 'date',
         text: {
@@ -22,7 +22,7 @@ export function initializeDateSelector(holidays = []) {
         }))
     });
 
-    // Handle MMDDYYYY input format
+    // Handle MMDDYYYY input format for startDate
     $('#startDate input').on('change', function() {
         const inputValue = $(this).val();
         const regex = /^(\d{2})(\d{2})(\d{4})$/;
@@ -33,6 +33,38 @@ export function initializeDateSelector(holidays = []) {
             const date = new Date(`${year}-${month}-${day}`);
             if (!isNaN(date.getTime())) {
                 $('.ui.calendar').calendar('set date', date);
+            }
+        }
+    });
+
+    // Initialize couponStartDate calendar
+    $('#couponStartDate').calendar({
+        type: 'date',
+        text: {
+            days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        },
+        onChange: function(date, text, mode) {
+            if (date) {
+                const formattedDate = date.toISOString().split('T')[0];
+                document.getElementById('couponDate').value = formattedDate;
+            } else {
+                document.getElementById('couponDate').value = '';
+            }
+        }
+    });
+
+    // Handle MMDDYYYY input format for couponStartDate
+    $('#couponDate').on('change', function() {
+        const inputValue = $(this).val();
+        const regex = /^(\d{2})(\d{2})(\d{4})$/;
+        const match = inputValue.match(regex);
+
+        if (match) {
+            const [_, month, day, year] = match;
+            const date = new Date(`${year}-${month}-${day}`);
+            if (!isNaN(date.getTime())) {
+                $('#couponStartDate').calendar('set date', date);
             }
         }
     });
