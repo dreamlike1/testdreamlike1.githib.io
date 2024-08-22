@@ -46,10 +46,10 @@ export function initializeDateSelector(holidays = []) {
         },
         onChange: function(date, text, mode) {
             if (date) {
-                const formattedDate = date.toISOString().split('T')[0];
+                document.getElementById('couponStartDate').value = formattedDate;
                 $('#couponStartDate input').val(formattedDate);
             } else {
-                $('#couponStartDate input').val('');
+                document.getElementById('couponStartDate').value = '';
             }
         }
     });
