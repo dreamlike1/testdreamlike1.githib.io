@@ -23,7 +23,7 @@ export function initializeDateSelector(holidays = []) {
     });
 
     // Handle MMDDYYYY input format for startDate
-    $('#startDate input').on('change', function() {
+    $('#ETAstartDate input').on('change', function() {
         const inputValue = $(this).val();
         const regex = /^(\d{2})(\d{2})(\d{4})$/;
         const match = inputValue.match(regex);
@@ -38,7 +38,7 @@ export function initializeDateSelector(holidays = []) {
     });
 
     // Initialize couponDate calendar
-    $('#couponDate').calendar({
+    $('#couponStartDate').calendar({
         type: 'date',
         text: {
             days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -55,7 +55,7 @@ export function initializeDateSelector(holidays = []) {
     });
 
     // Handle MMDDYYYY input format for couponDate
-    $('#couponDate input').on('change', function() {
+    $('#couponStartDate input').on('change', function() {
         const inputValue = $(this).val();
         const regex = /^(\d{2})(\d{2})(\d{4})$/;
         const match = inputValue.match(regex);
