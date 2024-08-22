@@ -1,5 +1,3 @@
-// js/ui/countryUtils.js
-
 import { fetchHolidaysForYears } from '../api/holidays.js';
 import { listNoHolidayCountries } from '../api/holidays.js';
 import { countryOptions } from '../api/countryData.js';
@@ -30,9 +28,11 @@ export async function populateCountries(serviceType = 'expressPaid') {
 }
 
 async function initializeDropdown(dropdown, options) {
+    const currentValue = dropdown.dropdown('get value'); // Get current selected value
+    
     dropdown.empty();
     dropdown.append('<option value="" disabled selected>Select Country</option>');
-
+    
     if (dropdown.hasClass('ui dropdown')) {
         dropdown.dropdown('destroy');
     }
@@ -49,7 +49,13 @@ async function initializeDropdown(dropdown, options) {
     });
 
     if (options.length > 0) {
-        dropdown.dropdown('set selected', options[0].value);
+        // Set the previously selected value if it exists in the new options
+        if (options.some(option => option.value === currentValue)) {
+            dropdown.dropdown('set selected', currentValue);
+        } else {
+            // If the previous value is not in the options, select the first option
+            dropdown.dropdown('set selected', options[0].value);
+        }
     }
 
     // Ensure value is properly set and logged
