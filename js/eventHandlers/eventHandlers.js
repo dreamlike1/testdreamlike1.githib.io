@@ -14,17 +14,19 @@ export function setupEventListeners() {
     const copyMessageStandardResultElement = document.getElementById('copyMessageStandardResult');
     const warningMessageElement = document.getElementById('warningMessage');
 
-    serviceTypeElement.addEventListener('change', async () => {
-        const serviceType = serviceTypeElement.value;
-        await populateCountries(serviceType);
+    async function updateCountryDropdown() {
+        const selectedCountry = countrySelectElement.value; // Get the current selected value
+        await populateCountries(serviceTypeElement.value); // Update the dropdown based on service type
 
-        // Use a short delay to ensure the dropdown is populated
         setTimeout(() => {
-            const selectedCountry = countrySelectElement.value; // Use native DOM method
-            const countryName = countrySelectElement.options[countrySelectElement.selectedIndex]?.text; // Native method
+            if (selectedCountry) {
+                countrySelectElement.value = selectedCountry; // Restore previous selection
+            }
 
-            console.log('Selected Country after service type change:', selectedCountry);
-            console.log('Country Name after service type change:', countryName);
+            console.log('Selected Country after service type change:', countrySelectElement.value);
+            console.log('Country Name after service type change:', countrySelectElement.options[countrySelectElement.selectedIndex]?.text);
+            
+            const countryName = countrySelectElement.options[countrySelectElement.selectedIndex]?.text;
 
             if (selectedCountry) {
                 const currentYear = new Date().getFullYear();
@@ -47,7 +49,9 @@ export function setupEventListeners() {
 
             populateBusinessDays();
         }, 100); // Adjust timing as needed
-    });
+    }
+
+    serviceTypeElement.addEventListener('change', updateCountryDropdown);
 
     countrySelectElement.addEventListener('change', async (event) => {
         const selectedCountry = event.target.value;
