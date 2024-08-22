@@ -1,6 +1,13 @@
-
 export function initializeDateSelector(holidays = []) {
-    $('.ui.calendar').calendar({
+    // Initialize the calendar for startDate with holidays
+    initializeCalendar('#startDate', holidays);
+
+    // Initialize the calendar for couponDate without holidays
+    initializeCalendar('#couponDate', []);
+}
+
+function initializeCalendar(selector, holidays = []) {
+    $(selector).calendar({
         type: 'date',
         text: {
             days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -9,9 +16,9 @@ export function initializeDateSelector(holidays = []) {
         onChange: function(date, text, mode) {
             if (date) {
                 const formattedDate = date.toISOString().split('T')[0];
-                document.getElementById('startDate').value = formattedDate;
+                document.getElementById(selector.replace('#', '')).querySelector('input').value = formattedDate;
             } else {
-                document.getElementById('startDate').value = '';
+                document.getElementById(selector.replace('#', '')).querySelector('input').value = '';
             }
         },
         eventDates: holidays.map(holiday => ({
@@ -23,7 +30,7 @@ export function initializeDateSelector(holidays = []) {
     });
 
     // Handle MMDDYYYY input format
-    $('#startDate input').on('change', function() {
+    $(selector + ' input').on('change', function() {
         const inputValue = $(this).val();
         const regex = /^(\d{2})(\d{2})(\d{4})$/;
         const match = inputValue.match(regex);
@@ -32,7 +39,7 @@ export function initializeDateSelector(holidays = []) {
             const [_, month, day, year] = match;
             const date = new Date(`${year}-${month}-${day}`);
             if (!isNaN(date.getTime())) {
-                $('.ui.calendar').calendar('set date', date);
+                $(selector).calendar('set date', date);
             }
         }
     });
