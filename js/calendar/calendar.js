@@ -1,13 +1,12 @@
 // Initialize the date selector with the calendar widget
 export function initializeDateSelector(holidays = []) {
-    // Initialize the calendar with type 'date'
     $('.ui.calendar').calendar({
         type: 'date',
         text: {
             days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         },
-        onChange: function(date, text, mode) {
+        onChange: function(date) {
             if (date) {
                 // Update the input field when a date is selected from the calendar
                 document.getElementById('startDate').value = date.toISOString().split('T')[0];
@@ -16,8 +15,8 @@ export function initializeDateSelector(holidays = []) {
         eventDates: holidays.map(holiday => ({
             date: new Date(holiday.date),
             message: holiday.name,
-            class: 'holiday', // Use a CSS class for styling
-            variation: 'holiday' // Tooltip variation (if supported)
+            class: 'holiday',
+            variation: 'holiday'
         }))
     });
 }
@@ -28,7 +27,7 @@ document.getElementById('startDate').addEventListener('input', function(event) {
 
     // Regex to check if input is in MMDDYYYY format
     const datePattern = /^(0[1-9]|1[0-2])([0-2][0-9]|3[0-1])\d{4}$/;
-    
+
     if (datePattern.test(inputValue)) {
         // Extract month, day, and year
         const month = inputValue.substring(0, 2);
@@ -49,5 +48,14 @@ document.getElementById('startDate').addEventListener('input', function(event) {
     } else {
         // Clear calendar date if input is invalid
         $('.ui.calendar').calendar('clear');
+    }
+});
+
+// Ensure calendar input field is typeable
+$('.ui.calendar').calendar({
+    onChange: function(date) {
+        if (date) {
+            document.getElementById('startDate').value = date.toISOString().split('T')[0];
+        }
     }
 });
