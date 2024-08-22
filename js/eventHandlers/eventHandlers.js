@@ -1,5 +1,3 @@
-// js/eventhandlers.js
-
 import { fetchHolidaysForYears } from '../api/holidays.js';
 import { initializeDateSelector } from '../calendar/calendar.js';
 import { populateCountries } from '../ui/countryUtils.js';
@@ -22,8 +20,8 @@ export function setupEventListeners() {
 
         // Use a short delay to ensure the dropdown is populated
         setTimeout(() => {
-            const selectedCountry = countrySelectElement.value;
-            const countryName = countrySelectElement.options[countrySelectElement.selectedIndex]?.text;
+            const selectedCountry = countrySelectElement.val(); // Use .val() for jQuery dropdown
+            const countryName = countrySelectElement.find('option:selected').text(); // jQuery method for selected text
 
             console.log('Selected Country after service type change:', selectedCountry);
             console.log('Country Name after service type change:', countryName);
