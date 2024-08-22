@@ -37,8 +37,8 @@ export function initializeDateSelector(holidays = []) {
         }
     });
 
-    // Initialize couponStartDate calendar
-    $('#couponStartDate').calendar({
+    // Initialize couponDate calendar
+    $('#couponDate').calendar({
         type: 'date',
         text: {
             days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -47,15 +47,15 @@ export function initializeDateSelector(holidays = []) {
         onChange: function(date, text, mode) {
             if (date) {
                 const formattedDate = date.toISOString().split('T')[0];
-                document.getElementById('couponDate').value = formattedDate;
+                $('#couponDate input').val(formattedDate);
             } else {
-                document.getElementById('couponDate').value = '';
+                $('#couponDate input').val('');
             }
         }
     });
 
-    // Handle MMDDYYYY input format for couponStartDate
-    $('#couponDate').on('change', function() {
+    // Handle MMDDYYYY input format for couponDate
+    $('#couponDate input').on('change', function() {
         const inputValue = $(this).val();
         const regex = /^(\d{2})(\d{2})(\d{4})$/;
         const match = inputValue.match(regex);
@@ -64,7 +64,7 @@ export function initializeDateSelector(holidays = []) {
             const [_, month, day, year] = match;
             const date = new Date(`${year}-${month}-${day}`);
             if (!isNaN(date.getTime())) {
-                $('#couponStartDate').calendar('set date', date);
+                $('#couponDate').calendar('set date', date);
             }
         }
     });
