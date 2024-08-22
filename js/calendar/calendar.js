@@ -9,9 +9,9 @@ export function initializeDateSelector(holidays = []) {
         onChange: function(date, text, mode) {
             if (date) {
                 const formattedDate = date.toISOString().split('T')[0];
-                document.getElementById('startDate').value = formattedDate;
+                document.getElementById('ETAstartDate').value = formattedDate;
             } else {
-                document.getElementById('startDate').value = '';
+                document.getElementById('ETAstartDate').value = '';
             }
         },
         eventDates: holidays.map(holiday => ({
@@ -47,9 +47,9 @@ export function initializeDateSelector(holidays = []) {
         onChange: function(date, text, mode) {
             if (date) {
                 const formattedDate = date.toISOString().split('T')[0];
-                $('#couponDate input').val(formattedDate);
+                $('#couponStartDate input').val(formattedDate);
             } else {
-                $('#couponDate input').val('');
+                $('#couponStartDate input').val('');
             }
         }
     });
@@ -64,7 +64,7 @@ export function initializeDateSelector(holidays = []) {
             const [_, month, day, year] = match;
             const date = new Date(`${year}-${month}-${day}`);
             if (!isNaN(date.getTime())) {
-                $('#couponDate').calendar('set date', date);
+                $('#couponStartDate').calendar('set date', date);
             }
         }
     });
