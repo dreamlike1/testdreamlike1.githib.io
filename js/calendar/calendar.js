@@ -1,10 +1,9 @@
 export function initializeDateSelector(holidays = []) {
-    // Initialize the calendar with type 'date'
     $('.ui.calendar').calendar({
         type: 'date',
         text: {
             days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         },
         onChange: function(date, text, mode) {
             if (date) {
@@ -14,12 +13,26 @@ export function initializeDateSelector(holidays = []) {
                 document.getElementById('startDate').value = '';
             }
         },
-        // Highlight holidays
         eventDates: holidays.map(holiday => ({
             date: new Date(holiday.date),
             message: holiday.name,
-            class: 'holiday', // Use a CSS class for styling
-            variation: 'holiday' // Tooltip variation (if supported)
+            class: 'holiday',
+            variation: 'holiday'
         }))
+    });
+
+    // Handle MMDDYYYY input format
+    $('#startDate input').on('change', function() {
+        const inputValue = $(this).val();
+        const regex = /^(\d{2})(\d{2})(\d{4})$/;
+        const match = inputValue.match(regex);
+
+        if (match) {
+            const [_, month, day, year] = match;
+            const date = new Date(`${year}-${month}-${day}`);
+            if (!isNaN(date.getTime())) {
+                $('.ui.calendar').calendar('set date', date);
+            }
+        }
     });
 }
