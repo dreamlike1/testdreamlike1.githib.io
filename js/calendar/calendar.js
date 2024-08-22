@@ -16,9 +16,9 @@ function initializeCalendar(selector, holidays = []) {
         onChange: function(date, text, mode) {
             if (date) {
                 const formattedDate = date.toISOString().split('T')[0];
-                document.getElementById(selector.replace('#', '')).querySelector('input').value = formattedDate;
+                $(selector + ' input').val(formattedDate); // Update input value
             } else {
-                document.getElementById(selector.replace('#', '')).querySelector('input').value = '';
+                $(selector + ' input').val('');
             }
         },
         eventDates: holidays.map(holiday => ({
@@ -40,7 +40,11 @@ function initializeCalendar(selector, holidays = []) {
             const date = new Date(`${year}-${month}-${day}`);
             if (!isNaN(date.getTime())) {
                 $(selector).calendar('set date', date);
+            } else {
+                $(selector).calendar('clear'); // Clear calendar if the date is invalid
             }
+        } else {
+            $(selector).calendar('clear'); // Clear calendar if input does not match format
         }
     });
 }
