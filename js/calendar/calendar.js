@@ -26,7 +26,7 @@ export function initializeDateSelector(holidays = []) {
     });
 
     // Handle input changes
-    $input.on('change keyup', function() {
+    $input.on('input', function() {
         const inputValue = $input.val();
         const parsedDate = parseDate(inputValue);
 
